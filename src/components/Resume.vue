@@ -53,7 +53,7 @@ export default {
 			form_data.append('resume', resume, resume.name);
 			form_data.append('data', data);
 
-			response = await this.$axios.post('...url', form_data, {
+			response = await this.$axios.post('/ittime/upload', form_data, {
 				headers: {
 					'Content-Type': 'multipart/form-data'
 				}
