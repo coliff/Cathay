@@ -1,5 +1,5 @@
 <template>
-	<b-navbar toggleable="md" v-bind:type="isResume ? 'light' : 'dark'" sticky class="px-5">
+	<b-navbar toggleable="md" v-bind:type="isResume ? 'light' : 'dark'" v-bind:sticky="isResume ? false : true" class="px-5">
 		<b-navbar-brand to="/" id="brand" class="px-5">
 			<img v-if="isResume" src="@/assets/img/logo-black.png" class="w-100" alt="國泰金控 Cathay Financial Holdings">
 			<img v-else src="@/assets/img/logo.png" class="w-100" alt="國泰金控 Cathay Financial Holdings">
