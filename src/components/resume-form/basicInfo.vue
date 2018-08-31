@@ -15,10 +15,10 @@
 		</b-row>
 		<b-row class="my-1">
 			<b-col sm="6">
-				<b-form-input type="text" id="name" placeholder="e.g. 林大豪"></b-form-input>
+				<b-form-input type="text" id="name" name="name" placeholder="e.g. 林大豪"></b-form-input>
 			</b-col>
 			<b-col sm="6">
-				<b-form-input type="text" id="en-name" placeholder="e.g. Jeremy Lin"></b-form-input>
+				<b-form-input type="text" id="en-name" name="en-name" placeholder="e.g. Jeremy Lin"></b-form-input>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
@@ -35,10 +35,10 @@
 		</b-row>
 		<b-row class="my-1">
 			<b-col sm="6">
-				<b-form-input type="tel" id="cellphone" placeholder="e.g. 0912345678"></b-form-input>
+				<b-form-input type="tel" id="cellphone" name="cellphone" placeholder="e.g. 0912345678"></b-form-input>
 			</b-col>
 			<b-col sm="6">
-				<b-form-input type="text" id="id-number" placeholder="e.g. F123456789"></b-form-input>
+				<b-form-input type="text" id="id-number" name="id-number" placeholder="e.g. F123456789"></b-form-input>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
@@ -50,7 +50,7 @@
 		</b-row>
 		<b-row class="my-1">
 			<b-col sm="6">
-				<b-form-input type="email" id="email" placeholder="e.g. abcdefg@gmail.com"></b-form-input>
+				<b-form-input type="email" id="email" name="email" placeholder="e.g. abcdefg@gmail.com"></b-form-input>
 			</b-col>
 		</b-row>
 	</b-container>
