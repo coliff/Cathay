@@ -1,7 +1,7 @@
 <template>
-	<div>
-		<h1>123</h1>
-	</div>
+	<b-container fluid>
+		<img src="@/assets/img/banner.png" alt="IT's Time 2018">
+	</b-container>
 </template>
 
 <script>
