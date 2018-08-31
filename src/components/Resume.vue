@@ -34,8 +34,33 @@ export default {
 		ResumeUpload
 	},
 	methods: {
-		submitForm: function(e) {
-			console.log(this);
+		// Input 資料：e.targrt[index].value
+		// 上傳檔案：e.target[index].files[index2]
+		submitForm: async function(e) {
+			let data = {},
+				resume,
+				form_data = new FormData(),
+				response;
+			for(let raw_data of e.target) {
+				if (raw_data.files) {
+					resume = raw_data.files[0];
+				} else if (raw_data.value) {
+					data[raw_data.name] = raw_data.value;
+				}
+			};
+			data = JSON.stringify(data);
+
+			form_data.append('resume', resume, resume.name);
+			form_data.append('data', data);
+
+			response = await this.$axios.post('...url', form_data, {
+				headers: {
+					'Content-Type': 'multipart/form-data'
+				}
+			}).catch((err) => {
+				// error handling
+				console.log(err);
+			});
 		}
 	}
 }
