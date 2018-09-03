@@ -12,7 +12,7 @@
 			</p>
 		</b-container>
 		<b-container id="info">
-			<form id="resume-form" v-on:submit.prevent="submitForm" method="post">
+			<form id="resume-form" v-on:submit.prevent="submitForm">
 				<BasicInfo></BasicInfo>
 				<ResumeUpload></ResumeUpload>
 				<b-button type="submit" id="submit">送出</b-button>
@@ -41,6 +41,7 @@ export default {
 				resume,
 				form_data = new FormData(),
 				response;
+
 			for(let raw_data of e.target) {
 				if (raw_data.files) {
 					resume = raw_data.files[0];
@@ -48,12 +49,12 @@ export default {
 					data[raw_data.name] = raw_data.value;
 				}
 			};
+
 			data = JSON.stringify(data);
+			form_data.append('resume', data);
+			form_data.append('file', resume, resume.name);
 
-			form_data.append('resume', resume, resume.name);
-			form_data.append('data', data);
-
-			response = await this.$axios.post('/ittime/upload', form_data, {
+			response = await this.$http.post('/ittime/upload', form_data, {
 				headers: {
 					'Content-Type': 'multipart/form-data'
 				}
@@ -68,6 +69,15 @@ export default {
 
 <style lang="sass" scoped>
 	@import '@/assets/css/global.scss'
+
+	input
+		border
+			style: solid
+			width: 1em
+			color: #e1e1e1
+
+	#resume
+		background-color: $white;
 
 	#info
 		width: 86%

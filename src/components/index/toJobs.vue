@@ -1,10 +1,12 @@
 <template>
+	<b-container fluid id="to-jobs">
 
+	</b-container>
 </template>
 
 <script>
 export default {
-	name: ''
+	name: 'ToJobs'
 }
 </script>
 
