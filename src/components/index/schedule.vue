@@ -5,24 +5,12 @@
 				<h1 class="title py-3">
 					申請時間
 				</h1>
-			</b-col>
-		</b-row>
-		<b-row>
-			<b-col>
 				<h2 class="subtitle py-3">
 					即日起至 7 月 25 號
 				</h2>
-			</b-col>
-		</b-row>
-		<b-row>
-			<b-col>
 				<h1 class="title py-5">
 					招聘流程
 				</h1>
-			</b-col>
-		</b-row>
-		<b-row>
-			<b-col>
 				<img src="https://via.placeholder.com/500x700" alt="招募流程">
 			</b-col>
 		</b-row>
