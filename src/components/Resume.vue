@@ -68,8 +68,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	@import '@/assets/css/global.scss'
-
 	input
 		border
 			style: solid

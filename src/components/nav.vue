@@ -24,7 +24,7 @@
 <script>
 export default {
 	name: 'Nav',
-	data() {
+	data: function() {
 		return {
 			isResume: this.$route.path === '/resume'
 		}
@@ -33,8 +33,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	@import '../assets/css/global.scss'
-
 	nav
 		background-color: transparent
 

@@ -67,8 +67,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	@import '@/assets/css/global.scss'
-
 	#interview
 		background-color: $white
 

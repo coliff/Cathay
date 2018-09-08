@@ -129,8 +129,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	@import '@/assets/css/global.scss'
-
 	#welfare
 		background-color: $black
 

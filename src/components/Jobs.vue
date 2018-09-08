@@ -7,7 +7,7 @@
 <script>
 export default {
 	name: 'Jobs',
-	data () {
+	data: function() {
 		return {
 			msg: 'jobs'
 		}

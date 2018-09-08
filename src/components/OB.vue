@@ -9,5 +9,4 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	@import '@/assets/css/global.scss'
 </style>

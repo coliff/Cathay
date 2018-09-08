@@ -24,8 +24,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	@import '@/assets/css/global.scss'
-
 	#schedule
 		background-color: $black
 		text-align: center
