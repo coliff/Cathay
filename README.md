@@ -1,6 +1,8 @@
 # cathay
 
-> 2018 Cathay IT recruitment
+> IT's Time 2018 國泰資訊人才招募計畫
+
+> 2018 Cathay IT's Time recruiting site
 
 ## Build Setup
 
