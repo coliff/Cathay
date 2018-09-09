@@ -42,10 +42,17 @@ export default {
 				easing: 'linear.none'
 			},
 			setTimeline: {
-				delay: 2000,
 				onComplete() {
 					this.replay();
 				}
+			},
+			thenSetAloneCircles: {
+				delay: 'rand(2000, 4000)',
+				duration: 'rand(1500, 2000)'
+			},
+			thenSetSticks: {
+				delay: 2200,
+				duration: 1000
 			}
 		};
 	},
@@ -77,7 +84,7 @@ export default {
 					return Math.atan(y * ratio / x) * 180 / Math.PI;
 				},
 
-				createLines = (start, end, isToRight, startColorRatio, delay) => {
+				createLines = (start, end, startColorRatio, delay) => {
 					if (!start.tween || !end.tween) return;
 
 					const
@@ -86,11 +93,12 @@ export default {
 						end_top = parseFloat(end.tween._o.top),
 						end_left = parseFloat(end.tween._o.left),
 						mid_top = start_top * (1 - startColorRatio) + end_top * startColorRatio,
-						mid_left = start_left * (1 - startColorRatio) + end_left * startColorRatio;
+						mid_left = start_left * (1 - startColorRatio) + end_left * startColorRatio,
 
-					let
+						isToRight = (end_left - start_left >= 0),
 						startDashOffset = isToRight ? { '100%' : '0' } : { '-100%' : '0' },
 						endDashOffset = isToRight ? { '0' : '-100%' } : { '0' : '100%' },
+
 						l_start = new mojs.Shape({
 							...this.setLine,
 							top: ( start_top + mid_top ) / 2 + '%',
@@ -126,6 +134,7 @@ export default {
 					return [ l_start, l_end ];
 				};
 
+			/* Define shapes, mostly in clockwise order */
 			const
 				/* Define trinagles */
 
@@ -136,6 +145,7 @@ export default {
 					left: '70%',
 					radius: { 0 : 10 },
 					fill: this.colors.lightGreen,
+					delay: 2500
 				}).then({
 					// 0.4s for other circles to grow
 					// 0.1s delay
@@ -153,7 +163,7 @@ export default {
 					left: '90%',
 					radius: { 0 : 15 },
 					fill: this.colors.darkGreen,
-					delay: 200
+					delay: 2700
 				}).then({
 					delay: 3200,
 					radius: { 15 : 0 },
@@ -166,7 +176,7 @@ export default {
 					left: '73%',
 					radius: { 0 : 10 },
 					fill: this.colors.yellow,
-					delay: 400
+					delay: 2900
 				}).then({
 					delay: 3200,
 					radius: { 10 : 0 },
@@ -175,9 +185,9 @@ export default {
 
 				triangleTopRight = [
 					c1, c2, c3,
-					...createLines(c1, c2, true, 0.65, 1500), // 1.4s for all circles to grow, 0.1s delay
-					...createLines(c2, c3, false, 0.15, 1800), // 0.3s delay
-					...createLines(c3, c1, false, 0.4, 2100), // 0.3s delay
+					...createLines(c1, c2, 0.65, 4000), // 2.5s delay, 1.4s for all circles to grow, 0.1s delay
+					...createLines(c2, c3, 0.15, 4300), // 0.3s delay
+					...createLines(c3, c1, 0.4, 4600), // 0.3s delay
 				],
 
 				// Bottom-right triangle
@@ -187,6 +197,7 @@ export default {
 					left: '72%',
 					radius: { 0 : 10 },
 					fill: this.colors.darkGreen,
+					delay: 1200
 				}).then({
 					delay: 3200,
 					radius: { 10 : 0 },
@@ -199,7 +210,7 @@ export default {
 					left: '69%',
 					radius: { 0 : 8 },
 					fill: this.colors.orange,
-					delay: 200
+					delay: 1400
 				}).then({
 					delay: 3200,
 					radius: { 8 : 0 },
@@ -212,7 +223,7 @@ export default {
 					left: '55%',
 					radius: { 0 : 8 },
 					fill: this.colors.yellow,
-					delay: 400
+					delay: 1600
 				}).then({
 					delay: 3200,
 					radius: { 8 : 0 },
@@ -221,9 +232,9 @@ export default {
 
 				triangleBottomRight = [
 					c4, c5, c6,
-					...createLines(c4, c6, false, 0.65, 1500),
-					...createLines(c6, c5, true, 0.15, 1800),
-					...createLines(c5, c4, true, 0.4, 2100),
+					...createLines(c4, c6, 0.68, 2700),
+					...createLines(c6, c5, 0.72, 3000),
+					...createLines(c5, c4, 0.55, 3300),
 				],
 
 				// Top-left triangle
@@ -267,12 +278,12 @@ export default {
 
 				triangleTopLeft = [
 					c7, c8, c9,
-					...createLines(c7, c8, false, 0.65, 1500),
-					...createLines(c8, c9, false, 0.15, 1800),
-					...createLines(c9, c7, true, 0.4, 2100),
+					...createLines(c7, c8, 0.76, 1500),
+					...createLines(c8, c9, 0.85, 1800),
+					...createLines(c9, c7, 0.66, 2100),
 				],
 
-				/* Define alone dots */
+				/* Define alone circles */
 
 				c10 = new mojs.Shape({
 					...this.setCircle,
@@ -280,11 +291,10 @@ export default {
 					left: '83%',
 					radius: { 0 : 7 },
 					fill: this.colors.lightGreen,
-					delay: 'rand(0, 2000)'
+					delay: 'rand(0, 4000)'
 				}).then({
-					delay: 'rand(1000, 2000)',
-					radius: { 7 : 0 },
-					duration: 1000
+					...this.thenSetAloneCircles,
+					radius: { 7 : 0 }
 				}),
 
 				c11 = new mojs.Shape({
@@ -293,11 +303,10 @@ export default {
 					left: '96%',
 					radius: { 0 : 7 },
 					fill: this.colors.lightGreen,
-					delay: 'rand(0, 2000)'
+					delay: 'rand(0, 4000)'
 				}).then({
-					delay: 'rand(1000, 2000)',
-					radius: { 7 : 0 },
-					duration: 1000
+					...this.thenSetAloneCircles,
+					radius: { 7 : 0 }
 				}),
 
 				c12 = new mojs.Shape({
@@ -306,11 +315,10 @@ export default {
 					left: '62%',
 					radius: { 0 : 5 },
 					fill: this.colors.yellow,
-					delay: 'rand(0, 2000)'
+					delay: 'rand(0, 4000)'
 				}).then({
-					delay: 'rand(1000, 2000)',
-					radius: { 5 : 0 },
-					duration: 1000
+					...this.thenSetAloneCircles,
+					radius: { 5 : 0 }
 				}),
 
 				c13 = new mojs.Shape({
@@ -319,11 +327,10 @@ export default {
 					left: '92%',
 					radius: { 0 : 6 },
 					fill: this.colors.lightGreen,
-					delay: 'rand(0, 2000)'
+					delay: 'rand(0, 4000)'
 				}).then({
-					delay: 'rand(1000, 2000)',
-					radius: { 6 : 0 },
-					duration: 1000
+					...this.thenSetAloneCircles,
+					radius: { 6 : 0 }
 				}),
 
 				c14 = new mojs.Shape({
@@ -332,11 +339,10 @@ export default {
 					left: '78%',
 					radius: { 0 : 5 },
 					fill: this.colors.yellow,
-					delay: 'rand(0, 2000)'
+					delay: 'rand(0, 4000)'
 				}).then({
-					delay: 'rand(1000, 2000)',
-					radius: { 5 : 0 },
-					duration: 1000
+					...this.thenSetAloneCircles,
+					radius: { 5 : 0 }
 				}),
 
 				c15 = new mojs.Shape({
@@ -345,11 +351,10 @@ export default {
 					left: '41%',
 					radius: { 0 : 7 },
 					fill: this.colors.lightGreen,
-					delay: 'rand(0, 2000)'
+					delay: 'rand(0, 4000)'
 				}).then({
-					delay: 'rand(1000, 2000)',
-					radius: { 7 : 0 },
-					duration: 1000
+					...this.thenSetAloneCircles,
+					radius: { 7 : 0 }
 				}),
 
 				c16 = new mojs.Shape({
@@ -358,11 +363,10 @@ export default {
 					left: '13%',
 					radius: { 0 : 5 },
 					fill: this.colors.orange,
-					delay: 'rand(0, 2000)'
+					delay: 'rand(0, 4000)'
 				}).then({
-					delay: 'rand(1000, 2000)',
-					radius: { 5 : 0 },
-					duration: 1000
+					...this.thenSetAloneCircles,
+					radius: { 5 : 0 }
 				}),
 
 				c17 = new mojs.Shape({
@@ -371,11 +375,10 @@ export default {
 					left: '14%',
 					radius: { 0 : 4 },
 					fill: this.colors.lightGreen,
-					delay: 'rand(0, 2000)'
+					delay: 'rand(0, 4000)'
 				}).then({
-					delay: 'rand(1000, 2000)',
-					radius: { 4 : 0 },
-					duration: 1000
+					...this.thenSetAloneCircles,
+					radius: { 4 : 0 }
 				}),
 
 				c18 = new mojs.Shape({
@@ -384,11 +387,10 @@ export default {
 					left: '20%',
 					radius: { 0 : 3 },
 					fill: this.colors.orange,
-					delay: 'rand(0, 2000)'
+					delay: 'rand(0, 4000)'
 				}).then({
-					delay: 'rand(1000, 2000)',
-					radius: { 3 : 0 },
-					duration: 1000
+					...this.thenSetAloneCircles,
+					radius: { 3 : 0 }
 				}),
 
 				c19 = new mojs.Shape({
@@ -397,27 +399,297 @@ export default {
 					left: '37%',
 					radius: { 0 : 7 },
 					fill: this.colors.orange,
-					delay: 'rand(0, 2000)'
+					delay: 'rand(0, 4000)'
 				}).then({
-					delay: 'rand(1000, 2000)',
-					radius: { 7 : 0 },
-					duration: 1000
+					...this.thenSetAloneCircles,
+					radius: { 7 : 0 }
 				}),
 
-				dots = [
+				circlesAlone = [
 					c10, c11, c12, c13, c14,
 					c15, c16, c17, c18, c19
 				],
 
-				timeline = new mojs.Timeline({
+				/* Define sticks */
+
+				c20 = new mojs.Shape({
+					...this.setCircle,
+					top: '66%',
+					left: '99%',
+					radius: { 0 : 5 },
+					fill: this.colors.orange,
+					delay: 1000
+				}).then({
+					...this.thenSetSticks,
+					radius: { 5 : 0 }
+				}),
+
+				c21 = new mojs.Shape({
+					...this.setCircle,
+					top: '65%',
+					left: '95%',
+					radius: { 0 : 8 },
+					fill: this.colors.darkGreen,
+					delay: 1200
+				}).then({
+					...this.thenSetSticks,
+					radius: { 8 : 0 }
+				}),
+
+				c22 = new mojs.Shape({
+					...this.setCircle,
+					top: '67%',
+					left: '84%',
+					radius: { 0 : 4 },
+					fill: this.colors.orange
+				}).then({
+					...this.thenSetSticks,
+					radius: { 4 : 0 }
+				}),
+
+				c23 = new mojs.Shape({
+					...this.setCircle,
+					top: '63%',
+					left: '80%',
+					radius: { 0 : 3 },
+					fill: this.colors.darkGreen,
+					delay: 200
+				}).then({
+					...this.thenSetSticks,
+					radius: { 3 : 0 }
+				}),
+
+				c24 = new mojs.Shape({
+					...this.setCircle,
+					top: '64%',
+					left: '60%',
+					radius: { 0 : 5 },
+					fill: this.colors.yellow,
+					delay: 300
+				}).then({
+					...this.thenSetSticks,
+					radius: { 5 : 0 }
+				}),
+
+				c25 = new mojs.Shape({
+					...this.setCircle,
+					top: '72%',
+					left: '54%',
+					radius: { 0 : 5 },
+					fill: this.colors.orange,
+					delay: 500
+				}).then({
+					...this.thenSetSticks,
+					radius: { 5 : 0 }
+				}),
+
+				c26 = new mojs.Shape({
+					...this.setCircle,
+					top: '98%',
+					left: '30%',
+					radius: { 0 : 5 },
+					fill: this.colors.orange,
+					delay: 600
+				}).then({
+					...this.thenSetSticks,
+					radius: { 5 : 0 }
+				}),
+
+				c27 = new mojs.Shape({
+					...this.setCircle,
+					top: '88%',
+					left: '30%',
+					radius: { 0 : 5 },
+					fill: this.colors.yellow,
+					delay: 800
+				}).then({
+					...this.thenSetSticks,
+					radius: { 5 : 0 }
+				}),
+
+				c28 = new mojs.Shape({
+					...this.setCircle,
+					top: '85%',
+					left: '20%',
+					radius: { 0 : 4 },
+					fill: this.colors.orange,
+					delay: 400
+				}).then({
+					...this.thenSetSticks,
+					radius: { 4 : 0 }
+				}),
+
+				c29 = new mojs.Shape({
+					...this.setCircle,
+					top: '77%',
+					left: '30%',
+					radius: { 0 : 8 },
+					fill: this.colors.darkGreen,
+					delay: 600
+				}).then({
+					...this.thenSetSticks,
+					radius: { 8 : 0 }
+				}),
+
+				c30 = new mojs.Shape({
+					...this.setCircle,
+					top: '97%',
+					left: '8%',
+					radius: { 0 : 5 },
+					fill: this.colors.orange,
+					delay: 500
+				}).then({
+					...this.thenSetSticks,
+					radius: { 5 : 0 }
+				}),
+
+				c31 = new mojs.Shape({
+					...this.setCircle,
+					top: '95%',
+					left: '11%',
+					radius: { 0 : 10 },
+					fill: this.colors.darkGreen,
+					delay: 700
+				}).then({
+					...this.thenSetSticks,
+					radius: { 10 : 0 }
+				}),
+
+				c32 = new mojs.Shape({
+					...this.setCircle,
+					top: '87%',
+					left: '7%',
+					radius: { 0 : 4 },
+					fill: this.colors.darkGreen,
+					delay: 2800
+				}).then({
+					...this.thenSetSticks,
+					radius: { 4 : 0 }
+				}),
+
+				c33 = new mojs.Shape({
+					...this.setCircle,
+					top: '82%',
+					left: '1%',
+					radius: { 0 : 6 },
+					fill: this.colors.lightGreen,
+					delay: 2600
+				}).then({
+					...this.thenSetSticks,
+					radius: { 6 : 0 }
+				}),
+
+				c34 = new mojs.Shape({
+					...this.setCircle,
+					top: '89%',
+					left: '2%',
+					radius: { 0 : 1 },
+					fill: this.colors.lightGreen,
+					delay: 2400
+				}).then({
+					...this.thenSetSticks,
+					radius: { 1 : 0 }
+				}),
+
+				c35 = new mojs.Shape({
+					...this.setCircle,
+					top: '76%',
+					left: '6%',
+					radius: { 0 : 12 },
+					fill: this.colors.darkGreen,
+				}).then({
+					...this.thenSetSticks,
+					radius: { 12 : 0 }
+				}),
+
+				c36 = new mojs.Shape({
+					...this.setCircle,
+					top: '59%',
+					left: '9%',
+					radius: { 0 : 4 },
+					fill: this.colors.orange,
+					delay: 200
+				}).then({
+					...this.thenSetSticks,
+					radius: { 4 : 0 }
+				}),
+
+				c37 = new mojs.Shape({
+					...this.setCircle,
+					top: '24%',
+					left: '1%',
+					radius: { 0 : 5 },
+					fill: this.colors.darkGreen,
+					delay: 700
+				}).then({
+					...this.thenSetSticks,
+					radius: { 5 : 0 }
+				}),
+
+				c38 = new mojs.Shape({
+					...this.setCircle,
+					top: '35%',
+					left: '5%',
+					radius: { 0 : 7 },
+					fill: this.colors.yellow,
+					delay: 900
+				}).then({
+					...this.thenSetSticks,
+					radius: { 7 : 0 }
+				}),
+
+				sticks = [
+					c20, c21,
+					...createLines(c20, c21, 0.8, 2300),
+					c22, c23,
+					...createLines(c22, c23, 0.2, 1300),
+					c24, c25,
+					...createLines(c24, c25, 0.8, 1600),
+					c26, c27,
+					...createLines(c26, c27, 0.15, 1900),
+					c28, c29,
+					...createLines(c28, c29, 0.15, 1700),
+					c30, c31,
+					...createLines(c30, c31, 0.8, 1800),
+					c32, c33, c34,
+					...createLines(c34, c33, 0.15, 3700),
+					...createLines(c33, c32, 0.4, 4000),
+					c35, c36,
+					...createLines(c35, c36, 0.15, 1300),
+					c37, c38,
+					...createLines(c37, c38, 0.5, 2000)
+				],
+
+				/* Timelines for each kind of shapes */
+
+				tlTriangles = new mojs.Timeline({
+					...this.setTimeline,
+					delay: 2000
+				}),
+
+				tlAloneCircles = new mojs.Timeline({
 					...this.setTimeline
+				}),
+
+				tlSticks = new mojs.Timeline({
+					...this.setTimeline,
+					delay: 1000
 				});
 
-				timeline.add(
+				/* Mojs player */
+
+				tlTriangles.add(
 					...triangleTopRight,
 					...triangleBottomRight,
-					...triangleTopLeft,
-					...dots
+					...triangleTopLeft
+				).play();
+
+				tlAloneCircles.add(
+					...circlesAlone
+				).play();
+
+				tlSticks.add(
+					...sticks
 				).play();
 		}
 	}
