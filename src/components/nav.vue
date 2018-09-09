@@ -24,7 +24,7 @@
 <script>
 export default {
 	name: 'Nav',
-	data: function() {
+	data() {
 		return {
 			isResume: this.$route.path === '/resume'
 		}
