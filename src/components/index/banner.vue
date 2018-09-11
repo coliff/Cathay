@@ -590,7 +590,7 @@ export default {
 					stroke: custom.colors.lightGreen,
 					angle: 130,
 					scale: 1.2,
-					delay: 300
+					delay: 2300
 				}).then({
 					...custom.then.setArc
 				}),
@@ -604,7 +604,7 @@ export default {
 					angle: 130,
 					scale: 1.4,
 					delay: 900,
-					duration: 2500
+					duration: 1700
 				}).then({
 					...custom.then.setArc,
 					duration: 2500
@@ -616,7 +616,6 @@ export default {
 					left: '38%',
 					top: '98%',
 					stroke: custom.colors.yellow,
-					strokeDasharray: '100%',
 					angle: 250,
 					scale: 0.8,
 					delay: 4000
@@ -631,9 +630,10 @@ export default {
 					top: '62%',
 					stroke: custom.colors.lightGreen,
 					strokeWidth: 4,
+					strokeDasharray: '100%',
 					angle: 200,
 					scale: 0.6,
-					delay: 500
+					delay: 2800
 				}).then({
 					...custom.then.setArc
 				}),
