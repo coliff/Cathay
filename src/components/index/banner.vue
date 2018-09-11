@@ -1,6 +1,6 @@
 <template>
 	<b-container fluid id="banner">
-		<b-row v-if="!isMobile" align-h="center" align-v="center" class="h-100">
+		<b-row v-if="supportSVG && (!isMobile)" align-h="center" align-v="center" class="h-100">
 			<b-col cols="6" id="title">
 				<img src="@/assets/img/ITs-Time.png" class="w-100 d-block" alt="IT's Time">
 				<h4 class="py-4 slogan">
@@ -13,18 +13,25 @@
 </template>
 
 <script>
+import SVG from 'svg.js';
 import mojs from 'mo-js';
-import custom from '@/assets/js/custom-mo';
+import custom from '@/assets/js/custom-shapes.config';
 
 export default {
 	name: 'Banner',
 	data() {
 		return {
 			isMobile: window.innerWidth < 800,
+			supportSVG: SVG.supported
 		};
 	},
 	mounted() {
-		if (!this.isMobile) {
+		if (this.supportSVG && !this.isMobile) {
+			// Register mojs shape
+			mojs.addShape('arc', custom.Arc);
+			mojs.addShape('arc-dotted', custom.ArcDotted);
+			mojs.addShape('arc-half', custom.ArcHalf);
+
 			const
 				banner = document.querySelector('#banner'),
 				shared = {
@@ -306,7 +313,7 @@ export default {
 					radius: { 7 : 0 }
 				}),
 
-				circlesAlone = [
+				aloneCircles = [
 					c10, c11, c12, c13, c14,
 					c15, c16, c17, c18, c19
 				],
@@ -561,6 +568,80 @@ export default {
 					...custom.createLines(c37, c38, 0.5, 2000)
 				],
 
+				/* Define arcs */
+
+				a1 = new mojs.Shape({
+					shape: 'arc-dotted',
+					...custom.shapes.setArc,
+					left: '89%',
+					top: '48%',
+					stroke: custom.colors.lightGreen,
+					angle: 120,
+					delay: 1200
+				}).then({
+					...custom.then.setArc
+				}),
+
+				a2 = new mojs.Shape({
+					shape: 'arc-dotted',
+					...custom.shapes.setArc,
+					left: '89%',
+					top: '92%',
+					stroke: custom.colors.lightGreen,
+					angle: 130,
+					scale: 1.2,
+					delay: 300
+				}).then({
+					...custom.then.setArc
+				}),
+
+				a3 = new mojs.Shape({
+					shape: 'arc-dotted',
+					...custom.shapes.setArc,
+					left: '52%',
+					top: '8%',
+					stroke: custom.colors.lightGreen,
+					angle: 130,
+					scale: 1.4,
+					delay: 900,
+					duration: 2500
+				}).then({
+					...custom.then.setArc,
+					duration: 2500
+				}),
+
+				a4 = new mojs.Shape({
+					shape: 'arc-half',
+					...custom.shapes.setArc,
+					left: '38%',
+					top: '98%',
+					stroke: custom.colors.yellow,
+					strokeDasharray: '100%',
+					angle: 250,
+					scale: 0.8,
+					delay: 4000
+				}).then({
+					...custom.then.setArc
+				}),
+
+				a5 = new mojs.Shape({
+					shape: 'arc',
+					...custom.shapes.setArc,
+					left: '22%',
+					top: '62%',
+					stroke: custom.colors.lightGreen,
+					strokeWidth: 4,
+					angle: 200,
+					scale: 0.6,
+					delay: 500
+				}).then({
+					...custom.then.setArc
+				}),
+
+				arcs = [
+					a1, a2, a3, a4, a5
+				],
+
 				/* Timelines for each kind of shapes */
 
 				tlTriangles = new mojs.Timeline({
@@ -575,6 +656,10 @@ export default {
 				tlSticks = new mojs.Timeline({
 					...custom.setTimeline,
 					delay: 600
+				}),
+
+				tlArcs = new mojs.Timeline({
+					...custom.setTimeline
 				});
 
 				/* Mojs player */
@@ -585,13 +670,11 @@ export default {
 					...triangleTopLeft
 				).play();
 
-				tlAloneCircles.add(
-					...circlesAlone
-				).play();
+				tlAloneCircles.add(...aloneCircles).play();
 
-				tlSticks.add(
-					...sticks
-				).play();
+				tlSticks.add(...sticks).play();
+
+				tlArcs.add(...arcs).play();
 		}
 	}
 }
