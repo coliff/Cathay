@@ -8,6 +8,7 @@
 		<ToOB></ToOB>
 		<Schedule></Schedule>
 		<Interview></Interview>
+		<Footer></Footer>
 	</div>
 </template>
 
@@ -20,6 +21,7 @@ import Welfare from '@/components/index/welfare';
 import ToOB from '@/components/index/toOB';
 import Schedule from '@/components/index/schedule';
 import Interview from '@/components/index/interview';
+import Footer from '@/components/index/Footer';
 
 export default {
 	name: 'Index',
@@ -31,7 +33,8 @@ export default {
 		Welfare,
 		ToOB,
 		Schedule,
-		Interview
+		Interview,
+		Footer
 	}
 };
 </script>

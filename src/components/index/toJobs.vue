@@ -2,18 +2,24 @@
 	<b-container fluid id="to-jobs">
 		<b-row>
 			<b-col>
-				<h1 class="title mt-2 py-5">
-					職缺一覽
-				</h1>
+				<br><br>
+				
+					<img src="@/assets/img/topic.png" class="d-block mx-auto py-5" alt="職缺一覽">
+				
+				<br><br>
 			</b-col>
 		</b-row>
 	</b-container>
 </template>
 
 <script>
+
+
+
 export default {
 	name: 'ToJobs'
 }
+
 </script>
 
 <style lang="sass" scoped>
@@ -23,4 +29,7 @@ export default {
 		.title
 			color: $white
 			text-align: center
+
+		img
+			width: 20%;
 </style>
