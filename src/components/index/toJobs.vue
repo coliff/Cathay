@@ -3,9 +3,7 @@
 		<b-row>
 			<b-col>
 				<br><br>
-				
 					<img src="@/assets/img/topic.png" class="d-block mx-auto py-5" alt="職缺一覽">
-				
 				<br><br>
 			</b-col>
 		</b-row>
@@ -13,7 +11,6 @@
 </template>
 
 <script>
-
 
 
 export default {
