@@ -7,7 +7,8 @@
 		<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 		<b-collapse is-nav id="nav-collapse">
 			<b-navbar-nav class="mr-auto">
-				<b-nav-item to="/#to-jobs" class="px-2">職缺一覽</b-nav-item>
+				<b-nav-item v-if="isIndex" to="/#to-jobs" class="px-2">職缺一覽</b-nav-item>
+				<b-nav-item v-else to="/jobs" class="px-2">職缺一覽</b-nav-item>
 				<b-nav-item to="/#intro" class="px-2">IT's Time 介紹</b-nav-item>
 				<b-nav-item to="/#welfare" class="px-2">集團福利</b-nav-item>
 				<b-nav-item to="/#to-ob" class="px-2">OB分享</b-nav-item>
