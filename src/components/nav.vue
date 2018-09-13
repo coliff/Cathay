@@ -1,18 +1,18 @@
 <template>
-	<b-navbar toggleable="md" v-bind:type="isResume ? 'light' : 'dark'" class="px-5">
+	<b-navbar toggleable="md" v-bind:type="isIndex ? 'dark' : 'light'" class="px-5">
 		<b-navbar-brand to="/" id="brand" class="px-5">
-			<img v-if="isResume" src="@/assets/img/logo-black.png" class="w-100" alt="國泰金控 Cathay Financial Holdings">
-			<img v-else src="@/assets/img/logo.png" class="w-100" alt="國泰金控 Cathay Financial Holdings">
+			<img v-if="isIndex" src="@/assets/img/logo.png" class="w-100" alt="國泰金控 Cathay Financial Holdings">
+			<img v-else src="@/assets/img/logo-black.png" class="w-100" alt="國泰金控 Cathay Financial Holdings">
 		</b-navbar-brand>
 		<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 		<b-collapse is-nav id="nav-collapse">
 			<b-navbar-nav class="mr-auto">
-				<b-nav-item href="#to-jobs" class="px-2">職缺一覽</b-nav-item>
-				<b-nav-item href="#intro" class="px-2">IT's Time 介紹</b-nav-item>
-				<b-nav-item href="#welfare" class="px-2">集團福利</b-nav-item>
-				<b-nav-item href="#to-ob" class="px-2">OB分享</b-nav-item>
-				<b-nav-item href="#schedule" class="px-2">申請流程</b-nav-item>
-				<b-nav-item href="#interview" class="px-2">面試會流程</b-nav-item>
+				<b-nav-item href="/#to-jobs" class="px-2">職缺一覽</b-nav-item>
+				<b-nav-item href="/#intro" class="px-2">IT's Time 介紹</b-nav-item>
+				<b-nav-item href="/#welfare" class="px-2">集團福利</b-nav-item>
+				<b-nav-item href="/#to-ob" class="px-2">OB分享</b-nav-item>
+				<b-nav-item href="/#schedule" class="px-2">申請流程</b-nav-item>
+				<b-nav-item href="/#interview" class="px-2">面試會流程</b-nav-item>
 			</b-navbar-nav>
 			<b-navbar-nav>
 				<b-nav-item v-if="!isResume" to="resume" id="to-resume">履歷投遞</b-nav-item>
@@ -26,6 +26,7 @@ export default {
 	name: 'Nav',
 	data() {
 		return {
+			isIndex: this.$route.path === '/',
 			isResume: this.$route.path === '/resume'
 		}
 	}
