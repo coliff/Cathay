@@ -11,7 +11,7 @@
 			<b-col>
 				<h5 class="dark-green subtitle">
 					<span class="hightlight">
-						3
+						4
 					</span>
 					間公司
 				</h5>
@@ -20,7 +20,7 @@
 					最貼心的面試體驗
 				</h5>
 				<p class="content">
-					一份履歷可面試三間公司
+					一份履歷可面試四間公司
 					<br>
 					當天收到結果回覆
 				</p>

@@ -3,7 +3,9 @@
 		<b-row>
 			<b-col>
 				<br><br><br>
-				<a href="https://ioh.tw/search/%E5%9C%8B%E6%B3%B0" target="_blank"><img src="@/assets/img/obsharing.png" class="d-block py-5" id="ob" alt="OB一覽"></a>
+				<a href="https://ioh.tw/search/%E5%9C%8B%E6%B3%B0" target="_blank">
+					<img src="@/assets/img/obsharing.png" class="d-block py-5" id="ob" alt="OB一覽">
+				</a>
 				<img src="@/assets/img/dialog.png" id="dialog">
 				<img src="@/assets/img/triangle.png" id="triangle">
 				<br><br><br>

@@ -27,15 +27,12 @@
 				<b-media>
 					<img slot="aside" src="https://via.placeholder.com/200x200" class="mr-5" alt="60 分鐘面試">
 					<h3 class="subtitle py-2">
-						60 分鐘面試
+						團體面試
 					</h3>
 					<p class="content">
-						（三位共用 60 分鐘）
-					</p>
-					<p class="content">
-						單位主管 / 部室主管面試
+						將視應徵人數安排不同梯次
 						<br>
-						一間會同時面試三位
+						與單位主管 / 部室主管面談
 					</p>
 				</b-media>
 			</b-col>

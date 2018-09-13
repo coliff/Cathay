@@ -6,7 +6,7 @@
 					申請時間
 				</h1>
 				<h2 class="subtitle py-3">
-					即日起至 7 月 25 號
+					即日起至 _ 月 _ 號
 				</h2>
 				<h1 class="title py-5">
 					招聘流程
@@ -39,4 +39,9 @@ export default {
 
 		.subtitle
 			color: $dark-green
+
+		/* 確認時間後再顯示 */
+		.title:first-child,
+		.subtitle
+			display: none
 </style>
