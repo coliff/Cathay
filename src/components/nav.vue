@@ -16,7 +16,7 @@
 				<b-nav-item to="/#interview" class="px-2">面試會流程</b-nav-item>
 			</b-navbar-nav>
 			<b-navbar-nav>
-				<b-nav-item v-if="!isResume" to="/resume" id="to-resume">履歷投遞</b-nav-item>
+				<b-nav-item to="/resume" id="to-resume">履歷投遞</b-nav-item>
 			</b-navbar-nav>
 		</b-collapse>
 	</b-navbar>
@@ -27,8 +27,7 @@ export default {
 	name: 'Nav',
 	data() {
 		return {
-			isIndex: this.$route.path === '/',
-			isResume: this.$route.path === '/resume'
+			isIndex: this.$route.path === '/'
 		}
 	}
 }
