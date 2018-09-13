@@ -18,10 +18,10 @@ export default {
 
 <style lang="sass" scoped>
 	#footer
-		background-color: $black
+		background-color: $white
 
 		#contact
 			text-align: center
-			color: $white
+			color: $black
 
 </style>

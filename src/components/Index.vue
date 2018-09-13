@@ -8,6 +8,7 @@
 		<ToOB></ToOB>
 		<Schedule></Schedule>
 		<Interview></Interview>
+		<Resume></Resume>
 		<Footer></Footer>
 	</b-container>
 </template>
@@ -21,6 +22,7 @@ import Welfare from '@/components/index/welfare';
 import ToOB from '@/components/index/toOB';
 import Schedule from '@/components/index/schedule';
 import Interview from '@/components/index/interview';
+import Resume from '@/components/index/resume';
 import Footer from '@/components/index/Footer';
 
 export default {
@@ -34,6 +36,7 @@ export default {
 		ToOB,
 		Schedule,
 		Interview,
+		Resume,
 		Footer
 	}
 };
