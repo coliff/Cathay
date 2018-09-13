@@ -41,5 +41,6 @@ export default {
 
 <style lang="sass" scoped>
 	#index
+		padding: 0
 		background-color: $black
 </style>

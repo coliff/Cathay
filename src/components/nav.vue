@@ -7,15 +7,15 @@
 		<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 		<b-collapse is-nav id="nav-collapse">
 			<b-navbar-nav class="mr-auto">
-				<b-nav-item href="/#to-jobs" class="px-2">職缺一覽</b-nav-item>
-				<b-nav-item href="/#intro" class="px-2">IT's Time 介紹</b-nav-item>
-				<b-nav-item href="/#welfare" class="px-2">集團福利</b-nav-item>
-				<b-nav-item href="/#to-ob" class="px-2">OB分享</b-nav-item>
-				<b-nav-item href="/#schedule" class="px-2">申請流程</b-nav-item>
-				<b-nav-item href="/#interview" class="px-2">面試會流程</b-nav-item>
+				<b-nav-item to="/#to-jobs" class="px-2">職缺一覽</b-nav-item>
+				<b-nav-item to="/#intro" class="px-2">IT's Time 介紹</b-nav-item>
+				<b-nav-item to="/#welfare" class="px-2">集團福利</b-nav-item>
+				<b-nav-item to="/#to-ob" class="px-2">OB分享</b-nav-item>
+				<b-nav-item to="/#schedule" class="px-2">申請流程</b-nav-item>
+				<b-nav-item to="/#interview" class="px-2">面試會流程</b-nav-item>
 			</b-navbar-nav>
 			<b-navbar-nav>
-				<b-nav-item v-if="!isResume" to="resume" id="to-resume">履歷投遞</b-nav-item>
+				<b-nav-item v-if="!isResume" to="/resume" id="to-resume">履歷投遞</b-nav-item>
 			</b-navbar-nav>
 		</b-collapse>
 	</b-navbar>

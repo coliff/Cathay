@@ -8,9 +8,12 @@
 			</b-col>
 		</b-row>
 		<b-row class="py-5">
-			<b-col cols="8" offset="2" xl="4" offset-xl="4">
+			<b-col cols="8" offset="2" xl="6" offset-xl="3">
 				<b-media>
-					<img slot="aside" src="https://via.placeholder.com/200x200" class="mr-5" alt="深度交流活動">
+					<picture slot="aside">
+						<source srcset="@/assets/img/icon/4_interact.svg">
+						<img src="@/assets/img/icon/4_interact.png" class="mr-5 icon" alt="深度交流活動">
+					</picture>
 					<h3 class="subtitle py-2">
 						深度交流活動
 					</h3>
@@ -23,9 +26,12 @@
 			</b-col>
 		</b-row>
 		<b-row class="py-5">
-			<b-col cols="8" offset="2" xl="4" offset-xl="4">
+			<b-col cols="8" offset="2" xl="6" offset-xl="3">
 				<b-media>
-					<img slot="aside" src="https://via.placeholder.com/200x200" class="mr-5" alt="60 分鐘面試">
+					<picture slot="aside">
+						<source srcset="@/assets/img/icon/4_interview.svg">
+						<img src="@/assets/img/icon/4_interview.png" class="mr-5 icon" alt="團體面試">
+					</picture>
 					<h3 class="subtitle py-2">
 						團體面試
 					</h3>
@@ -38,9 +44,12 @@
 			</b-col>
 		</b-row>
 		<b-row class="py-5">
-			<b-col cols="8" offset="2" xl="4" offset-xl="4">
+			<b-col cols="8" offset="2" xl="6" offset-xl="3">
 				<b-media>
-					<img slot="aside" src="https://via.placeholder.com/200x200" class="mr-5" alt="聘用錄取通知">
+					<picture slot="aside">
+						<source srcset="@/assets/img/icon/4_pass.svg">
+						<img src="@/assets/img/icon/4_pass.png" class="mr-5 icon" alt="聘用錄取通知">
+					</picture>
 					<h3 class="subtitle py-2">
 						聘用錄取通知
 					</h3>
@@ -79,4 +88,7 @@ export default {
 
 		.content
 			font-size: 1.25em
+
+		.icon
+			width: 200px
 </style>
