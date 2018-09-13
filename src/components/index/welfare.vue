@@ -15,7 +15,10 @@
 					</span>
 					間公司
 				</h5>
-				<img src="https://via.placeholder.com/150x150" class="d-block mx-auto py-2" alt="面試體驗">
+				<picture>
+					<source srcset="@/assets/img/icon/1_experience.svg">
+					<img src="@/assets/img/icon/1_experience.png" class="d-block w-50 mx-auto py-4" alt="最貼心的面試體驗">
+				</picture>
 				<h5 class="subtitle py-3">
 					最貼心的面試體驗
 				</h5>
@@ -32,7 +35,10 @@
 					</span>
 					萬起
 				</h5>
-				<img src="https://via.placeholder.com/150x150" class="d-block mx-auto py-2" alt="薪酬福利">
+				<picture>
+					<source srcset="@/assets/img/icon/1_money.svg">
+					<img src="@/assets/img/icon/1_money.png" class="d-block w-50 mx-auto py-4" alt="具競爭力的薪酬與福利">
+				</picture>
 				<h5 class="subtitle py-3">
 					具競爭力的薪酬與福利
 				</h5>
@@ -49,7 +55,10 @@
 					</span>
 					主管
 				</h5>
-				<img src="https://via.placeholder.com/150x150" class="d-block mx-auto py-2" alt="職場交流">
+				<picture>
+					<source srcset="@/assets/img/icon/1_boss.svg">
+					<img src="@/assets/img/icon/1_boss.png" class="d-block w-50 mx-auto py-4" alt="第一手的職場交流">
+				</picture>
 				<h5 class="subtitle py-3">
 					第一手的職場交流
 				</h5>
@@ -66,7 +75,10 @@
 					</span>
 					個月給薪培訓
 				</h5>
-				<img src="https://via.placeholder.com/150x150" class="d-block mx-auto py-2" alt="培訓升遷">
+				<picture>
+					<source srcset="@/assets/img/icon/1_training.svg">
+					<img src="@/assets/img/icon/1_training.png" class="d-block w-50 mx-auto py-4" alt="完善的培訓與升遷制度">
+				</picture>
 				<h5 class="subtitle py-3">
 					完善的培訓與升遷制度
 				</h5>
@@ -80,19 +92,28 @@
 		<b-container fluid id="benefits">
 			<b-row class="px-5 py-4">
 				<b-col>
-					<img src="https://via.placeholder.com/100x100" class="d-block mx-auto py-4" alt="教育訓練">
+					<picture>
+						<source srcset="@/assets/img/icon/2_teaching.svg">
+						<img src="@/assets/img/icon/2_teaching.png" class="d-block w-50 mx-auto py-4" alt="定期教育訓練">
+					</picture>
 					<p class="content py-3">
 						定期教育訓練
 					</p>
 				</b-col>
 				<b-col>
-					<img src="https://via.placeholder.com/100x100" class="d-block mx-auto py-4" alt="健康檢查">
+					<picture>
+						<source srcset="@/assets/img/icon/2_health.svg">
+						<img src="@/assets/img/icon/2_health.png" class="d-block w-50 mx-auto py-4" alt="定期員工健康檢查">
+					</picture>
 					<p class="content py-3">
 						定期員工健康檢查
 					</p>
 				</b-col>
 				<b-col>
-					<img src="https://via.placeholder.com/100x100" class="d-block mx-auto py-4" alt="學習旅遊補助">
+					<picture>
+						<source srcset="@/assets/img/icon/2_travel.svg">
+						<img src="@/assets/img/icon/2_travel.png" class="d-block w-50 mx-auto py-4" alt="員工學習與旅遊補助">
+					</picture>
 					<p class="content py-3">
 						員工學習與旅遊補助
 					</p>
@@ -100,19 +121,28 @@
 			</b-row>
 			<b-row class="px-5 py-4">
 				<b-col>
-					<img src="https://via.placeholder.com/100x100" class="d-block mx-auto py-4" alt="年節福利與生日禮金">
+					<picture>
+						<source srcset="@/assets/img/icon/2_money.svg">
+						<img src="@/assets/img/icon/2_money.png" class="d-block w-50 mx-auto py-4" alt="年節福利與生日禮金">
+					</picture>
 					<p class="content py-3">
 						年節福利與生日禮金
 					</p>
 				</b-col>
 				<b-col>
-					<img src="https://via.placeholder.com/100x100" class="d-block mx-auto py-4" alt="員工優惠">
+					<picture>
+						<source srcset="@/assets/img/icon/2_good.svg">
+						<img src="@/assets/img/icon/2_good.png" class="d-block w-50 mx-auto py-4" alt="關係企業商品服務員工優惠">
+					</picture>
 					<p class="content py-3">
 						關係企業商品服務員工優惠
 					</p>
 				</b-col>
 				<b-col>
-					<img src="https://via.placeholder.com/100x100" class="d-block mx-auto py-4" alt="活動講座">
+					<picture>
+						<source srcset="@/assets/img/icon/2_speech.svg">
+						<img src="@/assets/img/icon/2_speech.png" class="d-block w-50 mx-auto py-4" alt="社團活動與集團名人講座">
+					</picture>
 					<p class="content py-3">
 						社團活動與集團名人講座
 					</p>
