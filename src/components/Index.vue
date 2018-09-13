@@ -1,5 +1,5 @@
 <template>
-	<div id="index">
+	<b-container fluid id="index">
 		<Nav></Nav>
 		<Banner></Banner>
 		<ToJobs></ToJobs>
@@ -9,7 +9,7 @@
 		<Schedule></Schedule>
 		<Interview></Interview>
 		<Footer></Footer>
-	</div>
+	</b-container>
 </template>
 
 <script>
