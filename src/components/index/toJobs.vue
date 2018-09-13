@@ -1,10 +1,10 @@
 <template>
 	<b-container fluid id="to-jobs">
 		<b-row>
-			<b-col>
-				<br><br>
+			<b-col class="py-5">
+				<b-link to="/jobs">
 					<img src="@/assets/img/topic.png" class="d-block mx-auto py-5" alt="職缺一覽">
-				<br><br>
+				</b-link>
 			</b-col>
 		</b-row>
 	</b-container>
@@ -23,10 +23,7 @@ export default {
 	#to-jobs
 		background-color: $black
 
-		.title
-			color: $white
-			text-align: center
-
 		img
-			width: 20%;
+			width: 20%
+			min-width: 200px
 </style>
