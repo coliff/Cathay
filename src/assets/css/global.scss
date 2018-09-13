@@ -1,3 +1,5 @@
+// This file is of 'scss' rule in webpack, so Sass syntax will cause error
+
 @import '~bootstrap/scss/_functions';
 @import '~bootstrap/scss/_variables';
 @import '~bootstrap/scss/mixins/_breakpoints';
@@ -12,7 +14,10 @@ $yellow: #f2da30;
 $darker-green-text: #5a863a;
 $light-green-text: #7bb63d;
 
-
-#index {
-	// display: none;
+// Resume page shared rules
+input {
+	margin-bottom: 0.8em
+	&::placeholder {
+		color: #bbb
+	}
 }
