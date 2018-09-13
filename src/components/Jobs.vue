@@ -687,6 +687,29 @@
 					</ul>
 				</div>
 			</div>
+			<div class="job">
+				<h4>應用系統開發工程師 <span>（預計招募 10 人）</span></h4>
+				<h5>國泰人壽 <span class="green">台中場</span></h5>
+				<div class="btn">立即填寫履歷</div>
+				<div class="line"></div>
+				<div class="content">
+					工作說明：<br>
+					<ul>
+						<li>國壽人壽審查契約、理賠、保單變更、人事管理、財務投資系統等線上系統建置，以支持壽險公司營運。</li>
+						<li>國泰人壽官網(B2C)、員工網站(B2E)、保險電子商務系統、客戶關係管理系統、行銷支援系統及資訊業務部門各項專案系統之建置、開發及維護。</li>
+						<li>iOS／Android App相關專案之系統開發及維護。</li>
+					</ul>
+					<br>
+					職位要求：<br>
+					<ul>
+							<li>熱愛程式開發，無資訊背景亦可。</li>
+							<li>具備Java EE、HTML、JavaScript等開發經驗者，已考取Java專業證照者佳。</li>
+							<li>有iOS / Android App開發、測試、上架、性能優化經驗者，附個人相關作品者尤佳。</li>
+							<li>熟悉前端UI框架運用或具RWD開發經驗尤佳。</li>
+							<li>為儲備行動化App設計人員，具備Objective C、HTML5、CSS3開發經驗者尤佳。</li>
+					</ul>
+				</div>
+			</div>
 		</b-container>
 	</b-container>
 </template>
@@ -711,6 +734,10 @@ export default {
 		h4
 			span
 				font-size: 16px
+
+		h5
+			.green
+				color: $darker-green-text
 
 		ul
 			li
