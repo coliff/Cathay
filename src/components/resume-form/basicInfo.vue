@@ -31,10 +31,10 @@
 			<b-col sm="6">
 				<b-form-group
 					label="行動電話 *"
-					label-for="cellphone"
-					:description="errmsg.cellphone">
-					<b-form-input type="tel" id="cellphone"
-						name="cellphone"
+					label-for="mobile"
+					:description="errmsg.mobile">
+					<b-form-input type="tel" id="mobile"
+						name="mobile"
 						required
 						placeholder="e.g. 0912345678">
 					</b-form-input>
@@ -71,13 +71,13 @@
 			<b-col sm="2">
 				<b-form-group class="no-padding"
 					label="生日 *"
-					label-for="year"
+					label-for="byear"
 					:description="errmsg.birthday">
 					<b-input-group append="年">
-						<b-form-select id="year"
-							name="year"
-							:value="year"
-							:options="years"
+						<b-form-select id="byear"
+							name="byear"
+							:value="byear"
+							:options="byears"
 							required>
 						</b-form-select>
 					</b-input-group>
@@ -85,20 +85,20 @@
 			</b-col>
 			<b-col sm="2">
 				<b-input-group append="月">
-					<b-form-select id="month"
-						name="month"
-						v-model:value="month"
-						:options="months"
+					<b-form-select id="bmonth"
+						name="bmonth"
+						v-model:value="bmonth"
+						:options="bmonths"
 						required>
 					</b-form-select>
 				</b-input-group>
 			</b-col>
 			<b-col sm="2">
 				<b-input-group append="日">
-					<b-form-select id="date"
-						name="date"
-						:value="date"
-						:options="dates"
+					<b-form-select id="bdate"
+						name="bdate"
+						:value="bdate"
+						:options="bdates"
 						required>
 					</b-form-select>
 				</b-input-group>
@@ -130,10 +130,56 @@
 				</b-form-group>
 			</b-col>
 		</b-row>
+		<b-row class="my-1">
+			<b-col sm="2">
+				<b-form-group
+					label="通訊地址 *"
+					label-for="cities"
+					:description="errmsg.address">
+					<b-form-select id="city"
+						name="city"
+						v-model="city"
+						:options="cities"
+						required>
+					</b-form-select>
+				</b-form-group>
+			</b-col>
+			<b-col sm="2">
+				<b-form-select id="district"
+					name="district"
+					v-model:value="district"
+					:options="districts"
+					required>
+				</b-form-select>
+			</b-col>
+			<b-col sm="6">
+				<b-form-input type="text" id="address"
+					name="address"
+					required>
+				</b-form-input>
+			</b-col>
+		</b-row>
+		<b-row class="my-1">
+			<b-col sm="12">
+				<b-form-group class="file-upload-btn"
+					label="上傳個人照片 *"
+					label-for="photo"
+					:description="errmsg.photo">
+					<b-form-file id="photo"
+						name="photo"
+						accept=".jpg, .png"
+						required
+						placeholder="檔案大小不超過 2 Mb">
+					</b-form-file>
+				</b-form-group>
+			</b-col>
+		</b-row>
 	</b-container>
 </template>
 
 <script>
+import TW from '@/assets/js/TW_district';
+
 export default {
 	name: 'BasicInfo',
 	props: {
@@ -142,12 +188,12 @@ export default {
 	},
 	data() {
 		return {
-			year: '2018',
-			years: this.range(1900, 2018),
-			month: '1',
-			months: this.range(1, 12),
-			date: '1',
-			dates: this.range(1, 31),
+			byear: '2018',
+			byears: this.range(1900, 2018),
+			bmonth: '1',
+			bmonths: this.range(1, 12),
+			bdate: '1',
+			bdates: this.range(1, 31),
 			genderOptions: [
 				{
 					text: "請選擇",
@@ -179,35 +225,48 @@ export default {
 					text: "役畢",
 					value: "役畢",
 				}
-			]
+			],
+			city: "臺北市",
+			cities: Object.keys(TW),
+			district: "中正區",
+			districts: TW["臺北市"]
 		}
 	},
 	watch: {
-		month: function() {
-			let prev = this.dates.length,
+		bmonth: function() {
+			let prev = this.bdates.length,
 				lunarMonths = [4, 6, 9, 11];
 
 			if (prev == 29) {
-				if (this.month != 2) {
-					this.dates.push('30');
-					if (lunarMonths.indexOf(this.month) == -1) {
-						this.dates.push('31');
+				if (this.bmonth != 2) {
+					this.bdates.push('30');
+					if (lunarMonths.indexOf(this.bmonth) == -1) {
+						this.bdates.push('31');
 					}
 				}
 			} else if (prev == 30) {
-				if (this.month == 2) {
-					this.dates.pop();
-				} else if (lunarMonths.indexOf(this.month) == -1) {
-					this.dates.push('31');
+				if (this.bmonth == 2) {
+					this.bdates.pop();
+				} else if (lunarMonths.indexOf(this.bmonth) == -1) {
+					this.bdates.push('31');
 				}
 			} else {
-				if (this.month == 2) {
-					this.dates.pop();
-					this.dates.pop();
-				} else if (lunarMonths.indexOf(this.month) != -1) {
-					this.dates.pop();
+				if (this.bmonth == 2) {
+					this.bdates.pop();
+					this.bdates.pop();
+				} else if (lunarMonths.indexOf(this.bmonth) != -1) {
+					this.bdates.pop();
 				}
 			}
+		},
+		city: function() {
+			while (this.districts.length > 0) {
+				this.districts.pop();
+			}
+			for (let d of TW[this.city]) {
+				this.districts.push(d);
+			}
+			this.district = this.districts[0];
 		}
 	}
 }
@@ -220,8 +279,10 @@ export default {
 	.title
 		color: $darker-green-text
 
-	#month,
-	#date,
-	.custom-select:not(#year) + .input-group-append
+	#bmonth,
+	#bdate,
+	#district,
+	#address,
+	.custom-select:not(#byear) + .input-group-append
 		margin-top: 1.875rem
 </style>

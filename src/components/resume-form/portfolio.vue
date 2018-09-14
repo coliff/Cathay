@@ -8,7 +8,7 @@
 		</p>
 		<b-row class="my-1">
 			<b-col sm="12">
-				<b-form-file accept=".pdf" name="resume">請選擇檔案</b-form-file>
+				<b-form-file accept=".pdf" id="portfolio" name="resume"></b-form-file>
 			</b-col>
 		</b-row>
 	</b-container>

@@ -63,21 +63,31 @@ export default {
 				}
 			};
 
-			data = JSON.stringify(data);
-			form_data.append('resume', data);
-			form_data.append('file', resume, resume.name);
+			data["birthday"] = data["byear"] + (data["bmonth"].length < 2 ? '0' : '') + data["bmonth"] + (data["bdate"].length < 2 ? '0' : '') + data["bdate"];
+			delete data["byear"];
+			delete data["bmonth"];
+			delete data["bdate"];
 
-			response = await this.$http.post('/ittime/upload', form_data, {
-				headers: {
-					'Content-Type': 'multipart/form-data'
-				}
-			}).catch((err) => {
-				if (err.response) {
-					console.log(err.response.status);
-					console.log(err.response.data);
-					// this.errmsg = ...
-				}
-			});
+			data["address"] = data["city"] + data["district"] + data["address"];
+			delete data["city"];
+			delete data["district"];
+
+			data = JSON.stringify(data);
+			console.log(data);
+			// form_data.append('resume', data);
+			// form_data.append('file', resume, resume.name);
+
+			// response = await this.$http.post('/ittime/upload', form_data, {
+			//	headers: {
+			//		'Content-Type': 'multipart/form-data'
+			//	}
+			//}).catch((err) => {
+			//	if (err.response) {
+			//		console.log(err.response.status);
+			//		console.log(err.response.data);
+			//		// this.errmsg = ...
+			//	}
+			//});
 		}
 	}
 }
