@@ -30,12 +30,10 @@
 					label="其他補充資料"
 					label-for="others"
 					:description="errmsg.others">
-					<b-form-textarea id="others"
+					<b-form-input id="others"
 						name="others"
-						placeholder="可新增其他作品網址或各項補充資料"
-						:rows="3"
-						:max-rows="6">
-					</b-form-textarea>
+						placeholder="可新增其他作品網址或各項補充資料">
+					</b-form-input>
 				</b-form-group>
 			</b-col>
 		</b-row>

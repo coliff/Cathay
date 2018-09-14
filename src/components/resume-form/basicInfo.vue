@@ -76,7 +76,6 @@
 					<b-input-group append="年">
 						<b-form-select id="byear"
 							name="byear"
-							:value="byear"
 							:options="byears"
 							required>
 						</b-form-select>
@@ -97,7 +96,6 @@
 				<b-input-group append="日">
 					<b-form-select id="bdate"
 						name="bdate"
-						:value="bdate"
 						:options="bdates"
 						required>
 					</b-form-select>
@@ -187,11 +185,9 @@ export default {
 	},
 	data() {
 		return {
-			byear: '2018',
-			byears: this.range(1900, 2018),
-			bmonth: '1',
+			bmonth: null,
+			byears: this.range(2018, 1900),
 			bmonths: this.range(1, 12),
-			bdate: '1',
 			bdates: this.range(1, 31),
 			genderOptions: [
 				{

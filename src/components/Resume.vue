@@ -115,8 +115,13 @@ export default {
 	},
 	methods: {
 		range: (start, end) => {
-			let span = end - start + 1;
-			return [...Array(span).keys()].map(m => start + m);
+			if (end >= start) {
+				let span = end - start + 1;
+				return [...Array(span).keys()].map(m => start + m);
+			} else {
+				let span = start - end + 1;
+				return [...Array(span).fill(start)].map((m, i) => m - i);
+			}
 		},
 		addEducation: function() {
 			if (this.educationCount < 5) this.educationCount++;
@@ -130,13 +135,15 @@ export default {
 				form_data = new FormData(),
 				response;
 
-			for(let raw_data of e.target) {
+			for(const raw_data of e.target) {
 				if (raw_data.files) {
 					if (raw_data.files[0].type === "application/pdf") {
 						resume = raw_data.files[0];
 					} else if (raw_data.files[0].type.indexOf('image') > -1) {
 						photo = raw_data.files[0];
 					}
+				} else if (raw_data.name === 'infoSource' && raw_data.checked) {
+					data[raw_data.name] = raw_data.value;
 				} else if (raw_data.value) {
 					data[raw_data.name] = raw_data.value;
 				}
@@ -156,46 +163,52 @@ export default {
 			delete data["wmonth"];
 			delete data["wdate"];
 
-			data["expectedPositions"] = [
-				data["expectedPositions1"],
-				data["expectedPositions2"],
-				data["expectedPositions3"],
-				data["expectedPositions4"],
-				data["expectedPositions5"]
-			];
-			delete data["expectedPositions1"];
-			delete data["expectedPositions2"];
-			delete data["expectedPositions3"];
-			delete data["expectedPositions4"];
-			delete data["expectedPositions5"];
+			data["expectedPositions"] = [];
+			for (let i = 1; i < 6; i++) {
+				let d = data["expectedPosition" + i];
+				if (d) {
+					data["expectedPositions"].push(d);
+					delete data["expectedPosition" + i];
+				}
+			}
 
-			data["professionalSkills"] = [
-				data["professionalSkill1"],
-				data["professionalSkill2"],
-				data["professionalSkill3"],
-				data["professionalSkill4"],
-				data["professionalSkill5"]
-			];
-			delete data["professionalSkill1"]
-			delete data["professionalSkill2"];
-			delete data["professionalSkill3"];
-			delete data["professionalSkill4"];
-			delete data["professionalSkill5"];
+			data["Educations"] = [];
+			for (let i = 1; i < 6; i++) {
+				let d = {},
+					attr = ['degree', 'graduation', 'schoolName', 'major'];
 
-			data["languageSkills"] = [
-				data["languageSkill1"],
-				data["languageSkill2"],
-				data["languageSkill3"],
-				data["languageSkill4"],
-				data["languageSkill5"]
-			];
-			delete data["languageSkill1"]
-			delete data["languageSkill2"];
-			delete data["languageSkill3"];
-			delete data["languageSkill4"];
-			delete data["languageSkill5"];
+				for (a of attr) {
+					let attr_name = a + i;
+					if (data[attr_name]) {
+						d.push(data[attr_name]);
+						delete data[attr_name];
+					}
+				}
+
+
+			}
+
+			data["professionalSkills"] = [];
+			for (let i = 1; i < 6; i++) {
+				let d = data["professionalSkill" + i];
+				if (d) {
+					data["professionalSkills"].push(d);
+					delete data["professionalSkill" + i];
+				}
+			}
+
+			data["languageSkills"] = [];
+			for (let i = 1; i < 6; i++) {
+				let d = data["languageSkill" + i];
+				if (d) {
+					data["languageSkills"].push(d);
+					delete data["languageSkill" + i];
+				}
+			}
 
 			data = JSON.stringify(data);
+
+			console.log(data);
 
 			form_data.append('photo', data);
 			form_data.append('resume', data);

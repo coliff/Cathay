@@ -33,7 +33,6 @@
 					<b-input-group prepend="從" append="年">
 						<b-form-select :id="`csyear${count}`"
 							:name="`csyear${count}`"
-							:value="csyear"
 							:options="years">
 						</b-form-select>
 					</b-input-group>
@@ -43,7 +42,6 @@
 				<b-input-group append="月">
 					<b-form-select :id="`csmonth${count}`"
 						:name="`csmonth${count}`"
-						v-model:value="csmonth"
 						:options="months">
 					</b-form-select>
 				</b-input-group>
@@ -54,7 +52,6 @@
 				<b-input-group prepend="到" append="年">
 					<b-form-select :id="`ceyear${count}`"
 						:name="`ceyear${count}`"
-						:value="ceyear"
 						:options="years">
 					</b-form-select>
 				</b-input-group>
@@ -63,7 +60,6 @@
 				<b-input-group append="月">
 					<b-form-select :id="`cemonth${count}`"
 						:name="`cemonth${count}`"
-						v-model:value="cemonth"
 						:options="months">
 					</b-form-select>
 				</b-input-group>
@@ -79,14 +75,6 @@ export default {
 		years: Array,
 		months: Array,
 		count: String
-	},
-	data() {
-		return {
-			csyear: '2018',
-			csmonth: '1',
-			ceyear: '2018',
-			cemonth: '1'
-		}
 	}
 }
 </script>

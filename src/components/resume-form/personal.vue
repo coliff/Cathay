@@ -23,7 +23,6 @@
 					<b-input-group append="年">
 						<b-form-select id="wyear"
 							name="wyear"
-							:value="wyear"
 							:options="wyears"
 							required>
 						</b-form-select>
@@ -44,7 +43,6 @@
 				<b-input-group append="日">
 					<b-form-select id="wdate"
 						name="wdate"
-						:value="wdate"
 						:options="wdates"
 						required>
 					</b-form-select>
@@ -177,11 +175,9 @@ export default {
 				"就學中",
 				"其他"
 			],
-			wyear: '2018',
-			wyears: this.range(2018, 2020),
-			wmonth: '10',
+			wmonth: null,
+			wyears: this.range(2020, 2018),
 			wmonths: this.range(1, 12),
-			wdate: '1',
 			wdates: this.range(1, 31),
 			expectedPositions: [
 				{

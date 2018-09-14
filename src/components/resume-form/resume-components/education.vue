@@ -7,7 +7,7 @@
 					label-for="degree"
 					:description="errmsg.degree">
 					<b-form-select :id="`degree${count}`"
-						name="degree"
+						:name="`degree${count}`"
 						:value="null"
 						:options="degrees">
 					</b-form-select>
@@ -15,7 +15,7 @@
 			</b-col>
 			<b-col md="3">
 				<b-form-select :id="`graduation${count}`"
-					name="graduation"
+					:name="`graduation${count}`"
 					:value="null"
 					:options="graduationOptions">
 				</b-form-select>
@@ -28,7 +28,7 @@
 					label-for="schoolName"
 					:description="errmsg.schoolName">
 					<b-form-input type="text" :id="`schoolName${count}`"
-						name="schoolName"
+						:name="`schoolName${count}`"
 						placeholder="請輸入學校名稱">
 					</b-form-input>
 				</b-form-group>
@@ -39,7 +39,7 @@
 					label-for="major"
 					:description="errmsg.major">
 					<b-form-input type="text" :id="`major${count}`"
-						name="major"
+						:name="`major${count}`"
 						placeholder="請輸入科系">
 					</b-form-input>
 				</b-form-group>
@@ -53,7 +53,7 @@
 					:description="errmsg.studyPeriod">
 					<b-input-group prepend="從" append="年">
 						<b-form-select :id="`syear${count}`"
-							name="syear"
+							:name="`syear${count}`"
 							:value="syear"
 							:options="years">
 						</b-form-select>
@@ -63,7 +63,7 @@
 			<b-col md="4">
 				<b-input-group append="月">
 					<b-form-select :id="`smonth${count}`"
-						name="smonth"
+						:name="`smonth${count}`"
 						v-model:value="smonth"
 						:options="months">
 					</b-form-select>
@@ -74,7 +74,7 @@
 			<b-col md="4">
 				<b-input-group prepend="到" append="年">
 					<b-form-select :id="`eyear${count}`"
-						name="eyear"
+						:name="`eyear${count}`"
 						:value="eyear"
 						:options="years">
 					</b-form-select>
@@ -83,7 +83,7 @@
 			<b-col md="4">
 				<b-input-group append="月">
 					<b-form-select :id="`emonth${count}`"
-						name="emonth"
+						:name="`emonth${count}`"
 						v-model:value="emonth"
 						:options="months">
 					</b-form-select>
@@ -124,11 +124,11 @@ export default {
 				"肄業",
 				"其他"
 			],
-			syear: '2018',
-			smonth: '1',
-			eyear: '2018',
-			emonth: '1',
-			years: this.range(1900, 2018),
+			syear: null,
+			smonth: null,
+			eyear: null,
+			emonth: null,
+			years: this.range(2018, 1900),
 			months: this.range(1, 12),
 		}
 	}

@@ -71,7 +71,6 @@
 					<b-input-group prepend="從" append="年">
 						<b-form-select :id="`wsyear${count}`"
 							:name="`wsyear${count}`"
-							:value="wsyear"
 							:options="years">
 						</b-form-select>
 					</b-input-group>
@@ -81,7 +80,6 @@
 				<b-input-group append="月">
 					<b-form-select :id="`wsmonth${count}`"
 						:name="`wsmonth${count}`"
-						v-model:value="wsmonth"
 						:options="months">
 					</b-form-select>
 				</b-input-group>
@@ -92,7 +90,6 @@
 				<b-input-group prepend="到" append="年">
 					<b-form-select :id="`weyear${count}`"
 						:name="`weyear${count}`"
-						:value="weyear"
 						:options="years">
 					</b-form-select>
 				</b-input-group>
@@ -101,7 +98,6 @@
 				<b-input-group append="月">
 					<b-form-select :id="`wemonth${count}`"
 						:name="`wemonth${count}`"
-						v-model:value="wemonth"
 						:options="months">
 					</b-form-select>
 				</b-input-group>
@@ -148,10 +144,6 @@ export default {
 		return {
 			skillCount: 1,
 			languageCount: 1,
-			wsyear: '2018',
-			wsmonth: '1',
-			weyear: '2018',
-			wemonth: '1',
 			types: [
 				{
 					text: '選擇工作性質',
