@@ -172,20 +172,94 @@ export default {
 				}
 			}
 
-			data["Educations"] = [];
+			data["educations"] = [];
 			for (let i = 1; i < 6; i++) {
 				let d = {},
-					attr = ['degree', 'graduation', 'schoolName', 'major'];
-
+					attr = ['degree', 'graduation', 'schoolName', 'major', 'syear', 'smonth', 'eyear', 'emonth'];
 				for (a of attr) {
 					let attr_name = a + i;
 					if (data[attr_name]) {
-						d.push(data[attr_name]);
+						d[a] = data[attr_name];
 						delete data[attr_name];
 					}
 				}
 
+				let e, s;
+				if (data['syear' + i] && data['smonth' + i]) {
+					s = data['syear' + i] + (data["smonth" + i].length < 2 ? '0' : '') + data['smonth' + i];
+					delete data['syear' + i];
+					delete data['smonth' + i];
+				}
+				if (data['eyear' + i] && data['emonth' + i]) {
+					e = data['eyear' + i] + (data["emonth" + i].length < 2 ? '0' : '') + data['emonth' + i];
 
+					delete data['eyear' + i];
+					delete data['emonth' + i];
+				}
+				if (s && e) {
+					d["studyPeriod"] = { s, e };
+				}
+				data["educations"].push(d);
+			}
+
+			data["clubs"] = [];
+			for (let i = 1; i < 6; i++) {
+				let d = {},
+					attr = ['clubName', 'cposition', 'csyear', 'csmonth', 'ceyear', 'cemonth'];
+				for (a of attr) {
+					let attr_name = a + i;
+					if (data[attr_name]) {
+						d[a] = data[attr_name];
+						delete data[attr_name];
+					}
+				}
+
+				let e, s;
+				if (data['csyear' + i] && data['csmonth' + i]) {
+					s = data['csyear' + i] + (data["csmonth" + i].length < 2 ? '0' : '') + data['csmonth' + i];
+					delete data['csyear' + i];
+					delete data['csmonth' + i];
+				}
+				if (data['ceyear' + i] && data['cemonth' + i]) {
+					e = data['ceyear' + i] + (data["cemonth" + i].length < 2 ? '0' : '') + data['cemonth' + i];
+
+					delete data['ceyear' + i];
+					delete data['cemonth' + i];
+				}
+				if (s && e) {
+					d["period"] = { s, e };
+				}
+				data["clubs"].push(d);
+			}
+
+			data["jobs"] = [];
+			for (let i = 1; i < 6; i++) {
+				let d = {},
+					attr = ['type', 'companyName', 'department', 'wposition', 'jobContent', 'wsyear', 'wsmonth', 'weyear', 'wemonth', 'resignReason', 'pay'];
+				for (a of attr) {
+					let attr_name = a + i;
+					if (data[attr_name]) {
+						d[a] = data[attr_name];
+						delete data[attr_name];
+					}
+				}
+
+				let e, s;
+				if (data['wsyear' + i] && data['wsmonth' + i]) {
+					s = data['wsyear' + i] + (data["wsmonth" + i].length < 2 ? '0' : '') + data['wsmonth' + i];
+					delete data['wsyear' + i];
+					delete data['wsmonth' + i];
+				}
+				if (data['weyear' + i] && data['wemonth' + i]) {
+					e = data['weyear' + i] + (data["wemonth" + i].length < 2 ? '0' : '') + data['wemonth' + i];
+
+					delete data['weyear' + i];
+					delete data['wemonth' + i];
+				}
+				if (s && e) {
+					d["period"] = { s, e };
+				}
+				data["clubs"].push(d);
 			}
 
 			data["professionalSkills"] = [];
