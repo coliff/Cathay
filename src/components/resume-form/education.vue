@@ -156,12 +156,10 @@ export default {
 	@include media-breakpoint-up(md)
 		#graduation,
 		#smonth,
-		#smonth + .input-group-append,
-		#emonth,
-		#emonth + .input-group-append
+		#smonth + .input-group-append
 			margin-top: 1.875rem
 
-	@include media-breakpoint-down(md)
+	@include media-breakpoint-down(sm)
 		#graduation,
 		#smonth,
 		#smonth + .input-group-append,
