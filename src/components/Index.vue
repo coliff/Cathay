@@ -1,5 +1,5 @@
 <template>
-	<b-container fluid id="index">
+	<b-container fluid id="index" class="no-padding">
 		<Nav></Nav>
 		<Banner></Banner>
 		<ToJobs></ToJobs>
@@ -44,6 +44,5 @@ export default {
 
 <style lang="sass" scoped>
 	#index
-		padding: 0
 		background-color: $black
 </style>

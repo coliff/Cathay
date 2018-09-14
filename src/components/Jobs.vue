@@ -1,5 +1,5 @@
 <template>
-	<b-container fluid>
+	<b-container fluid class="no-padding">
 		<Nav></Nav>
 		<b-container fluid id="jobs">
 			<div class="title">
