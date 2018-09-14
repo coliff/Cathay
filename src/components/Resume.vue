@@ -1,6 +1,7 @@
 <template>
 	<b-container fluid id="resume" class="no-padding">
 		<Nav></Nav>
+		<img class="w-50" id="visual" src="@/assets/img/resume_design.png">
 		<b-container fluid>
 			<b-container fluid id="banner" class="my-4">
 				<h1 class="pt-4 large title">IT's Time</h1>
@@ -26,6 +27,10 @@
 						:errmsg="errmsg"
 						:range="range">
 					</Education>
+					<Experience class="pt-5"
+						:errmsg="errmsg"
+						:range="range">
+					</Experience>
 					<Portfolio class="pt-5"
 						:errmsg="errmsg">
 					</Portfolio>
@@ -41,6 +46,7 @@ import Nav from '@/components/nav';
 import BasicInfo from '@/components/resume-form/basicInfo';
 import Personal from '@/components/resume-form/personal';
 import Education from '@/components/resume-form/education';
+import Experience from '@/components/resume-form/experience';
 import Portfolio from '@/components/resume-form/portfolio';
 
 export default {
@@ -55,6 +61,7 @@ export default {
 		BasicInfo,
 		Personal,
 		Education,
+		Experience,
 		Portfolio
 	},
 	methods: {
@@ -110,9 +117,14 @@ export default {
 
 <style lang="sass" scoped>
 	#resume
+		position: relative
 		background-color: $white;
 		& > .container-fluid
 			padding: 0 10vw
+
+		#visual
+			position: absolute
+			margin-left: 35%
 
 	#banner
 		color: $darker-green-text

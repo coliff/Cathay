@@ -106,7 +106,7 @@
 				</b-form-group>
 			</b-col>
 		</b-row>
-		<b-row class="my-1">
+		<b-row class="my-3">
 			<b-col sm="7">
 				<b-form-group
 					label="如何得知本次徵才資訊"
