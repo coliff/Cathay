@@ -26,11 +26,32 @@ textarea::placeholder {
 	color: #bbb;
 }
 
+.col-form-label {
+	white-space: nowrap;
+}
+
 .input-group-text {
 	background-color: $white;
 	border: none;
 }
 
+.btn-outline-success {
+	color: $darker-green-text;
+	border-color: $darker-green-text;
+	&:hover {
+		color: $white;
+		background-color: $darker-green-text;
+		.add {
+			fill: $white;
+		}
+	}
+}
+
+.add {
+	width: 10%;
+	fill: $darker-green-text;
+	transition: fill 0.15s ease-in-out
+}
 
 // jobs
 
