@@ -209,22 +209,12 @@ export default {
 					text: "請選擇",
 					value: null,
 					disabled: true
-				}, {
-					text: "未役",
-					value: "未役",
-				}, {
-					text: "待役",
-					value: "待役",
-				}, {
-					text: "免役",
-					value: "免役",
-				}, {
-					text: "屆役畢",
-					value: "屆役畢",
-				}, {
-					text: "役畢",
-					value: "役畢",
-				}
+				},
+				"未役",
+				"待役",
+				"免役",
+				"屆役畢",
+				"役畢"
 			],
 			city: "臺北市",
 			cities: Object.keys(TW),

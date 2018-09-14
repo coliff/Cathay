@@ -74,8 +74,7 @@
 					<b-form-select id="expectedPositions2"
 						name="expectedPositions2"
 						:value="null"
-						:options="expectedPositions"
-						required>
+						:options="expectedPositions">
 					</b-form-select>
 				</b-input-group>
 			</b-col>
@@ -86,8 +85,7 @@
 					<b-form-select id="expectedPositions3"
 						name="expectedPositions3"
 						:value="null"
-						:options="expectedPositions"
-						required>
+						:options="expectedPositions">
 					</b-form-select>
 				</b-input-group>
 			</b-col>
@@ -109,9 +107,9 @@
 		<b-row class="my-3">
 			<b-col sm="7">
 				<b-form-group
-					label="如何得知本次徵才資訊"
+					label="如何得知本次徵才資訊 *"
 					:description="errmsg.infoSource">
-					<b-form-radio-group id="infoSource" name="infoSource">
+					<b-form-radio-group id="infoSource" name="infoSource" required>
 						<b-form-radio value="Facebook">Facebook</b-form-radio>
 						<b-form-radio value="國泰網站">國泰網站</b-form-radio>
 						<b-form-radio value="親戚朋友">親戚朋友</b-form-radio>

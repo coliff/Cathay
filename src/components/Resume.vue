@@ -73,13 +73,18 @@ export default {
 			// Input 資料：e.targrt[index].value
 			// 上傳檔案：e.target[index].files[index2]
 			let data = {},
+				photo,
 				resume,
 				form_data = new FormData(),
 				response;
 
 			for(let raw_data of e.target) {
 				if (raw_data.files) {
-					resume = raw_data.files[0];
+					if (raw_data.files[0].type === "application/pdf") {
+						resume = raw_data.files[0];
+					} else if (raw_data.files[0].type.indexOf('image') > -1) {
+						photo = raw_data.files[0];
+					}
 				} else if (raw_data.value) {
 					data[raw_data.name] = raw_data.value;
 				}
@@ -94,8 +99,49 @@ export default {
 			delete data["city"];
 			delete data["district"];
 
+			data["onDutyDate"] = data["wyear"] + (data["wmonth"].length < 2 ? '0' : '') + data["wmonth"] + (data["wdate"].length < 2 ? '0' : '') + data["wdate"];
+			delete data["wyear"];
+			delete data["wmonth"];
+			delete data["wdate"];
+
+			data["expectedPositions"] = [
+				data["expectedPositions1"],
+				data["expectedPositions2"],
+				data["expectedPositions3"]
+			];
+			delete data["expectedPositions1"];
+			delete data["expectedPositions2"];
+			delete data["expectedPositions3"];
+
+			data["professionalSkills"] = [
+				data["professionalSkill1"],
+				data["professionalSkill2"],
+				data["professionalSkill3"],
+				data["professionalSkill4"],
+				data["professionalSkill5"]
+			];
+			delete data["professionalSkill1"]
+			delete data["professionalSkill2"];
+			delete data["professionalSkill3"];
+			delete data["professionalSkill4"];
+			delete data["professionalSkill5"];
+
+			data["languageSkills"] = [
+				data["languageSkill1"],
+				data["languageSkill2"],
+				data["languageSkill3"],
+				data["languageSkill4"],
+				data["languageSkill5"]
+			];
+			delete data["languageSkill1"]
+			delete data["languageSkill2"];
+			delete data["languageSkill3"];
+			delete data["languageSkill4"];
+			delete data["languageSkill5"];
+
 			data = JSON.stringify(data);
 			
+			form_data.append('photo', data);
 			form_data.append('resume', data);
 			form_data.append('file', resume, resume.name);
 
