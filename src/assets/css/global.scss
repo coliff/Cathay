@@ -31,6 +31,28 @@ textarea::placeholder {
 	border: none;
 }
 
+
+// jobs
+
+#jobs {
+	.card {
+		padding-top: 50px;
+		border: 0;
+
+		.nav-tabs {
+			// atten
+			background: white !important;
+			color: $darker-green-text !important
+		}
+	}
+}
+
+.text-info {
+	display: none !important;
+}
+
+
+
 // .file-upload-btn {
 //	border: none;
 //	border-radius: 1.2em;
@@ -119,7 +141,7 @@ textarea::placeholder {
 
 
 	#jobs {
-		padding: 100px 5vw;
+		padding: 100px 5vw !important;
 
 		.btn {
 			position: relative !important;
