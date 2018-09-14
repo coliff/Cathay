@@ -8,7 +8,7 @@
 		</p>
 		<b-row class="my-1">
 			<b-col sm="12">
-				<b-form-file accept=".pdf" id="portfolio" name="resume"></b-form-file>
+				<b-form-file required accept=".pdf" id="portfolio" name="resume"></b-form-file>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
@@ -19,7 +19,6 @@
 					:description="errmsg.github">
 					<b-form-input type="url" id="github"
 						name="github"
-						required
 						placeholder="請輸入網址">
 					</b-form-input>
 				</b-form-group>

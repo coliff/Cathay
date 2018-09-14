@@ -16,8 +16,19 @@
 				<form id="resume-form" @submit.prevent="submitForm">
 					<BasicInfo class="pt-5"
 						:errmsg="errmsg"
-						:range="range"></BasicInfo>
-					<Portfolio :errmsg="errmsg" class="pt-5"></Portfolio>
+						:range="range">
+					</BasicInfo>
+					<Personal class="pt-5"
+						:errmsg="errmsg"
+						:range="range">
+					</Personal>
+					<Education class="pt-5"
+						:errmsg="errmsg"
+						:range="range">
+					</Education>
+					<Portfolio class="pt-5"
+						:errmsg="errmsg">
+					</Portfolio>
 					<b-button type="submit" class="d-block mx-auto mt-5" id="submit">送出</b-button>
 				</form>
 			</b-container>
@@ -28,6 +39,8 @@
 <script>
 import Nav from '@/components/nav';
 import BasicInfo from '@/components/resume-form/basicInfo';
+import Personal from '@/components/resume-form/personal';
+import Education from '@/components/resume-form/education';
 import Portfolio from '@/components/resume-form/portfolio';
 
 export default {
@@ -40,6 +53,8 @@ export default {
 	components: {
 		Nav,
 		BasicInfo,
+		Personal,
+		Education,
 		Portfolio
 	},
 	methods: {
