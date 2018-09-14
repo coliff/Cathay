@@ -2,7 +2,7 @@
 	<b-container fluid id="personal">
 		<h2 class="my-4 title">應徵明細</h2>
 		<b-row class="my-1">
-			<b-col sm="3">
+			<b-col md="3">
 				<b-form-group
 					label="目前狀態 *"
 					label-for="jobStatus"
@@ -15,7 +15,7 @@
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="3" class="px-md-1">
 				<b-form-group class="no-padding"
 					label="最快可上班日 *"
 					label-for="wyear"
@@ -30,7 +30,7 @@
 					</b-input-group>
 				</b-form-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="3" class="px-md-1">
 				<b-input-group append="月">
 					<b-form-select id="wmonth"
 						name="wmonth"
@@ -40,7 +40,7 @@
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="3" class="px-md-1">
 				<b-input-group append="日">
 					<b-form-select id="wdate"
 						name="wdate"
@@ -52,7 +52,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-group
 					label="希望從事職務 *（至少填一項）"
 					label-for="expectedPositions1"
@@ -69,7 +69,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="6">
+			<b-col md="6">
 				<b-input-group prepend="志願二">
 					<b-form-select id="expectedPositions2"
 						name="expectedPositions2"
@@ -80,7 +80,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="6">
+			<b-col md="6">
 				<b-input-group prepend="志願三">
 					<b-form-select id="expectedPositions3"
 						name="expectedPositions3"
@@ -90,8 +90,43 @@
 				</b-input-group>
 			</b-col>
 		</b-row>
+		<b-row v-show="positionCount > 3" class="my-1">
+			<b-col md="6">
+				<b-input-group prepend="志願四">
+					<b-form-select id="expectedPositions4"
+						name="expectedPositions4"
+						:value="null"
+						:options="expectedPositions">
+					</b-form-select>
+				</b-input-group>
+			</b-col>
+		</b-row>
+		<b-row v-show="positionCount > 4" class="my-1">
+			<b-col md="6">
+				<b-input-group prepend="志願五">
+					<b-form-select id="expectedPositions5"
+						name="expectedPositions5"
+						:value="null"
+						:options="expectedPositions">
+					</b-form-select>
+				</b-input-group>
+			</b-col>
+		</b-row>
+		<b-row class="mt-1 mb-4">
+			<b-col md="4">
+				<b-button id="addPosition"
+					variant="outline-success"
+					@click="addPosition">
+					<svg class="add" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+						<path d="M3 0v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2z" />
+					</svg>
+					新增志願
+				</b-button>
+				<span>其他 {{ 5 - positionCount }} 項</span>
+			</b-col>
+		</b-row>
 		<b-row class="my-1">
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-group
 					label="希望待遇 *"
 					label-for="expectedPay"
@@ -105,7 +140,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-3">
-			<b-col sm="7">
+			<b-col md="7">
 				<b-form-group
 					label="如何得知本次徵才資訊 *"
 					:description="errmsg.infoSource">
@@ -135,6 +170,7 @@ export default {
 	},
 	data() {
 		return {
+			positionCount: 3,
 			jobStatus: '就業中',
 			jobStatuses: [
 				"就業中",
@@ -177,7 +213,7 @@ export default {
 				"UX設計師",
 				"JAVA程式開發師",
 				"APP軟體工程師",
-				"ITSM系統管理人員",
+				"ITmd系統管理人員",
 				"大數據開發維運工程師",
 				"系統分析工程師",
 				"測試規劃人員",
@@ -213,6 +249,11 @@ export default {
 				}
 			}
 		}
+	},
+	methods: {
+		addPosition: function() {
+			if (this.positionCount < 5) this.positionCount++;
+		}
 	}
 }
 </script>
@@ -227,8 +268,15 @@ export default {
 	.title
 		color: $darker-green-text
 
-	#wmonth,
-	#wdate,
-	.custom-select:not(#wyear) + .input-group-append
-		margin-top: 1.875rem
+	@include media-breakpoint-up(md)
+		#wmonth,
+		#wdate,
+		.custom-select:not(#wyear) + .input-group-append
+			margin-top: 1.875rem
+
+	@include media-breakpoint-down(md)
+		#wmonth,
+		#wdate,
+		.custom-select:not(#wyear) + .input-group-append
+			margin-bottom: 1rem
 </style>

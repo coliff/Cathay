@@ -2,7 +2,7 @@
 	<b-container fluid id="education">
 		<h2 class="my-4 title">過往經歷</h2>
 		<b-row class="my-1">
-			<b-col sm="4">
+			<b-col md="4">
 				<b-form-group
 					label="社團經歷"
 					label-for="clubName"
@@ -13,7 +13,7 @@
 					</b-form-input>
 				</b-form-group>
 			</b-col>
-			<b-col sm="4">
+			<b-col md="4">
 				<b-form-group
 					label="擔任職務"
 					label-for="cposition"
@@ -26,7 +26,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="2">
+			<b-col md="2">
 				<b-form-group class="no-padding"
 					label="服務期間"
 					label-for="studyPeriod"
@@ -40,7 +40,7 @@
 					</b-input-group>
 				</b-form-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="2">
 				<b-input-group append="月">
 					<b-form-select id="csmonth"
 						name="csmonth"
@@ -51,7 +51,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="mt-1 mb-4">
-			<b-col sm="2">
+			<b-col md="2">
 				<b-input-group prepend="到" append="年">
 					<b-form-select id="ceyear"
 						name="ceyear"
@@ -60,7 +60,7 @@
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="2">
 				<b-input-group append="月">
 					<b-form-select id="cemonth"
 						name="cemonth"
@@ -71,7 +71,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="3">
+			<b-col md="3">
 				<b-form-group
 					label="工作經驗"
 					label-for="type"
@@ -83,7 +83,7 @@
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col sm="3">
+			<b-col md="3">
 				<b-form-group
 					label="公司名稱"
 					label-for="companyName"
@@ -96,7 +96,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="4">
+			<b-col md="4">
 				<b-form-group
 					label="部門"
 					label-for="department"
@@ -107,7 +107,7 @@
 					</b-form-input>
 				</b-form-group>
 			</b-col>
-			<b-col sm="4">
+			<b-col md="4">
 				<b-form-group
 					label="職位"
 					label-for="wposition"
@@ -120,7 +120,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-group
 					label="工作內容"
 					label-for="jobContent"
@@ -133,7 +133,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="2">
+			<b-col md="2">
 				<b-form-group class="no-padding"
 					label="服務期間"
 					label-for="studyPeriod"
@@ -147,7 +147,7 @@
 					</b-input-group>
 				</b-form-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="2">
 				<b-input-group append="月">
 					<b-form-select id="wsmonth"
 						name="wsmonth"
@@ -158,7 +158,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="mt-1 mb-4">
-			<b-col sm="2">
+			<b-col md="2">
 				<b-input-group prepend="到" append="年">
 					<b-form-select id="weyear"
 						name="weyear"
@@ -167,7 +167,7 @@
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="2">
 				<b-input-group append="月">
 					<b-form-select id="wemonth"
 						name="wemonth"
@@ -178,7 +178,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-group
 					label="離職原因"
 					label-for="resignReason"
@@ -191,7 +191,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-group
 					label="月薪 / 年薪"
 					label-for="pay"
@@ -204,10 +204,10 @@
 			</b-col>
 		</b-row>
 		<b-row class="mt-1">
-			<b-col sm="4">
+			<b-col md="4">
 				<p>專業技能</p>
 			</b-col>
-			<b-col sm="4">
+			<b-col md="4">
 				<p>語言能力</p>
 			</b-col>
 		</b-row>
@@ -252,20 +252,24 @@
 			</LanguageSkill>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="4">
+			<b-col sm="6" md="4" class="my-1">
 				<b-button id="addPSkills"
-					name="addPSkills"
 					variant="outline-success"
 					@click="addPSkills">
+					<svg class="add" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+						<path d="M3 0v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2z" />
+					</svg>
 					新增專業能力
 				</b-button>
 				<span>其他 {{ 5 - skillCount }} 項</span>
 			</b-col>
-			<b-col sm="4">
+			<b-col sm="6" md="4" class="my-1">
 				<b-button id="addLSkills"
-					name="addLSkills"
 					variant="outline-success"
 					@click="addLSkills">
+					<svg class="add" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+						<path d="M3 0v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2z" />
+					</svg>
 					新增語言能力
 				</b-button>
 				<span>其他 {{ 5 - languageCount }} 項</span>
@@ -334,10 +338,25 @@ export default {
 	.title
 		color: $darker-green-text
 
-	#graduation,
-	#wsmonth,
-	#csmonth,
-	#wsmonth + .input-group-append,
-	#csmonth + .input-group-append
-		margin-top: 1.875rem
+	@include media-breakpoint-up(md)
+		#graduation,
+		#wsmonth,
+		#csmonth,
+		#wsmonth + .input-group-append,
+		#csmonth + .input-group-append
+			margin-top: 1.875rem
+
+	@include media-breakpoint-down(md)
+		#graduation,
+		#wsmonth,
+		#csmonth,
+		#wsmonth + .input-group-append,
+		#csmonth + .input-group-append
+			margin-bottom: 1rem
+
+		#wemonth,
+		#cemonth,
+		#wemonth + .input-group-append,
+		#cemonth + .input-group-append
+			margin-top: 1rem
 </style>

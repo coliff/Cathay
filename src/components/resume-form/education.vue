@@ -2,7 +2,7 @@
 	<b-container fluid id="education">
 		<h2 class="my-4 title">教育背景</h2>
 		<b-row class="my-1">
-			<b-col sm="3">
+			<b-col md="3">
 				<b-form-group
 					label="教育背景 *"
 					label-for="degree"
@@ -15,7 +15,7 @@
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col sm="3">
+			<b-col md="3">
 				<b-form-select id="graduation"
 					name="graduation"
 					:value="null"
@@ -25,7 +25,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="4">
+			<b-col md="4">
 				<b-form-group
 					label="學校名稱 *"
 					label-for="schoolName"
@@ -37,7 +37,7 @@
 					</b-form-input>
 				</b-form-group>
 			</b-col>
-			<b-col sm="4">
+			<b-col md="4">
 				<b-form-group
 					label="科系 *"
 					label-for="major"
@@ -51,7 +51,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="2">
+			<b-col md="4">
 				<b-form-group class="no-padding"
 					label="修業期間"
 					label-for="studyPeriod"
@@ -66,7 +66,7 @@
 					</b-input-group>
 				</b-form-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="4">
 				<b-input-group append="月">
 					<b-form-select id="smonth"
 						name="smonth"
@@ -78,7 +78,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="2">
+			<b-col md="4">
 				<b-input-group prepend="到" append="年">
 					<b-form-select id="eyear"
 						name="eyear"
@@ -88,7 +88,7 @@
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="4">
 				<b-input-group append="月">
 					<b-form-select id="emonth"
 						name="emonth"
@@ -153,8 +153,23 @@ export default {
 	.title
 		color: $darker-green-text
 
-	#graduation,
-	#smonth,
-	#smonth + .input-group-append
-		margin-top: 1.875rem
+	@include media-breakpoint-up(md)
+		#graduation,
+		#smonth,
+		#smonth + .input-group-append,
+		#emonth,
+		#emonth + .input-group-append
+			margin-top: 1.875rem
+
+	@include media-breakpoint-down(md)
+		#graduation,
+		#smonth,
+		#smonth + .input-group-append,
+		#emonth,
+		#emonth + .input-group-append
+			margin-bottom: 1rem
+
+		#emonth,
+		#emonth + .input-group-append
+			margin-top: 1rem
 </style>

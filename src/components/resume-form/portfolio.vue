@@ -7,12 +7,12 @@
 			（限使用 pdf 檔案，檔案大小限制為 15 MB，點選送出按鈕後才會進行上傳）
 		</p>
 		<b-row class="my-1">
-			<b-col sm="12">
+			<b-col>
 				<b-form-file required accept=".pdf" id="portfolio" name="resume"></b-form-file>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-group
 					label="Github 連結"
 					label-for="github"
@@ -25,7 +25,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-group
 					label="其他補充資料"
 					label-for="others"

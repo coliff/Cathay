@@ -2,7 +2,7 @@
 	<b-container fluid id="basic-info">
 		<h2 class="my-4 title">基本資料</h2>
 		<b-row class="my-1">
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-group
 					label="姓名 *"
 					label-for="name"
@@ -14,7 +14,7 @@
 					</b-form-input>
 				</b-form-group>
 			</b-col>
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-group
 					label="英文姓名 *"
 					label-for="enName"
@@ -28,7 +28,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-group
 					label="行動電話 *"
 					label-for="mobile"
@@ -40,7 +40,7 @@
 					</b-form-input>
 				</b-form-group>
 			</b-col>
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-group
 					label="身分證字號 / 居留證號碼 / 護照號碼 *"
 					label-for="idNumber"
@@ -54,7 +54,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-group
 					label="Email *"
 					label-for="email"
@@ -68,7 +68,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="2">
+			<b-col md="2">
 				<b-form-group class="no-padding"
 					label="生日 *"
 					label-for="byear"
@@ -83,7 +83,7 @@
 					</b-input-group>
 				</b-form-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="2">
 				<b-input-group append="月">
 					<b-form-select id="bmonth"
 						name="bmonth"
@@ -93,7 +93,7 @@
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="2">
 				<b-input-group append="日">
 					<b-form-select id="bdate"
 						name="bdate"
@@ -103,7 +103,7 @@
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="2">
 				<b-form-group
 					label="性別 *"
 					label-for="gender"
@@ -116,7 +116,7 @@
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="2">
 				<b-form-group
 					label="兵役狀況 *"
 					label-for="military"
@@ -131,7 +131,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="2">
+			<b-col md="2">
 				<b-form-group
 					label="通訊地址 *"
 					label-for="cities"
@@ -144,7 +144,7 @@
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="2">
 				<b-form-select id="district"
 					name="district"
 					v-model:value="district"
@@ -152,7 +152,7 @@
 					required>
 				</b-form-select>
 			</b-col>
-			<b-col sm="6">
+			<b-col md="6">
 				<b-form-input type="text" id="address"
 					name="address"
 					required>
@@ -160,7 +160,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="12">
+			<b-col md="12">
 				<b-form-group class="file-upload-btn"
 					label="上傳個人照片 *"
 					label-for="photo"
@@ -269,10 +269,19 @@ export default {
 	.title
 		color: $darker-green-text
 
-	#bmonth,
-	#bdate,
-	#district,
-	#address,
-	.custom-select:not(#byear) + .input-group-append
-		margin-top: 1.875rem
+	@include media-breakpoint-up(md)
+		#bmonth,
+		#bdate,
+		#district,
+		#address,
+		.custom-select:not(#byear) + .input-group-append
+			margin-top: 1.875rem
+
+	@include media-breakpoint-down(md)
+		#bmonth,
+		#bdate,
+		#district,
+		#address,
+		.custom-select:not(#byear) + .input-group-append
+		    margin-bottom: 1rem;
 </style>

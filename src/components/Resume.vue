@@ -107,11 +107,15 @@ export default {
 			data["expectedPositions"] = [
 				data["expectedPositions1"],
 				data["expectedPositions2"],
-				data["expectedPositions3"]
+				data["expectedPositions3"],
+				data["expectedPositions4"],
+				data["expectedPositions5"]
 			];
 			delete data["expectedPositions1"];
 			delete data["expectedPositions2"];
 			delete data["expectedPositions3"];
+			delete data["expectedPositions4"];
+			delete data["expectedPositions5"];
 
 			data["professionalSkills"] = [
 				data["professionalSkill1"],
