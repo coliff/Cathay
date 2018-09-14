@@ -13,6 +13,143 @@ $darker-green-text: #5a863a;
 $light-green-text: #7bb63d;
 
 
-#index {
-	// display: none;
+.container-fluid {
+	overflow: hidden;
 }
+
+.break-lg, .break-sm {
+	display: none;
+}
+
+@media screen and (max-width: 1150px) {
+
+	.break-lg {
+		display: block;
+		padding: 50px 0;
+	}
+
+
+	nav {
+		padding-left: 0rem !important;
+		padding-right: 1rem !important;
+
+		.navbar-brand {
+			width: 15%;
+			padding-right: 0 !important;
+			padding-left: 1rem !important;
+		}
+
+		li {
+			font-size: 1.45vw;
+		}
+	}
+
+	#welfare {
+		#benefits {
+			width: 90% !important;
+			padding-top: 50px;
+
+			.row:not(:first-child) {
+				border: 0 !important;
+			}
+			.col:not(:first-child) {
+				border: 0 !important;
+			}
+
+			.row {
+				padding: 0 !important;
+
+				.col {
+					padding: 0 !important;
+				}
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 768px) {
+
+	nav {
+		.navbar-brand {
+			width: 50% !important;
+		}
+	}
+
+	#triangle {
+		display: none !important;
+	}
+
+}
+
+
+@media screen and (max-width: 994px) {
+
+
+	#jobs {
+		padding: 100px 5vw;
+
+		.btn {
+			position: relative !important;
+			margin: 0 !important;
+			left: 0 !important;
+		}
+	}
+
+}
+
+@media screen and (max-width: 576px) {
+
+	.break-sm {
+		display: block;
+		padding: 50px 0;
+	}
+
+	#intro {
+		.row {
+			.offset-2 {
+				// attention
+				margin-left: 7%;
+				flex: 0 0 100%;
+				max-width: 84%;
+			}
+		}
+	}
+
+	#welfare {
+		.row {
+			padding: 0 !important;
+		}
+
+		#benefits {
+			padding: 100px 0;
+
+			.row {
+				padding-bottom: 100px !important;
+			}
+		}
+	}
+
+	#dialog {
+		display: none;
+	}
+
+	#interview {
+		.media {
+			display: block;
+
+			img {
+				padding-bottom: 40px
+			}
+		}
+	}
+
+	#resume {
+		img {
+			width: 68% !important;
+		}
+	}
+
+}
+
+
