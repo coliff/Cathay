@@ -16,12 +16,17 @@ $light-green-text: #7bb63d;
 
 // Resume page shared rules
 input {
-	margin-bottom: 0.8em
+	margin-bottom: 0.8em;
 	&::placeholder {
-		color: #bbb
+		color: #bbb;
 	}
 }
 
+.input-group-text {
+	background-color: $white;
+	border: none;
+}
+
 .no-padding {
-	padding: 0
+	padding: 0;
 }
