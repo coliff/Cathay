@@ -28,6 +28,7 @@
 					當天收到結果回覆
 				</p>
 			</b-col>
+			<div class="w-100 break-sm"></div>
 			<b-col>
 				<h5 class="orange subtitle">
 					<span class="hightlight">
@@ -48,6 +49,7 @@
 					各事業單位另有獎勵
 				</p>
 			</b-col>
+			<div class="w-100 break-lg"></div>
 			<b-col>
 				<h5 class="light-green subtitle">
 					<span class="hightlight">
@@ -68,6 +70,7 @@
 					前輩面對面請益交流
 				</p>
 			</b-col>
+			<div class="w-100 break-sm"></div>
 			<b-col>
 				<h5 class="yellow subtitle">
 					<span class="hightlight">
@@ -100,6 +103,7 @@
 						定期教育訓練
 					</p>
 				</b-col>
+				<div class="w-100 break-sm"></div>
 				<b-col>
 					<picture>
 						<source srcset="@/assets/img/icon/2_health.svg">
@@ -109,6 +113,7 @@
 						定期員工健康檢查
 					</p>
 				</b-col>
+				<div class="w-100 break-sm"></div>
 				<b-col>
 					<picture>
 						<source srcset="@/assets/img/icon/2_travel.svg">
@@ -129,6 +134,7 @@
 						年節福利與生日禮金
 					</p>
 				</b-col>
+				<div class="w-100 break-sm"></div>
 				<b-col>
 					<picture>
 						<source srcset="@/assets/img/icon/2_good.svg">
@@ -138,6 +144,7 @@
 						關係企業商品服務員工優惠
 					</p>
 				</b-col>
+				<div class="w-100 break-sm"></div>
 				<b-col>
 					<picture>
 						<source srcset="@/assets/img/icon/2_speech.svg">
@@ -182,7 +189,6 @@ export default {
 				transform: translateX(-50%)
 				color: $light-green
 				font-size: 0.5em
-
 
 		.subtitle
 			letter-spacing: 0.1em

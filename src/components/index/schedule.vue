@@ -11,7 +11,11 @@
 				<h1 class="title py-5">
 					招聘流程
 				</h1>
-				<img src="https://via.placeholder.com/500x700" alt="招募流程">
+				<img src="@/assets/img/timeline_3.png" id="schedule_img" alt="招募流程"><br>
+				<br><br>
+				活動當天發放錄取通知書<br>
+				<br><br>
+				<img src="@/assets/img/schedule_design.png" id="schedule_design" alt="招募流程">
 			</b-col>
 		</b-row>
 	</b-container>
@@ -27,6 +31,9 @@ export default {
 	#schedule
 		background-color: $black
 		text-align: center
+		color: $white
+		font-size: 20px
+		letter-spacing: 1px
 
 		.title,
 		.subtitle,
@@ -39,6 +46,16 @@ export default {
 
 		.subtitle
 			color: $dark-green
+
+		#schedule_img 
+			width: 400px
+			margin-left: 130px 
+
+		#schedule_design
+			position: absolute
+			width: 90%
+			left: 5%;
+			margin-top: -300px
 
 		/* 確認時間後再顯示 */
 		.title:first-child,

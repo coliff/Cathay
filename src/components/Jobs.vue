@@ -56,6 +56,24 @@ export default {
 						'無相關經驗但有意願學習客服系統(含交換機,IVR)相關知識技能者亦可。',
 						'具Java EE、HTML、JavaScript、Java等開發經驗者尤佳。'
 					]
+				},
+				{
+					title: '資料工程師',
+					available: '1',
+					companies: '國泰證券',
+					responsibilities: [
+						'異質資料庫數據整合。',
+						'數據分析、應用之相關程式(C#或VB.Net或Python)開發。',
+						'資料庫SQL語法開發。',
+						'協助企劃、行銷團隊進行數據分析。'
+					],
+					qualifications: [
+						'熟T-SQL語法及Stored Procedure開發。',
+						'熟MS SQL Server SSIS開發。',
+						'有C#或ASP.Net、Python等程式語言經驗者尤佳。',
+						'了解證券、期貨等金融商品交易流程尤佳。',
+						'5.二年以上程式設計及專案開發經驗。'
+					]
 				}
 			]
 		}
