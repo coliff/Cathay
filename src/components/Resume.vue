@@ -73,21 +73,21 @@ export default {
 			delete data["district"];
 
 			data = JSON.stringify(data);
-			console.log(data);
-			// form_data.append('resume', data);
-			// form_data.append('file', resume, resume.name);
+			
+			form_data.append('resume', data);
+			form_data.append('file', resume, resume.name);
 
-			// response = await this.$http.post('/ittime/upload', form_data, {
-			//	headers: {
-			//		'Content-Type': 'multipart/form-data'
-			//	}
-			//}).catch((err) => {
-			//	if (err.response) {
-			//		console.log(err.response.status);
-			//		console.log(err.response.data);
-			//		// this.errmsg = ...
-			//	}
-			//});
+			response = await this.$http.post('/ittime/upload', form_data, {
+				headers: {
+					'Content-Type': 'multipart/form-data'
+				}
+			}).catch((err) => {
+				if (err.response) {
+					console.log(err.response.status);
+					console.log(err.response.data);
+					// this.errmsg = ...
+				}
+			});
 		}
 	}
 }
