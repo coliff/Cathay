@@ -22,6 +22,10 @@ input {
 	}
 }
 
+textarea::placeholder {
+	color: #bbb;
+}
+
 .input-group-text {
 	background-color: $white;
 	border: none;
