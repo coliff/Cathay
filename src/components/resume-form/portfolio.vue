@@ -11,6 +11,35 @@
 				<b-form-file accept=".pdf" id="portfolio" name="resume"></b-form-file>
 			</b-col>
 		</b-row>
+		<b-row class="my-1">
+			<b-col sm="6">
+				<b-form-group
+					label="Github 連結"
+					label-for="github"
+					:description="errmsg.github">
+					<b-form-input type="url" id="github"
+						name="github"
+						required
+						placeholder="請輸入網址">
+					</b-form-input>
+				</b-form-group>
+			</b-col>
+		</b-row>
+		<b-row class="my-1">
+			<b-col sm="6">
+				<b-form-group
+					label="其他補充資料"
+					label-for="others"
+					:description="errmsg.others">
+					<b-form-textarea id="others"
+						name="others"
+						placeholder="可新增其他作品網址或各項補充資料"
+						:rows="3"
+						:max-rows="6">
+					</b-form-textarea>
+				</b-form-group>
+			</b-col>
+		</b-row>
 	</b-container>
 </template>
 
