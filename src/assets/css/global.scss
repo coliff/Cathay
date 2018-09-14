@@ -14,6 +14,10 @@ $yellow: #f2da30;
 $darker-green-text: #5a863a;
 $light-green-text: #7bb63d;
 
+.title {
+	color: $darker-green-text;
+}
+
 // Resume page shared rules
 input {
 	margin-bottom: 0.8em;

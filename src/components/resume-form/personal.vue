@@ -163,7 +163,6 @@
 
 <script>
 export default {
-	name: 'Personal',
 	props: {
 		errmsg: Object,
 		range: Function
@@ -264,9 +263,6 @@ export default {
 
 		.input-group:not(first-of-type)
 			margin-bottom: 1rem;
-
-	.title
-		color: $darker-green-text
 
 	@include media-breakpoint-up(md)
 		#wmonth,

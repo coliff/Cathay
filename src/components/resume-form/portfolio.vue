@@ -11,7 +11,7 @@
 				<b-form-file required accept=".pdf" id="portfolio" name="resume"></b-form-file>
 			</b-col>
 		</b-row>
-		<b-row class="my-1">
+		<b-row class="mt-3">
 			<b-col md="6">
 				<b-form-group
 					label="Github 連結"
@@ -44,7 +44,6 @@
 
 <script>
 export default {
-	name: 'Portfolio',
 	props: {
 		errmsg: Object
 	}
@@ -54,9 +53,6 @@ export default {
 <style lang="sass" scoped>
 	#resume-upload
 		padding: 0
-
-	.title
-		color: $darker-green-text
 
 	.content
 		font-size: 1.25rem

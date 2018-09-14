@@ -181,7 +181,6 @@
 import TW from '@/assets/js/TW_district';
 
 export default {
-	name: 'BasicInfo',
 	props: {
 		errmsg: Object,
 		range: Function
@@ -265,9 +264,6 @@ export default {
 <style lang="sass" scoped>
 	#basic-info
 		padding: 0
-
-	.title
-		color: $darker-green-text
 
 	@include media-breakpoint-up(md)
 		#bmonth,

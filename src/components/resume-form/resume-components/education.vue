@@ -1,100 +1,91 @@
 <template>
-	<b-container fluid id="education">
-		<h2 class="my-4 title">教育背景</h2>
+	<b-container fluid :id="`education${count}`">
 		<b-row class="my-1">
-			<b-col sm="3">
+			<b-col md="3">
 				<b-form-group
 					label="教育背景 *"
 					label-for="degree"
 					:description="errmsg.degree">
-					<b-form-select id="degree"
+					<b-form-select :id="`degree${count}`"
 						name="degree"
 						:value="null"
-						:options="degrees"
-						required>
+						:options="degrees">
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col sm="3">
-				<b-form-select id="graduation"
+			<b-col md="3">
+				<b-form-select :id="`graduation${count}`"
 					name="graduation"
 					:value="null"
-					:options="graduationOptions"
-					required>
+					:options="graduationOptions">
 				</b-form-select>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="4">
+			<b-col md="4">
 				<b-form-group
 					label="學校名稱 *"
 					label-for="schoolName"
 					:description="errmsg.schoolName">
-					<b-form-input type="text" id="schoolName"
+					<b-form-input type="text" :id="`schoolName${count}`"
 						name="schoolName"
-						required
 						placeholder="請輸入學校名稱">
 					</b-form-input>
 				</b-form-group>
 			</b-col>
-			<b-col sm="4">
+			<b-col md="4">
 				<b-form-group
 					label="科系 *"
 					label-for="major"
 					:description="errmsg.major">
-					<b-form-input type="text" id="major"
+					<b-form-input type="text" :id="`major${count}`"
 						name="major"
-						required
 						placeholder="請輸入科系">
 					</b-form-input>
 				</b-form-group>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="2">
+			<b-col md="4">
 				<b-form-group class="no-padding"
-					label="修業期間"
+					label="修業期間 *"
 					label-for="studyPeriod"
 					:description="errmsg.studyPeriod">
 					<b-input-group prepend="從" append="年">
-						<b-form-select id="syear"
+						<b-form-select :id="`syear${count}`"
 							name="syear"
 							:value="syear"
-							:options="years"
-							required>
+							:options="years">
 						</b-form-select>
 					</b-input-group>
 				</b-form-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="4">
 				<b-input-group append="月">
-					<b-form-select id="smonth"
+					<b-form-select :id="`smonth${count}`"
 						name="smonth"
 						v-model:value="smonth"
-						:options="months"
-						required>
+						:options="months">
 					</b-form-select>
 				</b-input-group>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col sm="2">
+			<b-col md="4">
 				<b-input-group prepend="到" append="年">
-					<b-form-select id="eyear"
+					<b-form-select :id="`eyear${count}`"
 						name="eyear"
 						:value="eyear"
-						:options="years"
-						required>
+						:options="years">
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col sm="2">
+			<b-col md="4">
 				<b-input-group append="月">
-					<b-form-select id="emonth"
+					<b-form-select :id="`emonth${count}`"
 						name="emonth"
 						v-model:value="emonth"
-						:options="months"
-						required>
+						:options="months">
 					</b-form-select>
 				</b-input-group>
 			</b-col>
@@ -103,13 +94,11 @@
 </template>
 
 <script>
-import TW from '@/assets/js/TW_district';
-
 export default {
-	name: 'BasicInfo',
 	props: {
 		errmsg: Object,
-		range: Function
+		range: Function,
+		count: String
 	},
 	data() {
 		return {
@@ -126,13 +115,13 @@ export default {
 			],
 			graduationOptions: [
 				{
-					text: "肄畢業狀態",
+					text: "畢肄業狀態",
 					value: null,
 					disabled: true
 				},
 				"畢業",
-				"肄業",
 				"就讀中",
+				"肄業",
 				"其他"
 			],
 			syear: '2018',
@@ -150,11 +139,21 @@ export default {
 	#education
 		padding: 0
 
-	.title
-		color: $darker-green-text
+	@include media-breakpoint-up(md)
+		[id^=graduation],
+		[id^=smonth],
+		[id^=smonth] + .input-group-append
+			margin-top: 1.875rem
 
-	#graduation,
-	#smonth,
-	#smonth + .input-group-append
-		margin-top: 1.875rem
+	@include media-breakpoint-down(sm)
+		[id^=graduation],
+		[id^=smonth],
+		[id^=smonth] + .input-group-append,
+		[id^=emonth],
+		[id^=emonth] + .input-group-append
+			margin-bottom: 1rem
+
+		[id^=emonth],
+		[id^=emonth] + .input-group-append
+			margin-top: 1rem
 </style>

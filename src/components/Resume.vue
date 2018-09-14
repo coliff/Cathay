@@ -15,26 +15,74 @@
 			</b-container>
 			<b-container fluid class="pb-5" id="info">
 				<form id="resume-form" @submit.prevent="submitForm">
+					<!-- 基本資料 -->
 					<BasicInfo class="pt-5"
 						:errmsg="errmsg"
 						:range="range">
 					</BasicInfo>
+					<!-- 應徵明細 -->
 					<Personal class="pt-5"
 						:errmsg="errmsg"
 						:range="range">
 					</Personal>
-					<Education class="pt-5"
+					<!-- 教育背景 -->
+					<h2 class="mt-4 mb-1 title">教育背景</h2>
+					<Education class="pt-4"
 						:errmsg="errmsg"
-						:range="range">
+						:range="range"
+						count="1">
 					</Education>
+					<Education class="pt-4"
+						:errmsg="errmsg"
+						:range="range"
+						count="2"
+						v-show="educationCount > 1">
+					</Education>
+					<Education class="pt-4"
+						:errmsg="errmsg"
+						:range="range"
+						count="3"
+						v-show="educationCount > 2">
+					</Education>
+					<Education class="pt-4"
+						:errmsg="errmsg"
+						:range="range"
+						count="4"
+						v-show="educationCount > 3">
+					</Education>
+					<Education class="pt-4"
+						:errmsg="errmsg"
+						:range="range"
+						count="5"
+						v-show="educationCount > 4">
+					</Education>
+					<b-row class="my-3">
+						<b-col md="4">
+							<b-button id="addEducation"
+								variant="outline-success"
+								@click="addEducation">
+								<svg class="add" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+									<path d="M3 0v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2z" />
+								</svg>
+								新增教育背景
+							</b-button>
+							<span>其他 {{ 5 - educationCount }} 項</span>
+						</b-col>
+					</b-row>
+					<!-- 過往經歷 -->
 					<Experience class="pt-5"
 						:errmsg="errmsg"
 						:range="range">
 					</Experience>
+					<!-- 過往作品 -->
 					<Portfolio class="pt-5"
 						:errmsg="errmsg">
 					</Portfolio>
-					<b-button type="submit" class="d-block mx-auto mt-5" id="submit">送出</b-button>
+					<b-button type="submit"
+						class="d-block mx-auto mt-5"
+						id="submit">
+						送出
+					</b-button>
 				</form>
 			</b-container>
 		</b-container>
@@ -45,7 +93,7 @@
 import Nav from '@/components/nav';
 import BasicInfo from '@/components/resume-form/basicInfo';
 import Personal from '@/components/resume-form/personal';
-import Education from '@/components/resume-form/education';
+import Education from '@/components/resume-form/resume-components/education';
 import Experience from '@/components/resume-form/experience';
 import Portfolio from '@/components/resume-form/portfolio';
 
@@ -53,7 +101,8 @@ export default {
 	name: 'Resume',
 	data() {
 		return {
-			errmsg: {}
+			errmsg: {},
+			educationCount: 1
 		}
 	},
 	components: {
@@ -68,6 +117,9 @@ export default {
 		range: (start, end) => {
 			let span = end - start + 1;
 			return [...Array(span).keys()].map(m => start + m);
+		},
+		addEducation: function() {
+			if (this.educationCount < 5) this.educationCount++;
 		},
 		submitForm: async function(e) {
 			// Input 資料：e.targrt[index].value
@@ -144,7 +196,7 @@ export default {
 			delete data["languageSkill5"];
 
 			data = JSON.stringify(data);
-			
+
 			form_data.append('photo', data);
 			form_data.append('resume', data);
 			form_data.append('file', resume, resume.name);
@@ -176,15 +228,15 @@ export default {
 			position: absolute
 			margin-left: 35%
 
-	#banner
-		color: $darker-green-text
-
 	.large
 		font-size: 3.5rem
 
-	.title
+	#banner > .title
 		margin: 0
 		letter-spacing: 0.4rem
+
+	.content
+		color: $darker-green-text
 
 	.content
 		font-size: 1.25rem
