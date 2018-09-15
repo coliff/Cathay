@@ -155,8 +155,10 @@ export default {
 					} else if (raw_data.files[0].type.indexOf('image') > -1) {
 						photo = raw_data.files[0];
 					}
-				} else if (raw_data.name === 'infoSource' && raw_data.checked) {
-					data[raw_data.name] = raw_data.value;
+				} else if (raw_data.name === 'infoSource') {
+					if (raw_data.checked) {
+						data[raw_data.name] = raw_data.value;
+					}
 				} else if (raw_data.value) {
 					data[raw_data.name] = raw_data.value;
 				}
@@ -293,9 +295,7 @@ export default {
 
 			data = JSON.stringify(data);
 
-			console.log(data);
-
-			form_data.append('photo', data);
+			form_data.append('photo', photo);
 			form_data.append('resume', data);
 			form_data.append('file', resume, resume.name);
 
