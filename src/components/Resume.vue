@@ -203,7 +203,7 @@ export default {
 				}
 
 				if (d[syear] && d[smonth] && d[eyear] && d[emonth]) {
-					let period = setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
+					let period = this.setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
 					delete d[syear];
 					delete d[smonth];
 					delete d[eyear];
@@ -232,7 +232,7 @@ export default {
 				}
 
 				if (d[syear] && d[smonth] && d[eyear] && d[emonth]) {
-					let period = setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
+					let period = this.setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
 					delete d[syear];
 					delete d[smonth];
 					delete d[eyear];
@@ -261,7 +261,7 @@ export default {
 				}
 
 				if (d[syear] && d[smonth] && d[eyear] && d[emonth]) {
-					let period = setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
+					let period = this.setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
 					delete d[syear];
 					delete d[smonth];
 					delete d[eyear];
