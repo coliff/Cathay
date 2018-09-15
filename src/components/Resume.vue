@@ -127,15 +127,15 @@ export default {
 			if (this.educationCount < 5) this.educationCount++;
 		},
 		setPeriod: function(d_syear, d_smonth, d_eyear, d_emonth) {
-			let s, e;
+			let start, end;
 			if (d_syear && d_smonth) {
-				s = d_syear + (d_smonth.length < 2 ? '0' : '') + d_smonth;
+				start = d_syear + (d_smonth.length < 2 ? '0' : '') + d_smonth;
 			}
 			if (d_eyear && d_emonth) {
-				e = d_eyear + (d_emonth.length < 2 ? '0' : '') + d_emonth;
+				end = d_eyear + (d_emonth.length < 2 ? '0' : '') + d_emonth;
 			}
-			if (s && e)
-				return {s, e};
+			if (start && end)
+				return {start, end};
 			else
 				return null;
 		},
