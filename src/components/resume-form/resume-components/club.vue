@@ -25,7 +25,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col md="2">
+			<b-col md="4" lg="3">
 				<b-form-group class="no-padding"
 					label="服務期間"
 					label-for="studyPeriod"
@@ -38,7 +38,7 @@
 					</b-input-group>
 				</b-form-group>
 			</b-col>
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-input-group append="月">
 					<b-form-select :id="`csmonth${count}`"
 						:name="`csmonth${count}`"
@@ -48,7 +48,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="mt-1 mb-4">
-			<b-col md="2">
+			<b-col md="4" lg="3">
 				<b-input-group prepend="到" append="年">
 					<b-form-select :id="`ceyear${count}`"
 						:name="`ceyear${count}`"
@@ -56,7 +56,7 @@
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-input-group append="月">
 					<b-form-select :id="`cemonth${count}`"
 						:name="`cemonth${count}`"
