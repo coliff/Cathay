@@ -310,6 +310,8 @@ export default {
 					// this.errmsg = ...
 				}
 			});
+
+			alert("你的資料已送出，我們將盡快與你聯絡");
 		}
 	}
 }
