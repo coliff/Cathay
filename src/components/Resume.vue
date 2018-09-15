@@ -126,6 +126,19 @@ export default {
 		addEducation: function() {
 			if (this.educationCount < 5) this.educationCount++;
 		},
+		setPeriod: function(d_syear, d_smonth, d_eyear, d_emonth) {
+			let s, e;
+			if (d_syear && d_smonth) {
+				s = d_syear + (d_smonth.length < 2 ? '0' : '') + d_smonth;
+			}
+			if (d_eyear && d_emonth) {
+				e = d_eyear + (d_emonth.length < 2 ? '0' : '') + d_emonth;
+			}
+			if (s && e)
+				return {s, e};
+			else
+				return null;
+		},
 		submitForm: async function(e) {
 			// Input 資料：e.targrt[index].value
 			// 上傳檔案：e.target[index].files[index2]
@@ -135,7 +148,7 @@ export default {
 				form_data = new FormData(),
 				response;
 
-			for(const raw_data of e.target) {
+			for (const raw_data of e.target) {
 				if (raw_data.files) {
 					if (raw_data.files[0].type === "application/pdf") {
 						resume = raw_data.files[0];
@@ -165,18 +178,23 @@ export default {
 
 			data["expectedPositions"] = [];
 			for (let i = 1; i < 6; i++) {
-				let d = data["expectedPosition" + i];
+				let d = data["expectedPositions" + i];
 				if (d) {
 					data["expectedPositions"].push(d);
-					delete data["expectedPosition" + i];
+					delete data["expectedPositions" + i];
 				}
 			}
 
 			data["educations"] = [];
 			for (let i = 1; i < 6; i++) {
 				let d = {},
-					attr = ['degree', 'graduation', 'schoolName', 'major', 'syear', 'smonth', 'eyear', 'emonth'];
-				for (a of attr) {
+					attr = ['degree', 'graduation', 'schoolName', 'major', 'syear', 'smonth', 'eyear', 'emonth'],
+					syear = 'syear',
+					smonth = 'smonth',
+					eyear = 'eyear',
+					emonth = 'emonth';
+
+				for (let a of attr) {
 					let attr_name = a + i;
 					if (data[attr_name]) {
 						d[a] = data[attr_name];
@@ -184,20 +202,15 @@ export default {
 					}
 				}
 
-				let e, s;
-				if (data['syear' + i] && data['smonth' + i]) {
-					s = data['syear' + i] + (data["smonth" + i].length < 2 ? '0' : '') + data['smonth' + i];
-					delete data['syear' + i];
-					delete data['smonth' + i];
-				}
-				if (data['eyear' + i] && data['emonth' + i]) {
-					e = data['eyear' + i] + (data["emonth" + i].length < 2 ? '0' : '') + data['emonth' + i];
-
-					delete data['eyear' + i];
-					delete data['emonth' + i];
-				}
-				if (s && e) {
-					d["studyPeriod"] = { s, e };
+				if (d[syear] && d[smonth] && d[eyear] && d[emonth]) {
+					let period = setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
+					delete d[syear];
+					delete d[smonth];
+					delete d[eyear];
+					delete d[emonth];
+					if (period) {
+						d["period"] = period;
+					}
 				}
 				data["educations"].push(d);
 			}
@@ -205,8 +218,12 @@ export default {
 			data["clubs"] = [];
 			for (let i = 1; i < 6; i++) {
 				let d = {},
-					attr = ['clubName', 'cposition', 'csyear', 'csmonth', 'ceyear', 'cemonth'];
-				for (a of attr) {
+					attr = ['clubName', 'cposition', 'csyear', 'csmonth', 'ceyear', 'cemonth'],
+					syear = 'csyear',
+					smonth = 'csmonth',
+					eyear = 'ceyear',
+					emonth = 'cemonth';
+				for (let a of attr) {
 					let attr_name = a + i;
 					if (data[attr_name]) {
 						d[a] = data[attr_name];
@@ -214,20 +231,15 @@ export default {
 					}
 				}
 
-				let e, s;
-				if (data['csyear' + i] && data['csmonth' + i]) {
-					s = data['csyear' + i] + (data["csmonth" + i].length < 2 ? '0' : '') + data['csmonth' + i];
-					delete data['csyear' + i];
-					delete data['csmonth' + i];
-				}
-				if (data['ceyear' + i] && data['cemonth' + i]) {
-					e = data['ceyear' + i] + (data["cemonth" + i].length < 2 ? '0' : '') + data['cemonth' + i];
-
-					delete data['ceyear' + i];
-					delete data['cemonth' + i];
-				}
-				if (s && e) {
-					d["period"] = { s, e };
+				if (d[syear] && d[smonth] && d[eyear] && d[emonth]) {
+					let period = setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
+					delete d[syear];
+					delete d[smonth];
+					delete d[eyear];
+					delete d[emonth];
+					if (period) {
+						d["period"] = period;
+					}
 				}
 				data["clubs"].push(d);
 			}
@@ -235,8 +247,12 @@ export default {
 			data["jobs"] = [];
 			for (let i = 1; i < 6; i++) {
 				let d = {},
-					attr = ['type', 'companyName', 'department', 'wposition', 'jobContent', 'wsyear', 'wsmonth', 'weyear', 'wemonth', 'resignReason', 'pay'];
-				for (a of attr) {
+					attr = ['type', 'companyName', 'department', 'wposition', 'jobContent', 'wsyear', 'wsmonth', 'weyear', 'wemonth', 'resignReason', 'pay'],
+					syear = 'wsyear',
+					smonth = 'wsmonth',
+					eyear = 'weyear',
+					emonth = 'wemonth';
+				for (let a of attr) {
 					let attr_name = a + i;
 					if (data[attr_name]) {
 						d[a] = data[attr_name];
@@ -244,39 +260,34 @@ export default {
 					}
 				}
 
-				let e, s;
-				if (data['wsyear' + i] && data['wsmonth' + i]) {
-					s = data['wsyear' + i] + (data["wsmonth" + i].length < 2 ? '0' : '') + data['wsmonth' + i];
-					delete data['wsyear' + i];
-					delete data['wsmonth' + i];
+				if (d[syear] && d[smonth] && d[eyear] && d[emonth]) {
+					let period = setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
+					delete d[syear];
+					delete d[smonth];
+					delete d[eyear];
+					delete d[emonth];
+					if (period) {
+						d["period"] = period;
+					}
 				}
-				if (data['weyear' + i] && data['wemonth' + i]) {
-					e = data['weyear' + i] + (data["wemonth" + i].length < 2 ? '0' : '') + data['wemonth' + i];
-
-					delete data['weyear' + i];
-					delete data['wemonth' + i];
-				}
-				if (s && e) {
-					d["period"] = { s, e };
-				}
-				data["clubs"].push(d);
+				data["jobs"].push(d);
 			}
 
 			data["professionalSkills"] = [];
 			for (let i = 1; i < 6; i++) {
-				let d = data["professionalSkill" + i];
+				let d = data["professionalSkills" + i];
 				if (d) {
 					data["professionalSkills"].push(d);
-					delete data["professionalSkill" + i];
+					delete data["professionalSkills" + i];
 				}
 			}
 
 			data["languageSkills"] = [];
 			for (let i = 1; i < 6; i++) {
-				let d = data["languageSkill" + i];
+				let d = data["languageSkills" + i];
 				if (d) {
 					data["languageSkills"].push(d);
-					delete data["languageSkill" + i];
+					delete data["languageSkills" + i];
 				}
 			}
 
