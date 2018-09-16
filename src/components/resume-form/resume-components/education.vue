@@ -128,7 +128,7 @@ export default {
 			smonth: null,
 			eyear: null,
 			emonth: null,
-			years: this.range(2030, 1950),
+			years: this.range(2030, 1930),
 			months: this.range(1, 12),
 		}
 	}
