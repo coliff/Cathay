@@ -310,7 +310,7 @@ export default {
 				}
 			}).catch((error) => {
 				// err handling
-				console.log(error);
+				console.error(error);
 				if (error.status === '400') {
 					alert('格式有誤，請確認後重新上傳');
 				} else {
