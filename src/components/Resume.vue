@@ -301,17 +301,15 @@ export default {
 
 			response = await this.$http.post('/ittime/upload', form_data, {
 				headers: {
-					'Content-Type': 'multipart/form-data'
+					'Content-Type': 'multipart/form-data;charset=UTF-8'
+					// 'Content-Type': 'multipart/form-data'
 				}
+			}).then((response) => {
+				console.log(response);
 			}).catch((err) => {
-				if (err.response) {
-					console.log(err.response.status);
-					console.log(err.response.data);
-					// this.errmsg = ...
-				}
+				// err handling
+				console.log(err);
 			});
-
-			alert("你的資料已送出，我們將盡快與你聯絡");
 		}
 	}
 }
