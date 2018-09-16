@@ -121,7 +121,7 @@ export default {
 		return {
 			clubCount: 1,
 			workCount: 1,
-			years: this.range(2018, 1900),
+			years: this.range(2018, 1930),
 			months: this.range(1, 12),
 		}
 	},

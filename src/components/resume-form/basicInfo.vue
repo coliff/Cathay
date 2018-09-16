@@ -186,7 +186,7 @@ export default {
 	data() {
 		return {
 			bmonth: null,
-			byears: this.range(2018, 1900),
+			byears: this.range(2018, 1930),
 			bmonths: this.range(1, 12),
 			bdates: this.range(1, 31),
 			genderOptions: [
