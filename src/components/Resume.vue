@@ -305,10 +305,17 @@ export default {
 					// 'Content-Type': 'multipart/form-data'
 				}
 			}).then((response) => {
-				console.log(response);
-			}).catch((err) => {
+				if (response.status === '200') {
+					alert('謝謝你，我們已收到你的資料！');
+				}
+			}).catch((error) => {
 				// err handling
 				console.log(err);
+				if (error.status === '400') {
+					alert('格式有誤，請確認後重新上傳');
+				} else {
+					alert('系統繁忙中，請稍後再試一次');
+				}
 			});
 		}
 	}
