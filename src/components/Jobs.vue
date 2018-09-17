@@ -12,7 +12,7 @@
 				<b-tabs pill card v-model="tabIndex" class="mytab">
 					<b-tab title="國泰人壽" :title-link-class="linkClass(0)">
 						<div class="job">
-							<h4>客服系統整合工程師 <span>（預計招募 2 人）</span></h4>
+							<h4>客服系統整合工程師</h4>
 							<h5>國泰人壽 / 國泰產險</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -32,7 +32,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>應用系統開發工程師 <span>（預計招募 10 人）</span></h4>
+							<h4>應用系統開發工程師></h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -57,7 +57,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>應用系統分析工程師 <span>（預計招募 4 人）</span></h4>
+							<h4>應用系統分析工程師</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -77,7 +77,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>伺服器系統管理工程師(Linux、Windows、AIX) <span>（預計招募 1 人）</span></h4>
+							<h4>伺服器系統管理工程師(Linux、Windows、AIX)</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -103,7 +103,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>應用伺服器系統工程師(WAS、JBoss) <span>（預計招募 1 人）</span></h4>
+							<h4>應用伺服器系統工程師(WAS、JBoss)</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -127,7 +127,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>資料庫系統管理工程師(DB2、SQL、Open source) <span>（預計招募 1 人）</span></h4>
+							<h4>資料庫系統管理工程師(DB2、SQL、Open source)</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -151,7 +151,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>雲端虛擬化系統工程師(VMWare、Hyper-V) <span>（預計招募 1 人）</span></h4>
+							<h4>雲端虛擬化系統工程師(VMWare、Hyper-V)</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -171,7 +171,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>網路系統管理工程師 <span>（預計招募 1 人）</span></h4>
+							<h4>網路系統管理工程師</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -196,7 +196,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>應用系統品質管理工程師 <span>（預計招募 1 人）</span></h4>
+							<h4>應用系統品質管理工程師</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -212,7 +212,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>大數據資料工程師 <span>（預計招募 1 人）</span></h4>
+							<h4>大數據資料工程師</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -234,7 +234,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>前端工程師 (Front-end Developer) <span>（預計招募 1 人）</span></h4>
+							<h4>前端工程師 (Front-end Developer)</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -257,7 +257,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>智能客服研發工程師 <span>（預計招募 1 人）</span></h4>
+							<h4>智能客服研發工程師</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -276,7 +276,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>行動化App開發工程師 <span>（預計招募 1 人）</span></h4>
+							<h4>行動化App開發工程師</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -306,7 +306,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>機器學習研發工程師 <span>（預計招募 1 人）</span></h4>
+							<h4>機器學習研發工程師</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -328,7 +328,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>資訊安全防護工程師 <span>（預計招募 3 人）</span></h4>
+							<h4>資訊安全防護工程師</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -354,7 +354,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>資訊安全制度管理工程師 <span>（預計招募 2 人）</span></h4>
+							<h4>資訊安全制度管理工程師</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -381,7 +381,7 @@
 						</div>
 
 						<div class="job">
-							<h4>東南亞語系儲備資訊人員(越南、印尼) <span>（預計招募 1 人）</span></h4>
+							<h4>東南亞語系儲備資訊人員(越南、印尼)</h4>
 							<h5>國泰人壽</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -400,7 +400,7 @@
 
 					<b-tab title="國泰證券" :title-link-class="linkClass(1)">
 						<div class="job">
-							<h4>資料工程師 <span>（預計招募 1 人）</span></h4>
+							<h4>資料工程師</h4>
 							<h5>國泰證券</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -424,7 +424,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>數據分析師 <span>（預計招募 1 人）</span></h4>
+							<h4>數據分析師</h4>
 							<h5>國泰證券</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -446,7 +446,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>金融交易工程師 <span>（預計招募 5 人）</span></h4>
+							<h4>金融交易工程師</h4>
 							<h5>國泰證券</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -469,7 +469,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>網頁程式開發師 <span>（預計招募 1 人）</span></h4>
+							<h4>網頁程式開發師</h4>
 							<h5>國泰證券</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -489,7 +489,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>UX設計師 <span>（預計招募 1 人）</span></h4>
+							<h4>UX設計師</h4>
 							<h5>國泰證券</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -515,7 +515,7 @@
 
 					<b-tab title="國泰產險" :title-link-class="linkClass(2)">
 						<div class="job">
-							<h4>客服系統整合工程師 <span>（預計招募 2 人）</span></h4>
+							<h4>客服系統整合工程師</h4>
 							<h5>國泰人壽 / 國泰產險</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -535,7 +535,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>JAVA程式開發師 <span>（預計招募 2 人）</span></h4>
+							<h4>JAVA程式開發師</h4>
 							<h5>國泰產險</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -559,7 +559,7 @@
 
 					<b-tab title="國泰銀行" :title-link-class="linkClass(3)">
 						<div class="job">
-							<h4>APP軟體工程師 <span>（預計招募 2 人）</span></h4>
+							<h4>APP軟體工程師</h4>
 							<h5>國泰銀行</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -578,7 +578,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>ITSM系統管理人員 <span>（預計招募 2 人）</span></h4>
+							<h4>ITSM系統管理人員</h4>
 							<h5>國泰銀行</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -604,7 +604,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>大數據開發維運工程師 <span>（預計招募 2 人）</span></h4>
+							<h4>大數據開發維運工程師</h4>
 							<h5>國泰銀行</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -630,7 +630,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>系統分析工程師 <span>（預計招募 4 人）</span></h4>
+							<h4>系統分析工程師</h4>
 							<h5>國泰銀行</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -653,7 +653,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>測試規劃人員 <span>（預計招募 2 人）</span></h4>
+							<h4>測試規劃人員</h4>
 							<h5>國泰銀行</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -675,7 +675,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>程式開發工程師 <span>（預計招募 6 人）</span></h4>
+							<h4>程式開發工程師</h4>
 							<h5>國泰銀行</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -699,7 +699,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>數據應用工程師 <span>（預計招募 2 人）</span></h4>
+							<h4>數據應用工程師</h4>
 							<h5>國泰銀行</h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
@@ -722,9 +722,9 @@
 							</div>
 						</div>
 					</b-tab>
-					<b-tab title="台中場" :title-link-class="linkClass(4)">
+					<b-tab title="國泰人壽(台中場)" :title-link-class="linkClass(4)">
 						<div class="job">
-							<h4>應用系統開發工程師 <span>（預計招募 10 人）</span></h4>
+							<h4>應用系統開發工程師</h4>
 							<h5>國泰人壽 <span class="green">台中場</span></h5>
 							<div class="btn">立即填寫履歷</div>
 							<div class="line"></div>
