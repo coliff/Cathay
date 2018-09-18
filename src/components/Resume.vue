@@ -347,8 +347,14 @@ export default {
 			}
 
 			for (let s of selects) {
-				s.children[1].selected = true;
+				s.children[2].selected = true;
 			}
+
+			let enName = document.getElementById("enName"),
+				idNumber = document.getElementById("idNumber");
+
+			enName.value = 'English Name';
+			idNumber.value = 'A123456789';
 		}
 	}
 }
