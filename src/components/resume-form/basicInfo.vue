@@ -1,5 +1,5 @@
 <template>
-	<b-container fluid id="basic-info">
+	<b-container fluid id="basic-info" class="no-padding">
 		<h2 class="my-4 title">基本資料</h2>
 		<b-row class="my-1">
 			<b-col md="6">
@@ -68,7 +68,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-form-group class="no-padding"
 					label="生日 *"
 					label-for="byear"
@@ -82,7 +82,7 @@
 					</b-input-group>
 				</b-form-group>
 			</b-col>
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-input-group append="月">
 					<b-form-select id="bmonth"
 						name="bmonth"
@@ -92,7 +92,7 @@
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-input-group append="日">
 					<b-form-select id="bdate"
 						name="bdate"
@@ -101,7 +101,7 @@
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-form-group
 					label="性別 *"
 					label-for="gender"
@@ -114,7 +114,7 @@
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-form-group
 					label="兵役狀況 *"
 					label-for="military"
@@ -129,7 +129,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-form-group
 					label="通訊地址 *"
 					label-for="cities"
@@ -142,7 +142,7 @@
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-form-select id="district"
 					name="district"
 					v-model:value="district"
@@ -158,7 +158,7 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col md="12">
+			<b-col md="12" lg="6">
 				<b-form-group class="file-upload-btn"
 					label="上傳個人照片 *"
 					label-for="photo"
@@ -258,9 +258,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	#basic-info
-		padding: 0
-
 	@include media-breakpoint-up(md)
 		#bmonth,
 		#bdate,

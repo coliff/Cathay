@@ -1,5 +1,5 @@
 <template>
-	<b-container fluid :id="`work${count}`">
+	<b-container fluid :id="`work${count}`" class="no-padding">
 		<b-row class="my-1">
 			<b-col md="3">
 				<b-form-group
@@ -166,7 +166,7 @@ export default {
 		[id^=wsmonth] + .input-group-append
 			margin-top: 1.875rem
 
-	@include media-breakpoint-down(md)
+	@include media-breakpoint-down(sm)
 		[id^=wsmonth],
 		[id^=wsmonth] + .input-group-append
 			margin-bottom: 1rem
@@ -174,4 +174,8 @@ export default {
 		[id^=wemonth],
 		[id^=wemonth] + .input-group-append
 			margin-top: 1rem
+
+		[id^=wsmonth],
+		[id^=wemonth]
+			margin-left: 2.5rem
 </style>

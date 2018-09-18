@@ -1,8 +1,8 @@
 <template>
-	<b-container fluid id="personal">
+	<b-container fluid id="personal" class="no-padding">
 		<h2 class="my-4 title">應徵明細</h2>
 		<b-row class="my-1">
-			<b-col md="3">
+			<b-col md="3" lg="2">
 				<b-form-group
 					label="目前狀態 *"
 					label-for="jobStatus"
@@ -15,7 +15,7 @@
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col md="3" class="px-md-1">
+			<b-col md="3" lg="2" class="px-md-1">
 				<b-form-group class="no-padding"
 					label="最快可上班日 *"
 					label-for="wyear"
@@ -29,7 +29,7 @@
 					</b-input-group>
 				</b-form-group>
 			</b-col>
-			<b-col md="3" class="px-md-1">
+			<b-col md="3" lg="2" class="px-md-1">
 				<b-input-group append="月">
 					<b-form-select id="wmonth"
 						name="wmonth"
@@ -39,7 +39,7 @@
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col md="3" class="px-md-1">
+			<b-col md="3" lg="2" class="px-md-1">
 				<b-input-group append="日">
 					<b-form-select id="wdate"
 						name="wdate"
@@ -68,7 +68,7 @@
 		</b-row>
 		<b-row class="my-1">
 			<b-col md="6">
-				<b-input-group prepend="志願二">
+				<b-input-group prepend="志願二" class="mb-3">
 					<b-form-select id="expectedPositions2"
 						name="expectedPositions2"
 						:value="null"
@@ -79,7 +79,7 @@
 		</b-row>
 		<b-row class="my-1">
 			<b-col md="6">
-				<b-input-group prepend="志願三">
+				<b-input-group prepend="志願三" class="mb-3">
 					<b-form-select id="expectedPositions3"
 						name="expectedPositions3"
 						:value="null"
@@ -90,7 +90,7 @@
 		</b-row>
 		<b-row v-show="positionCount > 3" class="my-1">
 			<b-col md="6">
-				<b-input-group prepend="志願四">
+				<b-input-group prepend="志願四" class="mb-3">
 					<b-form-select id="expectedPositions4"
 						name="expectedPositions4"
 						:value="null"
@@ -101,7 +101,7 @@
 		</b-row>
 		<b-row v-show="positionCount > 4" class="my-1">
 			<b-col md="6">
-				<b-input-group prepend="志願五">
+				<b-input-group prepend="志願五" class="mb-3">
 					<b-form-select id="expectedPositions5"
 						name="expectedPositions5"
 						:value="null"
@@ -111,16 +111,16 @@
 			</b-col>
 		</b-row>
 		<b-row class="mt-1 mb-4">
-			<b-col md="4">
+			<b-col md="4"class="add">
 				<b-button id="addPosition"
 					variant="outline-success"
 					@click="addPosition">
-					<svg class="add" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+					<svg class="iconAdd" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
 						<path d="M3 0v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2z" />
 					</svg>
 					新增志願
 				</b-button>
-				<span>其他 {{ 5 - positionCount }} 項</span>
+				<span class="remaining">其他 {{ 5 - positionCount }} 項</span>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
@@ -254,12 +254,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	#personal
-		padding: 0
-
-		.input-group:not(first-of-type)
-			margin-bottom: 1rem;
-
 	@include media-breakpoint-up(md)
 		#wmonth,
 		#wdate,

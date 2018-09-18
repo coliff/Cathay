@@ -1,5 +1,5 @@
 <template>
-	<b-container fluid id="resume-upload">
+	<b-container fluid id="resume-upload" class="no-padding">
 		<h2 class="my-4 title">過往作品</h2>
 		<p class="content">
 			想讓我們更暸解你嗎？<br>
@@ -7,7 +7,7 @@
 			（限使用 pdf 檔案，檔案大小限制為 15 MB，點選送出按鈕後才會進行上傳）
 		</p>
 		<b-row class="my-1">
-			<b-col>
+			<b-col lg="8">
 				<b-form-file required accept=".pdf" id="portfolio" name="resume"></b-form-file>
 			</b-col>
 		</b-row>
@@ -49,9 +49,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	#resume-upload
-		padding: 0
-
 	.content
 		font-size: 1.25rem
 </style>

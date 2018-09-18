@@ -136,7 +136,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	#education
+	[id^=education]
 		padding: 0
 
 	@include media-breakpoint-up(md)
@@ -156,4 +156,8 @@ export default {
 		[id^=emonth],
 		[id^=emonth] + .input-group-append
 			margin-top: 1rem
+
+		[id^=smonth],
+		[id^=emonth]
+			margin-left: 2.5rem
 </style>
