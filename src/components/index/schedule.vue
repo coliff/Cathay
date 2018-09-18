@@ -3,10 +3,11 @@
 		<b-row>
 			<b-col>
 				<h1 class="title py-3">
-					申請時間
+					履歷投遞截止日期
 				</h1>
 				<h2 class="subtitle py-3">
-					即日起至 _ 月 _ 號
+					台中場（人壽職缺）最後投遞日為 10/14；<br>
+					台北場最後投遞日為 10/28。
 				</h2>
 				<h1 class="title py-5">
 					招聘流程
@@ -46,6 +47,7 @@ export default {
 
 		.subtitle
 			color: $dark-green
+			font-size: 20px
 
 		#schedule_img 
 			width: 400px
@@ -54,11 +56,11 @@ export default {
 		#schedule_design
 			position: absolute
 			width: 90%
-			left: 5%;
-			margin-top: -300px
+			left: 5%
+			bottom: 0
 
 		/* 確認時間後再顯示 */
 		.title:first-child,
 		.subtitle
-			display: none
+			/*display: none*/
 </style>
