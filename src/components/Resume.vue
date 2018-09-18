@@ -57,16 +57,16 @@
 						v-show="educationCount > 4">
 					</Education>
 					<b-row class="my-3">
-						<b-col md="4">
+						<b-col md="4" class="add">
 							<b-button id="addEducation"
 								variant="outline-success"
 								@click="addEducation">
-								<svg class="add" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+								<svg class="iconAdd" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
 									<path d="M3 0v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2z" />
 								</svg>
 								新增教育背景
 							</b-button>
-							<span>其他 {{ 5 - educationCount }} 項</span>
+							<span class="remaining">其他 {{ 5 - educationCount }} 項</span>
 						</b-col>
 					</b-row>
 					<!-- 過往經歷 -->
@@ -82,6 +82,12 @@
 						class="d-block mx-auto mt-5"
 						id="submit">
 						送出
+					</b-button>
+					<b-button type="button"
+						@click="fillInData()"
+						class="d-block mx-auto mt-5"
+						id="fill-in">
+						測資
 					</b-button>
 				</form>
 			</b-container>
@@ -314,6 +320,29 @@ export default {
 				// err handling
 				alert('格式有誤，請確認後重新上傳');
 			});
+		},
+		fillInData: function() {
+			let inputs = document.getElementsByTagName("input"),
+				selects = document.getElementsByTagName("select");
+
+			for (let i of inputs) {
+				switch (i.type) {
+				case 'text':
+					i.value = '測試文字';
+					break;
+				case 'tel':
+					i.value = '987654321';
+					break;
+				case 'email':
+					i.value = 'test@test.com';
+					break;
+				default:
+				}
+			}
+
+			for (let s of selects) {
+
+			}
 		}
 	}
 }
@@ -348,6 +377,14 @@ export default {
 		border-radius: 1.2em
 		padding: 0.3em 2.2em
 		background-color: $light-green-text
+		font-size: 2rem
+		letter-spacing: 0.2em
+
+	#fill-in
+		border: none
+		border-radius: 1.2em
+		padding: 0.3em 2.2em
+		background-color: $orange
 		font-size: 2rem
 		letter-spacing: 0.2em
 </style>
