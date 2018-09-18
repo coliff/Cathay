@@ -323,7 +323,10 @@ export default {
 		},
 		fillInData: function() {
 			let inputs = document.getElementsByTagName("input"),
-				selects = document.getElementsByTagName("select");
+				selects = document.getElementsByTagName("select"),
+				radio = document.getElementById("infoSource");
+
+			radio.children[0].children[0].checked = true;
 
 			for (let i of inputs) {
 				switch (i.type) {
@@ -336,12 +339,15 @@ export default {
 				case 'email':
 					i.value = 'test@test.com';
 					break;
+				case 'url':
+					i.value = 'https://google.com';
+					break;
 				default:
 				}
 			}
 
 			for (let s of selects) {
-
+				s.children[1].selected = true;
 			}
 		}
 	}
