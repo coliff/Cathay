@@ -375,7 +375,7 @@ export default {
 					alert('系統繁忙中，請稍後再試一次');
 				} else {
 					// this.errmsg = JSON.parse(test_response);
-					this.errmsg = JSON.parse(error.response.data);
+					this.errmsg = error.response.data;
 					alert('格式有誤，請確認無誤後再重新上傳');
 				}
 			});
