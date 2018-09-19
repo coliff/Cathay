@@ -110,7 +110,7 @@
 				</b-input-group>
 			</b-col>
 		</b-row>
-		<b-row class="my-3">
+		<b-row class="mb-3">
 			<b-col md="4"class="add">
 				<b-button id="addPosition"
 					variant="outline-success"
@@ -137,8 +137,8 @@
 				</b-form-group>
 			</b-col>
 		</b-row>
-		<b-row class="my-3">
-			<b-col md="7">
+		<b-row class="my-1">
+			<b-col md="5">
 				<b-form-group
 					label="如何得知本次徵才資訊 *"
 					:description="errmsg.infoSource">
@@ -147,13 +147,16 @@
 						<b-form-radio value="國泰網站">國泰網站</b-form-radio>
 						<b-form-radio value="親戚朋友">親戚朋友</b-form-radio>
 						<b-form-radio value="人力銀行">人力銀行</b-form-radio>
-						<b-form-radio value="其他">其他</b-form-radio>
+						<br>
+						<div id="other-sourse" class="mt-2">
+							<b-form-radio value="其他">其他</b-form-radio>
+							<b-form-input type="text" id="infoSourceOther"
+								class="d-inline-block w-75 mb-0"
+								name="infoSourceOther">
+							</b-form-input>
+						</div>
 					</b-form-radio-group>
 				</b-form-group>
-				<b-form-input type="text" id="infoSourceOther"
-					name="infoSourceOther"
-					placeholder="如何得知本次徵才資訊">
-				</b-form-input>
 			</b-col>
 		</b-row>
 	</b-container>
@@ -279,6 +282,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+	#other-sourse
+		white-space: nowrap
+
 	@include media-breakpoint-up(md)
 		#wmonth,
 		#wdate,

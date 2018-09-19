@@ -36,7 +36,7 @@
 			count="5"
 			v-show="clubCount > 4">
 		</Club>
-		<b-row class="my-3">
+		<b-row class="mb-3">
 			<b-col md="4" class="add">
 				<b-button id="addClub"
 					variant="outline-success"
@@ -84,7 +84,7 @@
 			count="5"
 			v-show="workCount > 4">
 		</Work>
-		<b-row class="my-3">
+		<b-row class="mb-3">
 			<b-col md="4" class="add">
 				<b-button id="addWork"
 					variant="outline-success"

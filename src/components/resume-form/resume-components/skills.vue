@@ -1,7 +1,7 @@
 <template>
 	<b-container fluid id="skills" class="no-padding">
 		<b-row class="mt-1">
-			<b-col md="6" lg="4" class="my-1">
+			<b-col md="6" lg="4">
 				<b-form-group
 					label="專業技能"
 					label-for="professionalSkills1"
@@ -20,7 +20,7 @@
 						v-show="skillCount > 4">
 					</ProfessionalSkill>
 				</b-form-group>
-				<b-container fluid class="no-padding add">
+				<b-container fluid class="my-3 no-padding add">
 					<b-button id="addPSkills"
 						variant="outline-success"
 						@click="addPSkills">
@@ -32,7 +32,7 @@
 					<span class="remaining">其他 {{ 5 - skillCount }} 項</span>
 				</b-container>
 			</b-col>
-			<b-col md="6" lg="4" class="my-1">
+			<b-col md="6" lg="4">
 				<b-form-group
 					label="語言能力"
 					label-for="languageSkills1"
@@ -51,7 +51,7 @@
 						v-show="languageCount > 4">
 					</LanguageSkill>
 				</b-form-group>
-				<b-container fluid class="no-padding add">
+				<b-container fluid class="my-3 no-padding add">
 					<b-button id="addLSkills"
 						variant="outline-success"
 						@click="addLSkills">
