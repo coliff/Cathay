@@ -362,7 +362,7 @@ export default {
 			data = this.process(data);
 			form_data = this.getForm(data);
 
-			await this.$http.post('/ittime/upload', this.getForm(data), {
+			await this.$http.post('/ittime/upload', form_data, {
 				headers: {
 					'Content-Type': 'multipart/form-data;charset=UTF-8'
 				}
