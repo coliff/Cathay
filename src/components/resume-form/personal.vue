@@ -138,15 +138,15 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col md="5">
+			<b-col md="9" lg="7">
 				<b-form-group
 					label="如何得知本次徵才資訊 *"
 					:description="errmsg.infoSource">
 					<b-form-radio-group id="infoSource" name="infoSource" required>
-						<b-form-radio value="Facebook">Facebook</b-form-radio>
-						<b-form-radio value="國泰網站">國泰網站</b-form-radio>
-						<b-form-radio value="親戚朋友">親戚朋友</b-form-radio>
-						<b-form-radio value="人力銀行">人力銀行</b-form-radio>
+						<b-form-radio class="mt-2" value="Facebook">Facebook</b-form-radio>
+						<b-form-radio class="mt-2" value="國泰網站">國泰網站</b-form-radio>
+						<b-form-radio class="mt-2" value="親戚朋友">親戚朋友</b-form-radio>
+						<b-form-radio class="mt-2" value="人力銀行">人力銀行</b-form-radio>
 						<br>
 						<div id="other-sourse" class="mt-2">
 							<b-form-radio value="其他">其他</b-form-radio>
