@@ -98,7 +98,9 @@
 			</b-col>
 		</b-row>
 		<!-- 新增技能/語言/證照 -->
-		<Skills></Skills>
+		<Skills
+			:errmsg="errmsg">
+		</Skills>
 	</b-container>
 </template>
 

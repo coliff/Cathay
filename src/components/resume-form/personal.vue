@@ -110,7 +110,7 @@
 				</b-input-group>
 			</b-col>
 		</b-row>
-		<b-row class="mt-1 mb-4">
+		<b-row class="my-3">
 			<b-col md="4"class="add">
 				<b-button id="addPosition"
 					variant="outline-success"
