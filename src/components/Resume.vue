@@ -22,17 +22,14 @@
 					</BasicInfo>
 					<!-- 應徵明細 -->
 					<Personal class="pt-4"
-						:errmsg="errmsg"
 						:range="range">
 					</Personal>
 					<!-- 教育背景 -->
 					<Educations class="pt-4"
-						:errmsg="errmsg"
 						:range="range">
 					</Educations>
 					<!-- 過往經歷 -->
 					<Experience class="pt-4"
-						:errmsg="errmsg"
 						:range="range">
 					</Experience>
 					<!-- 過往作品 -->
@@ -292,12 +289,8 @@ export default {
 			return form_data;
 		},
 		submitForm: async function(e) {
-			// Input 資料：e.targrt[index].value
-			// 上傳檔案：e.target[index].files[index2]
 			let data = {},
 				form_data;
-
-			// let test_response = '{"name":"測試文字","enName":"English Name","mobile":"987654321","idNumber":"A123456789","email":"test@test.com","gender":"女性","military":"待役","address":"新北市中山區測試文字","jobStatus":"就學中","expectedPay":"測試文字","infoSource":"Facebook","infoSourceOther":"測試文字","github":"https://google.com","others":"測試文字","birthday":"20160303","onDutyDate":"20180303","expectedPositions":"期望職缺 error","educations":"教育背景 error","clubs":"社團經歷 error","jobs":"工作經歷 error","professionalSkills":"技能 error","languageSkills":"語言 error"}';
 
 			for (const raw_data of e.target) {
 				if (raw_data.files) {
@@ -329,11 +322,30 @@ export default {
 				}
 			}).catch((error) => {
 				if (error.response.status == 500) {
-					alert('系統繁忙中，請稍後再試一次');
+					let message = '系統繁忙中，請稍後再試一次';
+					alert(message);
 				} else {
-					// this.errmsg = JSON.parse(test_response);
+					let message = '格式有誤，請確認無誤後再重新上傳',
+						inputs = '';
 					this.errmsg = error.response.data;
-					alert('格式有誤，請確認無誤後再重新上傳');
+
+					if (this.errmsg.mobile) {
+						inputs += '行動電話\n';
+					}
+					if (this.errmsg.idNumber) {
+						inputs += '身分證字號 / 居留證號碼 / 護照號碼\n';
+					}
+					if (this.errmsg.email) {
+						inputs += 'Email\n';
+					}
+					if (this.errmsg.photo) {
+						inputs += '個人照片\n';
+					}
+					if (this.errmsg.file) {
+						inputs += '個人自傳\n';
+					}
+
+					alert(inputs + message);
 				}
 			});
 		},
