@@ -4,8 +4,7 @@
 			<b-col md="4">
 				<b-form-group
 					label="社團經歷"
-					label-for="clubName"
-					:description="errmsg.clubName">
+					:label-for="`clubName${count}`">
 					<b-form-input type="text" :id="`clubName${count}`"
 						:name="`clubName${count}`"
 						placeholder="請輸入社團名稱">
@@ -15,8 +14,7 @@
 			<b-col md="4">
 				<b-form-group
 					label="擔任職務"
-					label-for="cposition"
-					:description="errmsg.cposition">
+					:label-for="`cposition${count}`">
 					<b-form-input type="text" :id="`cposition${count}`"
 						:name="`cposition${count}`"
 						placeholder="e.g. 副社長">
@@ -28,8 +26,7 @@
 			<b-col md="4" lg="3">
 				<b-form-group class="no-padding"
 					label="服務期間"
-					label-for="studyPeriod"
-					:description="errmsg.period">
+					:label-for="`csyear${count}`">
 					<b-input-group prepend="從" append="年">
 						<b-form-select :id="`csyear${count}`"
 							:name="`csyear${count}`"
@@ -71,7 +68,6 @@
 <script>
 export default {
 	props: {
-		errmsg: Object,
 		years: Array,
 		months: Array,
 		count: String
@@ -80,6 +76,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+	.input-group-prepend > .input-group-text
+		padding: 0.375rem 0.75rem 0.375rem 0;
+
 	@include media-breakpoint-up(md)
 		[id^=csmonth],
 		[id^=csmonth] + .input-group-append
@@ -96,5 +95,5 @@ export default {
 
 		[id^=csmonth],
 		[id^=cemonth]
-			margin-left: 2.5rem
+			margin-left: 1.75rem
 </style>

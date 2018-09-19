@@ -5,8 +5,7 @@
 			<b-col md="6">
 				<b-form-group
 					label="姓名 *"
-					label-for="name"
-					:description="errmsg.name">
+					label-for="name">
 					<b-form-input type="text" id="name"
 						name="name"
 						required
@@ -17,8 +16,7 @@
 			<b-col md="6">
 				<b-form-group
 					label="英文姓名 *"
-					label-for="enName"
-					:description="errmsg.enName">
+					label-for="enName">
 					<b-form-input type="text" id="enName"
 						name="enName"
 						required
@@ -71,8 +69,7 @@
 			<b-col md="3" lg="2">
 				<b-form-group class="no-padding"
 					label="生日 *"
-					label-for="byear"
-					:description="errmsg.birthday">
+					label-for="byear">
 					<b-input-group append="年">
 						<b-form-select id="byear"
 							name="byear"
@@ -104,8 +101,7 @@
 			<b-col md="3" lg="2">
 				<b-form-group
 					label="性別 *"
-					label-for="gender"
-					:description="errmsg.gender">
+					label-for="gender">
 					<b-form-select id="gender"
 						name="gender"
 						:value="null"
@@ -117,8 +113,7 @@
 			<b-col md="3" lg="2">
 				<b-form-group
 					label="兵役狀況 *"
-					label-for="military"
-					:description="errmsg.military">
+					label-for="military">
 					<b-form-select id="military"
 						name="military"
 						:value="null"
@@ -132,8 +127,7 @@
 			<b-col md="3" lg="2">
 				<b-form-group
 					label="通訊地址 *"
-					label-for="cities"
-					:description="errmsg.address">
+					label-for="city">
 					<b-form-select id="city"
 						name="city"
 						v-model="city"
@@ -266,7 +260,7 @@ export default {
 		.custom-select:not(#byear) + .input-group-append
 			margin-top: 1.875rem
 
-	@include media-breakpoint-down(md)
+	@include media-breakpoint-down(sm)
 		#bmonth,
 		#bdate,
 		#district,

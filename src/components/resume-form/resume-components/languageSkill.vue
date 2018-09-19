@@ -14,6 +14,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	[id^=professionalSkills]
+	[id^=languageSkills]
 		margin-bottom: 1rem
 </style>

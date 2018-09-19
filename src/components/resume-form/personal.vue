@@ -5,8 +5,7 @@
 			<b-col md="3" lg="2">
 				<b-form-group
 					label="目前狀態 *"
-					label-for="jobStatus"
-					:description="errmsg.jobStatus">
+					label-for="jobStatus">
 					<b-form-select id="jobStatus"
 						name="jobStatus"
 						:value="jobStatus"
@@ -15,47 +14,49 @@
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col md="3" lg="2" class="px-md-1">
+			<b-col md="9" lg="6" class="px-md-1">
 				<b-form-group class="no-padding"
 					label="最快可上班日 *"
-					label-for="wyear"
-					:description="errmsg.onDutyDate">
-					<b-input-group append="年">
-						<b-form-select id="wyear"
-							name="wyear"
-							:options="wyears"
-							required>
-						</b-form-select>
-					</b-input-group>
+					label-for="wyear">
+					<b-row>
+						<b-col>
+							<b-input-group append="年">
+								<b-form-select id="wyear"
+									name="wyear"
+									:options="wyears"
+									required>
+								</b-form-select>
+							</b-input-group>
+						</b-col>
+						<b-col>
+							<b-input-group append="月">
+								<b-form-select id="wmonth"
+									name="wmonth"
+									v-model:value="wmonth"
+									:options="wmonths"
+									required>
+								</b-form-select>
+							</b-input-group>
+						</b-col>
+						<b-col>
+							<b-input-group append="日">
+								<b-form-select id="wdate"
+									name="wdate"
+									:options="wdates"
+									required>
+								</b-form-select>
+							</b-input-group>
+						</b-col>
+					</b-row>
 				</b-form-group>
-			</b-col>
-			<b-col md="3" lg="2" class="px-md-1">
-				<b-input-group append="月">
-					<b-form-select id="wmonth"
-						name="wmonth"
-						v-model:value="wmonth"
-						:options="wmonths"
-						required>
-					</b-form-select>
-				</b-input-group>
-			</b-col>
-			<b-col md="3" lg="2" class="px-md-1">
-				<b-input-group append="日">
-					<b-form-select id="wdate"
-						name="wdate"
-						:options="wdates"
-						required>
-					</b-form-select>
-				</b-input-group>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
 			<b-col md="6">
 				<b-form-group
 					label="希望從事職務 *（至少填一項）"
-					label-for="expectedPositions1"
-					:description="errmsg.expectedPositions">
-					<b-input-group prepend="志願一">
+					label-for="expectedPositions1">
+					<b-input-group prepend="志願一" class="mb-3">
 						<b-form-select id="expectedPositions1"
 							name="expectedPositions1"
 							:value="null"
@@ -63,51 +64,35 @@
 							required>
 						</b-form-select>
 					</b-input-group>
+					<b-input-group prepend="志願二" class="mb-3">
+						<b-form-select id="expectedPositions2"
+							name="expectedPositions2"
+							:value="null"
+							:options="expectedPositions">
+						</b-form-select>
+					</b-input-group>
+					<b-input-group prepend="志願三" class="mb-3">
+						<b-form-select id="expectedPositions3"
+							name="expectedPositions3"
+							:value="null"
+							:options="expectedPositions">
+						</b-form-select>
+					</b-input-group>
+					<b-input-group v-show="positionCount > 3" prepend="志願四" class="mb-3">
+						<b-form-select id="expectedPositions4"
+							name="expectedPositions4"
+							:value="null"
+							:options="expectedPositions">
+						</b-form-select>
+					</b-input-group>
+					<b-input-group v-show="positionCount > 4" prepend="志願五" class="mb-3">
+						<b-form-select id="expectedPositions5"
+							name="expectedPositions5"
+							:value="null"
+							:options="expectedPositions">
+						</b-form-select>
+					</b-input-group>
 				</b-form-group>
-			</b-col>
-		</b-row>
-		<b-row class="my-1">
-			<b-col md="6">
-				<b-input-group prepend="志願二" class="mb-3">
-					<b-form-select id="expectedPositions2"
-						name="expectedPositions2"
-						:value="null"
-						:options="expectedPositions">
-					</b-form-select>
-				</b-input-group>
-			</b-col>
-		</b-row>
-		<b-row class="my-1">
-			<b-col md="6">
-				<b-input-group prepend="志願三" class="mb-3">
-					<b-form-select id="expectedPositions3"
-						name="expectedPositions3"
-						:value="null"
-						:options="expectedPositions">
-					</b-form-select>
-				</b-input-group>
-			</b-col>
-		</b-row>
-		<b-row v-show="positionCount > 3" class="my-1">
-			<b-col md="6">
-				<b-input-group prepend="志願四" class="mb-3">
-					<b-form-select id="expectedPositions4"
-						name="expectedPositions4"
-						:value="null"
-						:options="expectedPositions">
-					</b-form-select>
-				</b-input-group>
-			</b-col>
-		</b-row>
-		<b-row v-show="positionCount > 4" class="my-1">
-			<b-col md="6">
-				<b-input-group prepend="志願五" class="mb-3">
-					<b-form-select id="expectedPositions5"
-						name="expectedPositions5"
-						:value="null"
-						:options="expectedPositions">
-					</b-form-select>
-				</b-input-group>
 			</b-col>
 		</b-row>
 		<b-row class="mb-3">
@@ -127,8 +112,7 @@
 			<b-col md="6">
 				<b-form-group
 					label="希望待遇 *"
-					label-for="expectedPay"
-					:description="errmsg.expectedPay">
+					label-for="expectedPay">
 					<b-form-input type="text" id="expectedPay"
 						name="expectedPay"
 						required
@@ -140,8 +124,7 @@
 		<b-row class="my-1">
 			<b-col md="9" lg="7">
 				<b-form-group
-					label="如何得知本次徵才資訊 *"
-					:description="errmsg.infoSource">
+					label="如何得知本次徵才資訊 *">
 					<b-form-radio-group id="infoSource" name="infoSource" required>
 						<b-form-radio class="mt-2" value="Facebook">Facebook</b-form-radio>
 						<b-form-radio class="mt-2" value="國泰網站">國泰網站</b-form-radio>
@@ -165,7 +148,6 @@
 <script>
 export default {
 	props: {
-		errmsg: Object,
 		range: Function
 	},
 	data() {
@@ -285,15 +267,6 @@ export default {
 	#other-sourse
 		white-space: nowrap
 
-	@include media-breakpoint-up(md)
-		#wmonth,
-		#wdate,
-		.custom-select:not(#wyear) + .input-group-append
-			margin-top: 1.875rem
-
-	@include media-breakpoint-down(md)
-		#wmonth,
-		#wdate,
-		.custom-select:not(#wyear) + .input-group-append
-			margin-bottom: 1rem
+	.input-group-prepend > .input-group-text
+		padding: 0.375rem 0.75rem 0.375rem 0;
 </style>

@@ -3,34 +3,29 @@
 		<h2 class="my-4 title">過往經歷</h2>
 		<!-- 社團經歷 -->
 		<Club
-			:errmsg="errmsg"
 			:years="years"
 			:months="months"
 			count="1">
 		</Club>
 		<Club
-			:errmsg="errmsg"
 			:years="years"
 			:months="months"
 			count="2"
 			v-show="clubCount > 1">
 		</Club>
 		<Club
-			:errmsg="errmsg"
 			:years="years"
 			:months="months"
 			count="3"
 			v-show="clubCount > 2">
 		</Club>
 		<Club
-			:errmsg="errmsg"
 			:years="years"
 			:months="months"
 			count="4"
 			v-show="clubCount > 3">
 		</Club>
 		<Club
-			:errmsg="errmsg"
 			:years="years"
 			:months="months"
 			count="5"
@@ -51,34 +46,29 @@
 		</b-row>
 		<!-- 工作經驗 -->
 		<Work
-			:errmsg="errmsg"
 			:years="years"
 			:months="months"
 			count="1">
 		</Work>
 		<Work
-			:errmsg="errmsg"
 			:years="years"
 			:months="months"
 			count="2"
 			v-show="workCount > 1">
 		</Work>
 		<Work
-			:errmsg="errmsg"
 			:years="years"
 			:months="months"
 			count="3"
 			v-show="workCount > 2">
 		</Work>
 		<Work
-			:errmsg="errmsg"
 			:years="years"
 			:months="months"
 			count="4"
 			v-show="workCount > 3">
 		</Work>
 		<Work
-			:errmsg="errmsg"
 			:years="years"
 			:months="months"
 			count="5"
@@ -98,9 +88,7 @@
 			</b-col>
 		</b-row>
 		<!-- 新增技能/語言/證照 -->
-		<Skills
-			:errmsg="errmsg">
-		</Skills>
+		<Skills></Skills>
 	</b-container>
 </template>
 
@@ -111,7 +99,6 @@ import Skills from '@/components/resume-form/resume-components/skills';
 
 export default {
 	props: {
-		errmsg: Object,
 		range: Function
 	},
 	components: {

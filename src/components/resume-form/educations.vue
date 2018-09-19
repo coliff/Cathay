@@ -2,30 +2,25 @@
 	<b-container fluid id="educations" class="no-padding">
 		<h2 class="mt-4 title">教育背景</h2>
 		<Education class="pt-4"
-			:errmsg="errmsg"
 			:range="range"
 			count="1">
 		</Education>
 		<Education class="pt-4"
-			:errmsg="errmsg"
 			:range="range"
 			count="2"
 			v-show="educationCount > 1">
 		</Education>
 		<Education class="pt-4"
-			:errmsg="errmsg"
 			:range="range"
 			count="3"
 			v-show="educationCount > 2">
 		</Education>
 		<Education class="pt-4"
-			:errmsg="errmsg"
 			:range="range"
 			count="4"
 			v-show="educationCount > 3">
 		</Education>
 		<Education class="pt-4"
-			:errmsg="errmsg"
 			:range="range"
 			count="5"
 			v-show="educationCount > 4">
@@ -51,7 +46,6 @@ import Education from '@/components/resume-form/resume-components/education';
 
 export default {
 	props: {
-		errmsg: Object,
 		range: Function
 	},
 	data() {

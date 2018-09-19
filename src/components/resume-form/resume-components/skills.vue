@@ -4,8 +4,7 @@
 			<b-col md="6" lg="4">
 				<b-form-group
 					label="專業技能"
-					label-for="professionalSkills1"
-					:description="errmsg.professionalSkills">
+					label-for="professionalSkills1">
 					<ProfessionalSkill count="1"></ProfessionalSkill>
 					<ProfessionalSkill count="2"
 						v-show="skillCount > 1">
@@ -35,8 +34,7 @@
 			<b-col md="6" lg="4">
 				<b-form-group
 					label="語言能力"
-					label-for="languageSkills1"
-					:description="errmsg.languageSkills">
+					label-for="languageSkills1">
 					<LanguageSkill count="1"></LanguageSkill>
 					<LanguageSkill count="2"
 						v-show="languageCount > 1">
