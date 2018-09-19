@@ -371,8 +371,6 @@ export default {
 					alert('謝謝你，我們已收到你的資料！');
 				}
 			}).catch((error) => {
-				console.log('er status', error.response.status);
-				console.log('er message', error.response.data);
 				if (error.response.status == 500) {
 					alert('系統繁忙中，請稍後再試一次');
 				} else {
