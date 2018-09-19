@@ -373,11 +373,11 @@ export default {
 			}).catch((error) => {
 				console.log('er status', error.response.status);
 				console.log('er message', error.response.data);
-				if (error.status == 500) {
+				if (error.response.status == 500) {
 					alert('系統繁忙中，請稍後再試一次');
 				} else {
 					// this.errmsg = JSON.parse(test_response);
-					this.errmsg = JSON.parse(error.message.data);
+					this.errmsg = JSON.parse(error.response.data);
 					alert('格式有誤，請確認無誤後再重新上傳');
 				}
 			});
