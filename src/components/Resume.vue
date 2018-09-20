@@ -1,5 +1,13 @@
 <template>
 	<b-container fluid id="resume" class="no-padding">
+		<b-container fluid id="cover">
+			<b-row align-v="center">
+				<b-col>
+					<img class="my-2" src="static/cathay.png" alt="IT's Time">
+					<h3 class="my-2">資料處理中</h3>
+				</b-col>
+			</b-row>
+		</b-container>
 		<Nav></Nav>
 		<img class="w-50" id="visual" src="@/assets/img/resume_design.png">
 		<b-container fluid>
@@ -289,7 +297,7 @@ export default {
 				data = {},
 				form_data;
 
-			page.classList.add('cover');
+			page.classList.add('covered');
 
 			for (const raw_data of e.target) {
 				if (raw_data.files) {
@@ -316,7 +324,7 @@ export default {
 					'Content-Type': 'multipart/form-data;charset=UTF-8'
 				}
 			}).then((response) => {
-				page.classList.remove('cover');
+				page.classList.remove('covered');
 
 				if (response.status == 200) {
 					document.getElementById('resume-form').reset();
@@ -324,7 +332,7 @@ export default {
 				}
 			}).catch((error) => {
 				let message;
-				page.classList.remove('cover');
+				page.classList.remove('covered');
 
 				if (error.response.status == 500) {
 					message = '系統繁忙中，請稍後再試一次';
@@ -369,17 +377,22 @@ export default {
 			position: absolute
 			margin-left: 35%
 
-		&::before
-			content: ''
+		#cover
 			display: none
-			position: absolute
-			width: 100%
-			height: 100%
+			position: fixed
+			width: 100vw
+			height: 100vh
+			background-color: rgba(255, 255, 255, 0.5)
 			z-index: 10
-			background-color: #fff
-			opacity: 0.5
 
-		&.cover::before
+			& > .row
+				height: 100%
+				text-align: center
+
+			img
+				max-width: 120px
+
+		&.covered > #cover
 			display: block
 
 	.large
