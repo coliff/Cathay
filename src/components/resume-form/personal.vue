@@ -114,6 +114,7 @@
 					label="希望待遇 *"
 					label-for="expectedPay">
 					<b-form-input type="text" id="expectedPay"
+						@input="debounce"
 						name="expectedPay"
 						required
 						placeholder="請填寫薪資期待、工作想像">
@@ -134,6 +135,7 @@
 						<div id="other-sourse" class="mt-2">
 							<b-form-radio value="其他">其他</b-form-radio>
 							<b-form-input type="text" id="infoSourceOther"
+								@input="debounce"
 								class="d-inline-block w-75 mb-0"
 								name="infoSourceOther">
 							</b-form-input>
@@ -258,6 +260,11 @@ export default {
 	methods: {
 		addPosition: function() {
 			if (this.positionCount < 5) this.positionCount++;
+		},
+		debounce: function() {
+			this.$_.debounce(function(e) {
+				this.filterKey = e.target.value;
+			}, 300);
 		}
 	}
 }

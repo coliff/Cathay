@@ -7,6 +7,7 @@
 					label="姓名 *"
 					label-for="name">
 					<b-form-input type="text" id="name"
+						@input="debounce"
 						name="name"
 						required
 						placeholder="e.g. 林大豪">
@@ -146,6 +147,7 @@
 			</b-col>
 			<b-col md="6">
 				<b-form-input type="text" id="address"
+					@input="debounce"
 					name="address"
 					required>
 				</b-form-input>
@@ -246,6 +248,13 @@ export default {
 				this.districts.push(d);
 			}
 			this.district = this.districts[0];
+		}
+	},
+	methods: {
+		debounce: function() {
+			this.$_.debounce(function(e) {
+				this.filterKey = e.target.value;
+			}, 300);
 		}
 	}
 }
