@@ -41,12 +41,6 @@
 						id="submit">
 						送出
 					</b-button>
-					<b-button type="button"
-						@click="fillInData()"
-						class="d-block mx-auto mt-5"
-						id="fill-in">
-						測資
-					</b-button>
 				</form>
 			</b-container>
 		</b-container>
@@ -348,41 +342,6 @@ export default {
 					alert(inputs + message);
 				}
 			});
-		},
-		fillInData: function() {
-			let inputs = document.getElementsByTagName("input"),
-				selects = document.getElementsByTagName("select"),
-				radio = document.getElementById("infoSource");
-
-			radio.children[0].children[0].checked = true;
-
-			for (let i of inputs) {
-				switch (i.type) {
-				case 'text':
-					i.value = '測試文字';
-					break;
-				case 'tel':
-					i.value = '987654321';
-					break;
-				case 'email':
-					i.value = 'test@test.com';
-					break;
-				case 'url':
-					i.value = 'https://google.com';
-					break;
-				default:
-				}
-			}
-
-			for (let s of selects) {
-				s.children[2].selected = true;
-			}
-
-			let enName = document.getElementById("enName"),
-				idNumber = document.getElementById("idNumber");
-
-			enName.value = 'English Name';
-			idNumber.value = 'A123456789';
 		}
 	}
 }
@@ -415,14 +374,6 @@ export default {
 		border-radius: 1.2em
 		padding: 0.3em 2.2em
 		background-color: $light-green-text
-		font-size: 2rem
-		letter-spacing: 0.2em
-
-	#fill-in
-		border: none
-		border-radius: 1.2em
-		padding: 0.3em 2.2em
-		background-color: $orange
 		font-size: 2rem
 		letter-spacing: 0.2em
 </style>
