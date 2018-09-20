@@ -8,7 +8,7 @@
 				<br>
 				<div id="intro">
 					【註一】建議可事先備妥客製化自傳 / 履歷 / 作品集，以及個人近照，以節省您履歷填寫的時間<br>
-					【註二】請勿重覆投遞履歷  
+					【註二】請勿重覆投遞履歷
 				</div>
 				<br><br><br>
 				<div id="contact">
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-	name: 'ToOB'
+	name: 'IndexResume'
 }
 </script>
 

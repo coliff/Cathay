@@ -14,7 +14,7 @@
 						<div class="job">
 							<h4>客服系統整合工程師</h4>
 							<h5>國泰人壽 / 國泰產險</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -34,7 +34,7 @@
 						<div class="job">
 							<h4>應用系統開發工程師></h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -59,7 +59,7 @@
 						<div class="job">
 							<h4>應用系統分析工程師</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -79,7 +79,7 @@
 						<div class="job">
 							<h4>伺服器系統管理工程師(Linux、Windows、AIX)</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -105,7 +105,7 @@
 						<div class="job">
 							<h4>應用伺服器系統工程師(WAS、JBoss)</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -129,7 +129,7 @@
 						<div class="job">
 							<h4>資料庫系統管理工程師(DB2、SQL、Open source)</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -153,7 +153,7 @@
 						<div class="job">
 							<h4>雲端虛擬化系統工程師(VMWare、Hyper-V)</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -173,7 +173,7 @@
 						<div class="job">
 							<h4>網路系統管理工程師</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -198,7 +198,7 @@
 						<div class="job">
 							<h4>應用系統品質管理工程師</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -214,7 +214,7 @@
 						<div class="job">
 							<h4>大數據資料工程師</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -236,7 +236,7 @@
 						<div class="job">
 							<h4>前端工程師 (Front-end Developer)</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -259,7 +259,7 @@
 						<div class="job">
 							<h4>智能客服研發工程師</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -278,7 +278,7 @@
 						<div class="job">
 							<h4>行動化App開發工程師</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -308,13 +308,13 @@
 						<div class="job">
 							<h4>機器學習研發工程師</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
 								<ul>
 									<li>利用統計分析、機器學習演算法等技術實作解決業務問題。</li>
-									<li>在跨部門合作專案中協助單位透過大數據分析模型萃取資料價值，並設計數據應用解決方案。</li>					
+									<li>在跨部門合作專案中協助單位透過大數據分析模型萃取資料價值，並設計數據應用解決方案。</li>
 								</ul>
 								<br>
 								職位要求：<br>
@@ -330,7 +330,7 @@
 						<div class="job">
 							<h4>資訊安全防護工程師</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -356,7 +356,7 @@
 						<div class="job">
 							<h4>資訊安全制度管理工程師</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -383,7 +383,7 @@
 						<div class="job">
 							<h4>東南亞語系儲備資訊人員(越南、印尼)</h4>
 							<h5>國泰人壽</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -406,7 +406,7 @@
 						<div class="job">
 							<h4>資料工程師</h4>
 							<h5>國泰證券</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -430,7 +430,7 @@
 						<div class="job">
 							<h4>數據分析師</h4>
 							<h5>國泰證券</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -452,7 +452,7 @@
 						<div class="job">
 							<h4>金融交易工程師</h4>
 							<h5>國泰證券</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -475,7 +475,7 @@
 						<div class="job">
 							<h4>網頁程式開發師</h4>
 							<h5>國泰證券</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -495,7 +495,7 @@
 						<div class="job">
 							<h4>UX設計師</h4>
 							<h5>國泰證券</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -519,7 +519,7 @@
 						<div class="job">
 							<h4>客服系統整合工程師</h4>
 							<h5>國泰人壽 / 國泰產險</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -539,7 +539,7 @@
 						<div class="job">
 							<h4>JAVA程式開發師</h4>
 							<h5>國泰產險</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -563,7 +563,7 @@
 						<div class="job">
 							<h4>APP軟體工程師</h4>
 							<h5>國泰銀行</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -582,7 +582,7 @@
 						<div class="job">
 							<h4>ITSM系統管理人員</h4>
 							<h5>國泰銀行</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -608,7 +608,7 @@
 						<div class="job">
 							<h4>大數據開發維運工程師</h4>
 							<h5>國泰銀行</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -634,7 +634,7 @@
 						<div class="job">
 							<h4>系統分析工程師</h4>
 							<h5>國泰銀行</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -657,7 +657,7 @@
 						<div class="job">
 							<h4>測試規劃人員</h4>
 							<h5>國泰銀行</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -679,7 +679,7 @@
 						<div class="job">
 							<h4>程式開發工程師</h4>
 							<h5>國泰銀行</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -703,7 +703,7 @@
 						<div class="job">
 							<h4>數據應用工程師</h4>
 							<h5>國泰銀行</h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
@@ -728,7 +728,7 @@
 						<div class="job">
 							<h4>應用系統開發工程師</h4>
 							<h5>國泰人壽 <span class="green">台中場</span></h5>
-							<div class="btn">立即填寫履歷</div>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>

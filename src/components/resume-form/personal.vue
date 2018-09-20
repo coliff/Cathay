@@ -1,12 +1,11 @@
 <template>
-	<b-container fluid id="personal">
+	<b-container fluid id="personal" class="no-padding">
 		<h2 class="my-4 title">應徵明細</h2>
 		<b-row class="my-1">
-			<b-col md="3">
+			<b-col md="3" lg="2">
 				<b-form-group
 					label="目前狀態 *"
-					label-for="jobStatus"
-					:description="errmsg.jobStatus">
+					label-for="jobStatus">
 					<b-form-select id="jobStatus"
 						name="jobStatus"
 						:value="jobStatus"
@@ -15,47 +14,49 @@
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col md="3" class="px-md-1">
+			<b-col md="9" lg="6" class="px-md-1">
 				<b-form-group class="no-padding"
 					label="最快可上班日 *"
-					label-for="wyear"
-					:description="errmsg.onDutyDate">
-					<b-input-group append="年">
-						<b-form-select id="wyear"
-							name="wyear"
-							:options="wyears"
-							required>
-						</b-form-select>
-					</b-input-group>
+					label-for="wyear">
+					<b-row>
+						<b-col>
+							<b-input-group append="年">
+								<b-form-select id="wyear"
+									name="wyear"
+									:options="wyears"
+									required>
+								</b-form-select>
+							</b-input-group>
+						</b-col>
+						<b-col>
+							<b-input-group append="月">
+								<b-form-select id="wmonth"
+									name="wmonth"
+									v-model:value="wmonth"
+									:options="wmonths"
+									required>
+								</b-form-select>
+							</b-input-group>
+						</b-col>
+						<b-col>
+							<b-input-group append="日">
+								<b-form-select id="wdate"
+									name="wdate"
+									:options="wdates"
+									required>
+								</b-form-select>
+							</b-input-group>
+						</b-col>
+					</b-row>
 				</b-form-group>
-			</b-col>
-			<b-col md="3" class="px-md-1">
-				<b-input-group append="月">
-					<b-form-select id="wmonth"
-						name="wmonth"
-						v-model:value="wmonth"
-						:options="wmonths"
-						required>
-					</b-form-select>
-				</b-input-group>
-			</b-col>
-			<b-col md="3" class="px-md-1">
-				<b-input-group append="日">
-					<b-form-select id="wdate"
-						name="wdate"
-						:options="wdates"
-						required>
-					</b-form-select>
-				</b-input-group>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
 			<b-col md="6">
 				<b-form-group
 					label="希望從事職務 *（至少填一項）"
-					label-for="expectedPositions1"
-					:description="errmsg.expectedPositions">
-					<b-input-group prepend="志願一">
+					label-for="expectedPositions1">
+					<b-input-group prepend="志願一" class="mb-3">
 						<b-form-select id="expectedPositions1"
 							name="expectedPositions1"
 							:value="null"
@@ -63,73 +64,57 @@
 							required>
 						</b-form-select>
 					</b-input-group>
+					<b-input-group prepend="志願二" class="mb-3">
+						<b-form-select id="expectedPositions2"
+							name="expectedPositions2"
+							:value="null"
+							:options="expectedPositions">
+						</b-form-select>
+					</b-input-group>
+					<b-input-group prepend="志願三" class="mb-3">
+						<b-form-select id="expectedPositions3"
+							name="expectedPositions3"
+							:value="null"
+							:options="expectedPositions">
+						</b-form-select>
+					</b-input-group>
+					<b-input-group v-show="positionCount > 3" prepend="志願四" class="mb-3">
+						<b-form-select id="expectedPositions4"
+							name="expectedPositions4"
+							:value="null"
+							:options="expectedPositions">
+						</b-form-select>
+					</b-input-group>
+					<b-input-group v-show="positionCount > 4" prepend="志願五" class="mb-3">
+						<b-form-select id="expectedPositions5"
+							name="expectedPositions5"
+							:value="null"
+							:options="expectedPositions">
+						</b-form-select>
+					</b-input-group>
 				</b-form-group>
 			</b-col>
 		</b-row>
-		<b-row class="my-1">
-			<b-col md="6">
-				<b-input-group prepend="志願二">
-					<b-form-select id="expectedPositions2"
-						name="expectedPositions2"
-						:value="null"
-						:options="expectedPositions">
-					</b-form-select>
-				</b-input-group>
-			</b-col>
-		</b-row>
-		<b-row class="my-1">
-			<b-col md="6">
-				<b-input-group prepend="志願三">
-					<b-form-select id="expectedPositions3"
-						name="expectedPositions3"
-						:value="null"
-						:options="expectedPositions">
-					</b-form-select>
-				</b-input-group>
-			</b-col>
-		</b-row>
-		<b-row v-show="positionCount > 3" class="my-1">
-			<b-col md="6">
-				<b-input-group prepend="志願四">
-					<b-form-select id="expectedPositions4"
-						name="expectedPositions4"
-						:value="null"
-						:options="expectedPositions">
-					</b-form-select>
-				</b-input-group>
-			</b-col>
-		</b-row>
-		<b-row v-show="positionCount > 4" class="my-1">
-			<b-col md="6">
-				<b-input-group prepend="志願五">
-					<b-form-select id="expectedPositions5"
-						name="expectedPositions5"
-						:value="null"
-						:options="expectedPositions">
-					</b-form-select>
-				</b-input-group>
-			</b-col>
-		</b-row>
-		<b-row class="mt-1 mb-4">
-			<b-col md="4">
+		<b-row class="mb-3">
+			<b-col md="4"class="add">
 				<b-button id="addPosition"
 					variant="outline-success"
 					@click="addPosition">
-					<svg class="add" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+					<svg class="iconAdd" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
 						<path d="M3 0v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2z" />
 					</svg>
 					新增志願
 				</b-button>
-				<span>其他 {{ 5 - positionCount }} 項</span>
+				<span class="remaining">其他 {{ 5 - positionCount }} 項</span>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
 			<b-col md="6">
 				<b-form-group
 					label="希望待遇 *"
-					label-for="expectedPay"
-					:description="errmsg.expectedPay">
+					label-for="expectedPay">
 					<b-form-input type="text" id="expectedPay"
+						@input="debounce"
 						name="expectedPay"
 						required
 						placeholder="請填寫薪資期待、工作想像">
@@ -137,23 +122,26 @@
 				</b-form-group>
 			</b-col>
 		</b-row>
-		<b-row class="my-3">
-			<b-col md="7">
+		<b-row class="my-1">
+			<b-col md="9" lg="7">
 				<b-form-group
-					label="如何得知本次徵才資訊 *"
-					:description="errmsg.infoSource">
+					label="如何得知本次徵才資訊 *">
 					<b-form-radio-group id="infoSource" name="infoSource" required>
-						<b-form-radio value="Facebook">Facebook</b-form-radio>
-						<b-form-radio value="國泰網站">國泰網站</b-form-radio>
-						<b-form-radio value="親戚朋友">親戚朋友</b-form-radio>
-						<b-form-radio value="人力銀行">人力銀行</b-form-radio>
-						<b-form-radio value="其他">其他</b-form-radio>
+						<b-form-radio class="mt-2" value="Facebook">Facebook</b-form-radio>
+						<b-form-radio class="mt-2" value="國泰網站">國泰網站</b-form-radio>
+						<b-form-radio class="mt-2" value="親戚朋友">親戚朋友</b-form-radio>
+						<b-form-radio class="mt-2" value="人力銀行">人力銀行</b-form-radio>
+						<br>
+						<div id="other-sourse" class="mt-2">
+							<b-form-radio value="其他">其他</b-form-radio>
+							<b-form-input type="text" id="infoSourceOther"
+								@input="debounce"
+								class="d-inline-block w-75 mb-0"
+								name="infoSourceOther">
+							</b-form-input>
+						</div>
 					</b-form-radio-group>
 				</b-form-group>
-				<b-form-input type="text" id="infoSourceOther"
-					name="infoSourceOther"
-					placeholder="如何得知本次徵才資訊">
-				</b-form-input>
 			</b-col>
 		</b-row>
 	</b-container>
@@ -162,7 +150,6 @@
 <script>
 export default {
 	props: {
-		errmsg: Object,
 		range: Function
 	},
 	data() {
@@ -185,35 +172,60 @@ export default {
 					value: null,
 					disabled: true
 				},
-				"客服系統整合工程師",
-				"應用系統開發工程師",
-				"應用系統分析工程師",
-				"伺服器系統管理工程師(Linux、Windows、AIX)",
-				"應用伺服器系統工程師(WAS、JBoss)",
-				"資料庫系統管理工程師(DB2、SQL、Open source)",
-				"雲端虛擬化系統工程師(VMWare、Hyper-V)",
-				"網路系統管理工程師",
-				"應用系統品質管理工程師",
-				"大數據資料工程師",
-				"前端工程師(Front-end Developer)",
-				"智能客服研發工程師",
-				"機器學習研發工程師",
-				"資訊安全防護工程師",
-				"資訊安全制度管理工程師",
-				"東南亞語系儲備資訊人員(越南、印尼)",
-				"資料工程師",
-				"數據分析師",
-				"金融交易工程師",
-				"網頁程式開發師",
-				"UX設計師",
-				"JAVA程式開發師",
-				"APP軟體工程師",
-				"ITmd系統管理人員",
-				"大數據開發維運工程師",
-				"系統分析工程師",
-				"測試規劃人員",
-				"程式開發工程師",
-				"數據應用工程師"
+				{
+					text: "國泰人壽",
+					value: null,
+					disabled: true
+				},
+				"國泰人壽｜客服系統整合工程師",
+				"國泰人壽｜應用系統開發工程師",
+				"國泰人壽｜應用系統分析工程師",
+				"國泰人壽｜伺服器系統管理工程師(Linux、Windows、AIX)",
+				"國泰人壽｜應用伺服器系統工程師(WAS、JBoss)",
+				"國泰人壽｜資料庫系統管理工程師(DB2、SQL、Open source)",
+				"國泰人壽｜雲端虛擬化系統工程師(VMWare、Hyper-V)",
+				"國泰人壽｜網路系統管理工程師",
+				"國泰人壽｜應用系統品質管理工程師",
+				"國泰人壽｜大數據資料工程師",
+				"國泰人壽｜前端工程師(Front-end Developer)",
+				"國泰人壽｜智能客服研發工程師",
+				"國泰人壽｜行動化App開發工程師",
+				"國泰人壽｜機器學習研發工程師",
+				"國泰人壽｜資訊安全防護工程師",
+				"國泰人壽｜資訊安全制度管理工程師",
+				"國泰人壽｜東南亞語系儲備資訊人員(越南、印尼)",
+				{
+					text: "國泰人壽 台中場",
+					value: null,
+					disabled: true
+				},
+				"國泰人壽 台中場｜應用系統開發工程師",
+				{
+					text: "國泰證券",
+					value: null,
+					disabled: true
+				},
+				"國泰證券｜資料工程師",
+				"國泰證券｜數據分析師",
+				"國泰證券｜金融交易工程師",
+				"國泰證券｜網頁程式開發師",
+				"國泰證券｜UX設計師",
+				{
+					text: "國泰產險",
+					value: null,
+					disabled: true
+				},
+				"國泰產險｜客服系統整合工程師",
+				"國泰產險｜JAVA程式開發師",
+				{
+					text: "國泰銀行",
+					value: null,
+					disabled: true
+				},
+				"國泰銀行｜APP軟體工程師",
+				"國泰銀行｜ITSM系統管理人員",
+				"國泰銀行｜大數據開發維運工程師",
+				"國泰銀行｜系統分析工程師"
 			]
 		}
 	},
@@ -248,27 +260,20 @@ export default {
 	methods: {
 		addPosition: function() {
 			if (this.positionCount < 5) this.positionCount++;
+		},
+		debounce: function() {
+			this.$_.debounce(function(e) {
+				this.filterKey = e.target.value;
+			}, 300);
 		}
 	}
 }
 </script>
 
 <style lang="sass" scoped>
-	#personal
-		padding: 0
+	#other-sourse
+		white-space: nowrap
 
-		.input-group:not(first-of-type)
-			margin-bottom: 1rem;
-
-	@include media-breakpoint-up(md)
-		#wmonth,
-		#wdate,
-		.custom-select:not(#wyear) + .input-group-append
-			margin-top: 1.875rem
-
-	@include media-breakpoint-down(md)
-		#wmonth,
-		#wdate,
-		.custom-select:not(#wyear) + .input-group-append
-			margin-bottom: 1rem
+	.input-group-prepend > .input-group-text
+		padding: 0.375rem 0.75rem 0.375rem 0;
 </style>

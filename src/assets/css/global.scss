@@ -20,18 +20,9 @@ $light-green-text: #7bb63d;
 
 // Resume page shared rules
 input {
-	margin-bottom: 0.8em;
 	&::placeholder {
 		color: #bbb;
 	}
-}
-
-textarea::placeholder {
-	color: #bbb;
-}
-
-.col-form-label {
-	white-space: nowrap;
 }
 
 .input-group-text {
@@ -45,16 +36,24 @@ textarea::placeholder {
 	&:hover {
 		color: $white;
 		background-color: $darker-green-text;
-		.add {
+		.iconAdd {
 			fill: $white;
 		}
 	}
 }
 
-.add {
+.iconAdd {
 	width: 10%;
 	fill: $darker-green-text;
 	transition: fill 0.15s ease-in-out
+}
+
+.add {
+	white-space: nowrap;
+}
+
+.remaining {
+	vertical-align: middle;
 }
 
 // jobs
@@ -119,7 +118,7 @@ textarea::placeholder {
 		}
 
 		li {
-			font-size: 1.45vw;
+			white-space: nowrap;
 		}
 	}
 

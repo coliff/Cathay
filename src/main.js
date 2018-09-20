@@ -8,10 +8,12 @@ import axios from 'axios';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import lodash from 'lodash';
 
 Vue.use(BootstrapVue);
 
 Vue.prototype.$http = axios;
+Vue.prototype.$_ = lodash;
 
 Vue.config.productionTip = false;
 

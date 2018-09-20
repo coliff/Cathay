@@ -1,13 +1,13 @@
 <template>
-	<b-container fluid id="basic-info">
+	<b-container fluid id="basic-info" class="no-padding">
 		<h2 class="my-4 title">基本資料</h2>
 		<b-row class="my-1">
 			<b-col md="6">
 				<b-form-group
 					label="姓名 *"
-					label-for="name"
-					:description="errmsg.name">
+					label-for="name">
 					<b-form-input type="text" id="name"
+						@input="debounce"
 						name="name"
 						required
 						placeholder="e.g. 林大豪">
@@ -17,8 +17,7 @@
 			<b-col md="6">
 				<b-form-group
 					label="英文姓名 *"
-					label-for="enName"
-					:description="errmsg.enName">
+					label-for="enName">
 					<b-form-input type="text" id="enName"
 						name="enName"
 						required
@@ -68,11 +67,10 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-form-group class="no-padding"
 					label="生日 *"
-					label-for="byear"
-					:description="errmsg.birthday">
+					label-for="byear">
 					<b-input-group append="年">
 						<b-form-select id="byear"
 							name="byear"
@@ -82,7 +80,7 @@
 					</b-input-group>
 				</b-form-group>
 			</b-col>
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-input-group append="月">
 					<b-form-select id="bmonth"
 						name="bmonth"
@@ -92,7 +90,7 @@
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-input-group append="日">
 					<b-form-select id="bdate"
 						name="bdate"
@@ -101,11 +99,10 @@
 					</b-form-select>
 				</b-input-group>
 			</b-col>
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-form-group
 					label="性別 *"
-					label-for="gender"
-					:description="errmsg.gender">
+					label-for="gender">
 					<b-form-select id="gender"
 						name="gender"
 						:value="null"
@@ -114,11 +111,10 @@
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-form-group
 					label="兵役狀況 *"
-					label-for="military"
-					:description="errmsg.military">
+					label-for="military">
 					<b-form-select id="military"
 						name="military"
 						:value="null"
@@ -129,11 +125,10 @@
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-form-group
 					label="通訊地址 *"
-					label-for="cities"
-					:description="errmsg.address">
+					label-for="city">
 					<b-form-select id="city"
 						name="city"
 						v-model="city"
@@ -142,7 +137,7 @@
 					</b-form-select>
 				</b-form-group>
 			</b-col>
-			<b-col md="2">
+			<b-col md="3" lg="2">
 				<b-form-select id="district"
 					name="district"
 					v-model:value="district"
@@ -152,13 +147,14 @@
 			</b-col>
 			<b-col md="6">
 				<b-form-input type="text" id="address"
+					@input="debounce"
 					name="address"
 					required>
 				</b-form-input>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
-			<b-col md="12">
+			<b-col md="12" lg="6">
 				<b-form-group class="file-upload-btn"
 					label="上傳個人照片 *"
 					label-for="photo"
@@ -253,14 +249,18 @@ export default {
 			}
 			this.district = this.districts[0];
 		}
+	},
+	methods: {
+		debounce: function() {
+			this.$_.debounce(function(e) {
+				this.filterKey = e.target.value;
+			}, 300);
+		}
 	}
 }
 </script>
 
 <style lang="sass" scoped>
-	#basic-info
-		padding: 0
-
 	@include media-breakpoint-up(md)
 		#bmonth,
 		#bdate,
@@ -269,7 +269,7 @@ export default {
 		.custom-select:not(#byear) + .input-group-append
 			margin-top: 1.875rem
 
-	@include media-breakpoint-down(md)
+	@include media-breakpoint-down(sm)
 		#bmonth,
 		#bdate,
 		#district,

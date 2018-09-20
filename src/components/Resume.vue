@@ -16,66 +16,24 @@
 			<b-container fluid class="pb-5" id="info">
 				<form id="resume-form" @submit.prevent="submitForm">
 					<!-- 基本資料 -->
-					<BasicInfo class="pt-5"
+					<BasicInfo class="pt-4"
 						:errmsg="errmsg"
 						:range="range">
 					</BasicInfo>
 					<!-- 應徵明細 -->
-					<Personal class="pt-5"
-						:errmsg="errmsg"
+					<Personal class="pt-4"
 						:range="range">
 					</Personal>
 					<!-- 教育背景 -->
-					<h2 class="mt-4 mb-1 title">教育背景</h2>
-					<Education class="pt-4"
-						:errmsg="errmsg"
-						:range="range"
-						count="1">
-					</Education>
-					<Education class="pt-4"
-						:errmsg="errmsg"
-						:range="range"
-						count="2"
-						v-show="educationCount > 1">
-					</Education>
-					<Education class="pt-4"
-						:errmsg="errmsg"
-						:range="range"
-						count="3"
-						v-show="educationCount > 2">
-					</Education>
-					<Education class="pt-4"
-						:errmsg="errmsg"
-						:range="range"
-						count="4"
-						v-show="educationCount > 3">
-					</Education>
-					<Education class="pt-4"
-						:errmsg="errmsg"
-						:range="range"
-						count="5"
-						v-show="educationCount > 4">
-					</Education>
-					<b-row class="my-3">
-						<b-col md="4">
-							<b-button id="addEducation"
-								variant="outline-success"
-								@click="addEducation">
-								<svg class="add" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
-									<path d="M3 0v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2z" />
-								</svg>
-								新增教育背景
-							</b-button>
-							<span>其他 {{ 5 - educationCount }} 項</span>
-						</b-col>
-					</b-row>
+					<Educations class="pt-4"
+						:range="range">
+					</Educations>
 					<!-- 過往經歷 -->
-					<Experience class="pt-5"
-						:errmsg="errmsg"
+					<Experience class="pt-4"
 						:range="range">
 					</Experience>
 					<!-- 過往作品 -->
-					<Portfolio class="pt-5"
+					<Portfolio class="pt-4"
 						:errmsg="errmsg">
 					</Portfolio>
 					<b-button type="submit"
@@ -93,7 +51,7 @@
 import Nav from '@/components/nav';
 import BasicInfo from '@/components/resume-form/basicInfo';
 import Personal from '@/components/resume-form/personal';
-import Education from '@/components/resume-form/resume-components/education';
+import Educations from '@/components/resume-form/educations';
 import Experience from '@/components/resume-form/experience';
 import Portfolio from '@/components/resume-form/portfolio';
 
@@ -101,20 +59,19 @@ export default {
 	name: 'Resume',
 	data() {
 		return {
-			errmsg: {},
-			educationCount: 1
+			errmsg: {}
 		}
 	},
 	components: {
 		Nav,
 		BasicInfo,
 		Personal,
-		Education,
+		Educations,
 		Experience,
 		Portfolio
 	},
 	methods: {
-		range: (start, end) => {
+		range: function(start, end) {
 			if (end >= start) {
 				let span = end - start + 1;
 				return [...Array(span).keys()].map(m => start + m);
@@ -122,9 +79,6 @@ export default {
 				let span = start - end + 1;
 				return [...Array(span).fill(start)].map((m, i) => m - i);
 			}
-		},
-		addEducation: function() {
-			if (this.educationCount < 5) this.educationCount++;
 		},
 		setPeriod: function(d_syear, d_smonth, d_eyear, d_emonth) {
 			let start, end;
@@ -139,45 +93,38 @@ export default {
 			else
 				return null;
 		},
-		submitForm: async function(e) {
-			// Input 資料：e.targrt[index].value
-			// 上傳檔案：e.target[index].files[index2]
-			let data = {},
-				photo,
-				resume,
-				form_data = new FormData(),
-				response;
-
-			for (const raw_data of e.target) {
-				if (raw_data.files) {
-					if (raw_data.files[0].type === "application/pdf") {
-						resume = raw_data.files[0];
-					} else if (raw_data.files[0].type.indexOf('image') > -1) {
-						photo = raw_data.files[0];
-					}
-				} else if (raw_data.name === 'infoSource') {
-					if (raw_data.checked) {
-						data[raw_data.name] = raw_data.value;
-					}
-				} else if (raw_data.value) {
-					data[raw_data.name] = raw_data.value;
-				}
-			};
-
-			data["birthday"] = data["byear"] + (data["bmonth"].length < 2 ? '0' : '') + data["bmonth"] + (data["bdate"].length < 2 ? '0' : '') + data["bdate"];
+		setBirthday: function(data) {
+			data["birthday"] =
+				data["byear"] +
+				(data["bmonth"].length < 2 ? '0' : '') + data["bmonth"] +
+				(data["bdate"].length < 2 ? '0' : '') + data["bdate"];
 			delete data["byear"];
 			delete data["bmonth"];
 			delete data["bdate"];
+			return data;
+		},
+		setAddress: function(data) {
+			if (!(data["city"] && data["district"] && data["address"])) {
+				return data;
+			}
 
 			data["address"] = data["city"] + data["district"] + data["address"];
 			delete data["city"];
 			delete data["district"];
+			return data;
+		},
+		setOnDutyDate: function(data) {
+			if (!(data["wyear"] && data["wmonth"] && data["wdate"])) {
+				return data;
+			}
 
 			data["onDutyDate"] = data["wyear"] + (data["wmonth"].length < 2 ? '0' : '') + data["wmonth"] + (data["wdate"].length < 2 ? '0' : '') + data["wdate"];
 			delete data["wyear"];
 			delete data["wmonth"];
 			delete data["wdate"];
-
+			return data;
+		},
+		setExpectedPositions: function(data) {
 			data["expectedPositions"] = [];
 			for (let i = 1; i < 6; i++) {
 				let d = data["expectedPositions" + i];
@@ -186,7 +133,9 @@ export default {
 					delete data["expectedPositions" + i];
 				}
 			}
-
+			return data;
+		},
+		setEducations: function (data) {
 			data["educations"] = [];
 			for (let i = 1; i < 6; i++) {
 				let d = {},
@@ -216,7 +165,9 @@ export default {
 				}
 				data["educations"].push(d);
 			}
-
+			return data;
+		},
+		setClubs: function(data) {
 			data["clubs"] = [];
 			for (let i = 1; i < 6; i++) {
 				let d = {},
@@ -245,7 +196,9 @@ export default {
 				}
 				data["clubs"].push(d);
 			}
-
+			return data;
+		},
+		setJobs: function(data) {
 			data["jobs"] = [];
 			for (let i = 1; i < 6; i++) {
 				let d = {},
@@ -274,7 +227,9 @@ export default {
 				}
 				data["jobs"].push(d);
 			}
-
+			return data;
+		},
+		setProfessionalSkills: function(data) {
 			data["professionalSkills"] = [];
 			for (let i = 1; i < 6; i++) {
 				let d = data["professionalSkills" + i];
@@ -283,7 +238,9 @@ export default {
 					delete data["professionalSkills" + i];
 				}
 			}
-
+			return data;
+		},
+		setLanguageSkills: function(data) {
 			data["languageSkills"] = [];
 			for (let i = 1; i < 6; i++) {
 				let d = data["languageSkills" + i];
@@ -292,27 +249,98 @@ export default {
 					delete data["languageSkills" + i];
 				}
 			}
+			return data;
+		},
+		process: function (data) {
+			data = this.setBirthday(data);
+			data = this.setAddress(data);
+			data = this.setOnDutyDate(data);
+			data = this.setExpectedPositions(data);
+			data = this.setEducations(data);
+			data = this.setClubs(data);
+			data = this.setJobs(data);
+			data = this.setProfessionalSkills(data);
+			data = this.setLanguageSkills(data);
+
+			return data;
+		},
+		getForm: function(data) {
+			if (!data) return;
+			let form_data = new FormData();
+
+			if (data["photo"]) {
+				form_data.append('photo', data["photo"]);
+				delete data["photo"];
+			}
+
+			if (data["resume"]) {
+				form_data.append('file', data["resume"]);
+				delete data["resume"];
+			}
 
 			data = JSON.stringify(data);
-
-			form_data.append('photo', photo);
 			form_data.append('resume', data);
-			form_data.append('file', resume, resume.name);
+			return form_data;
+		},
+		submitForm: async function(e) {
+			let data = {},
+				form_data;
 
-			response = await this.$http.post('/ittime/upload', form_data, {
+			for (const raw_data of e.target) {
+				if (raw_data.files) {
+					if (raw_data.files[0].type === "application/pdf") {
+						data["resume"] = raw_data.files[0];
+
+					} else if (raw_data.files[0].type.indexOf('image') > -1) {
+						data["photo"] = raw_data.files[0];
+					}
+				} else if (raw_data.name === 'infoSource') {
+					if (raw_data.checked) {
+						data[raw_data.name] = raw_data.value;
+					}
+				} else if (raw_data.value) {
+					data[raw_data.name] = raw_data.value;
+				}
+			};
+
+			data = this.process(data);
+			form_data = this.getForm(data);
+
+			await this.$http.post('/ittime/upload', form_data, {
 				headers: {
 					'Content-Type': 'multipart/form-data;charset=UTF-8'
-					// 'Content-Type': 'multipart/form-data'
 				}
 			}).then((response) => {
 				if (response.status == 200) {
 					alert('謝謝你，我們已收到你的資料！');
-				} else {
-					alert('系統繁忙中，請稍後再試一次');
 				}
 			}).catch((error) => {
-				// err handling
-				alert('格式有誤，請確認後重新上傳');
+				if (error.response.status == 500) {
+					let message = '系統繁忙中，請稍後再試一次';
+					alert(message);
+				} else {
+					let message = '格式有誤，請確認無誤後再重新上傳',
+						inputs = '';
+					this.errmsg = error.response.data;
+
+					if (this.errmsg.mobile) {
+						inputs += '行動電話\n';
+					}
+					if (this.errmsg.idNumber) {
+						inputs += '身分證字號 / 居留證號碼 / 護照號碼\n';
+					}
+					if (this.errmsg.email) {
+						inputs += 'Email\n';
+					}
+					if (this.errmsg.photo) {
+						inputs += '個人照片\n';
+					}
+					if (this.errmsg.file) {
+						inputs += '個人自傳\n';
+					}
+
+					alert(inputs + message);
+				}
 			});
 		}
 	}
@@ -339,8 +367,6 @@ export default {
 
 	.content
 		color: $darker-green-text
-
-	.content
 		font-size: 1.25rem
 
 	#submit

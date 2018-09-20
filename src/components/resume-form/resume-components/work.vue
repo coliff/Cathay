@@ -1,11 +1,10 @@
 <template>
-	<b-container fluid :id="`work${count}`">
+	<b-container fluid :id="`work${count}`" class="no-padding">
 		<b-row class="my-1">
 			<b-col md="3">
 				<b-form-group
 					label="工作經驗"
-					label-for="type"
-					:description="errmsg.type">
+					:label-for="`type${count}`">
 					<b-form-select :id="`type${count}`"
 						:name="`type${count}`"
 						:value="null"
@@ -16,9 +15,9 @@
 			<b-col md="3">
 				<b-form-group
 					label="公司名稱"
-					label-for="companyName"
-					:description="errmsg.companyName">
+					:label-for="`companyName${count}`">
 					<b-form-input type="text" :id="`companyName${count}`"
+						@input="debounce"
 						:name="`companyName${count}`"
 						placeholder="請輸入公司名稱">
 					</b-form-input>
@@ -29,9 +28,9 @@
 			<b-col md="4">
 				<b-form-group
 					label="部門"
-					label-for="department"
-					:description="errmsg.department">
+					:label-for="`department${count}`">
 					<b-form-input type="text" :id="`department${count}`"
+						@input="debounce"
 						:name="`department${count}`"
 						placeholder="請輸入部門名稱">
 					</b-form-input>
@@ -40,9 +39,9 @@
 			<b-col md="4">
 				<b-form-group
 					label="職位"
-					label-for="wposition"
-					:description="errmsg.wposition">
+					:label-for="`wposition${count}`">
 					<b-form-input type="text" :id="`wposition${count}`"
+						@input="debounce"
 						:name="`wposition${count}`"
 						placeholder="請輸入擔任職位">
 					</b-form-input>
@@ -53,9 +52,9 @@
 			<b-col md="6">
 				<b-form-group
 					label="工作內容"
-					label-for="jobContent"
-					:description="errmsg.jobContent">
+					:label-for="`jobContent${count}`">
 					<b-form-input type="text" :id="`jobContent${count}`"
+						@input="debounce"
 						:name="`jobContent${count}`"
 						placeholder="請描述工作名稱">
 					</b-form-input>
@@ -66,8 +65,7 @@
 			<b-col md="4" lg="3">
 				<b-form-group class="no-padding"
 					label="服務期間"
-					label-for="studyPeriod"
-					:description="errmsg.period">
+					:label-for="`wsyear${count}`">
 					<b-input-group prepend="從" append="年">
 						<b-form-select :id="`wsyear${count}`"
 							:name="`wsyear${count}`"
@@ -107,9 +105,9 @@
 			<b-col md="6">
 				<b-form-group
 					label="離職原因"
-					label-for="resignReason"
-					:description="errmsg.resignReason">
+					:label-for="`resignReason${count}`">
 					<b-form-input type="text" :id="`resignReason${count}`"
+						@input="debounce"
 						:name="`resignReason${count}`"
 						placeholder="請描述離職原因">
 					</b-form-input>
@@ -120,9 +118,9 @@
 			<b-col md="6">
 				<b-form-group
 					label="月薪 / 年薪"
-					label-for="pay"
-					:description="errmsg.pay">
+					:label-for="`pay${count}`">
 					<b-form-input type="text" :id="`pay${count}`"
+						@input="debounce"
 						:name="`pay${count}`"
 						placeholder="請輸入月薪或年薪狀況">
 					</b-form-input>
@@ -135,7 +133,6 @@
 <script>
 export default {
 	props: {
-		errmsg: Object,
 		years: Array,
 		months: Array,
 		count: String
@@ -156,17 +153,27 @@ export default {
 				"其他"
 			]
 		}
+	},
+	methods: {
+		debounce: function() {
+			this.$_.debounce(function(e) {
+				this.filterKey = e.target.value;
+			}, 300);
+		}
 	}
 }
 </script>
 
 <style lang="sass" scoped>
+	.input-group-prepend > .input-group-text
+		padding: 0.375rem 0.75rem 0.375rem 0;
+
 	@include media-breakpoint-up(md)
 		[id^=wsmonth],
 		[id^=wsmonth] + .input-group-append
 			margin-top: 1.875rem
 
-	@include media-breakpoint-down(md)
+	@include media-breakpoint-down(sm)
 		[id^=wsmonth],
 		[id^=wsmonth] + .input-group-append
 			margin-bottom: 1rem
@@ -174,4 +181,8 @@ export default {
 		[id^=wemonth],
 		[id^=wemonth] + .input-group-append
 			margin-top: 1rem
+
+		[id^=wsmonth],
+		[id^=wemonth]
+			margin-left: 1.75rem
 </style>

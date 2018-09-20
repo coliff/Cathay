@@ -1,12 +1,12 @@
 <template>
-	<b-container fluid :id="`club${count}`">
+	<b-container fluid :id="`club${count}`" class="no-padding">
 		<b-row class="my-1">
 			<b-col md="4">
 				<b-form-group
 					label="社團經歷"
-					label-for="clubName"
-					:description="errmsg.clubName">
+					:label-for="`clubName${count}`">
 					<b-form-input type="text" :id="`clubName${count}`"
+						@input="debounce"
 						:name="`clubName${count}`"
 						placeholder="請輸入社團名稱">
 					</b-form-input>
@@ -15,9 +15,9 @@
 			<b-col md="4">
 				<b-form-group
 					label="擔任職務"
-					label-for="cposition"
-					:description="errmsg.cposition">
+					:label-for="`cposition${count}`">
 					<b-form-input type="text" :id="`cposition${count}`"
+						@input="debounce"
 						:name="`cposition${count}`"
 						placeholder="e.g. 副社長">
 					</b-form-input>
@@ -28,8 +28,7 @@
 			<b-col md="4" lg="3">
 				<b-form-group class="no-padding"
 					label="服務期間"
-					label-for="studyPeriod"
-					:description="errmsg.period">
+					:label-for="`csyear${count}`">
 					<b-input-group prepend="從" append="年">
 						<b-form-select :id="`csyear${count}`"
 							:name="`csyear${count}`"
@@ -71,21 +70,30 @@
 <script>
 export default {
 	props: {
-		errmsg: Object,
 		years: Array,
 		months: Array,
 		count: String
+	},
+	methods: {
+		debounce: function() {
+			this.$_.debounce(function(e) {
+				this.filterKey = e.target.value;
+			}, 300);
+		}
 	}
 }
 </script>
 
 <style lang="sass" scoped>
+	.input-group-prepend > .input-group-text
+		padding: 0.375rem 0.75rem 0.375rem 0;
+
 	@include media-breakpoint-up(md)
 		[id^=csmonth],
 		[id^=csmonth] + .input-group-append
 			margin-top: 1.875rem
 
-	@include media-breakpoint-down(md)
+	@include media-breakpoint-down(sm)
 		[id^=csmonth],
 		[id^=csmonth] + .input-group-append
 			margin-bottom: 1rem
@@ -93,4 +101,8 @@ export default {
 		[id^=cemonth],
 		[id^=cemonth] + .input-group-append
 			margin-top: 1rem
+
+		[id^=csmonth],
+		[id^=cemonth]
+			margin-left: 1.75rem
 </style>
