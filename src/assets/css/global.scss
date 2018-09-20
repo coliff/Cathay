@@ -31,6 +31,7 @@ input {
 }
 
 .btn-outline-success {
+	max-width: 150px;
 	color: $darker-green-text;
 	border-color: $darker-green-text;
 	&:hover {
