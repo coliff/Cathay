@@ -114,7 +114,7 @@
 				<b-form-group
 					label="兵役狀況 *"
 					label-for="military"
-					description="（女性若無從軍請選免役）">
+					description="女性若無從軍請選免役">
 					<b-form-select id="military"
 						name="military"
 						:value="null"
