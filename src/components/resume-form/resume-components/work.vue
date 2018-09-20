@@ -17,7 +17,6 @@
 					label="公司名稱"
 					:label-for="`companyName${count}`">
 					<b-form-input type="text" :id="`companyName${count}`"
-						@input="debounce"
 						:name="`companyName${count}`"
 						placeholder="請輸入公司名稱">
 					</b-form-input>
@@ -30,7 +29,6 @@
 					label="部門"
 					:label-for="`department${count}`">
 					<b-form-input type="text" :id="`department${count}`"
-						@input="debounce"
 						:name="`department${count}`"
 						placeholder="請輸入部門名稱">
 					</b-form-input>
@@ -41,7 +39,6 @@
 					label="職位"
 					:label-for="`wposition${count}`">
 					<b-form-input type="text" :id="`wposition${count}`"
-						@input="debounce"
 						:name="`wposition${count}`"
 						placeholder="請輸入擔任職位">
 					</b-form-input>
@@ -54,7 +51,6 @@
 					label="工作內容"
 					:label-for="`jobContent${count}`">
 					<b-form-input type="text" :id="`jobContent${count}`"
-						@input="debounce"
 						:name="`jobContent${count}`"
 						placeholder="請描述工作名稱">
 					</b-form-input>
@@ -107,7 +103,6 @@
 					label="離職原因"
 					:label-for="`resignReason${count}`">
 					<b-form-input type="text" :id="`resignReason${count}`"
-						@input="debounce"
 						:name="`resignReason${count}`"
 						placeholder="請描述離職原因">
 					</b-form-input>
@@ -120,7 +115,6 @@
 					label="月薪 / 年薪"
 					:label-for="`pay${count}`">
 					<b-form-input type="text" :id="`pay${count}`"
-						@input="debounce"
 						:name="`pay${count}`"
 						placeholder="請輸入月薪或年薪狀況">
 					</b-form-input>
@@ -152,13 +146,6 @@ export default {
 				"工讀",
 				"其他"
 			]
-		}
-	},
-	methods: {
-		debounce: function() {
-			this.$_.debounce(function(e) {
-				this.filterKey = e.target.value;
-			}, 300);
 		}
 	}
 }
