@@ -301,11 +301,13 @@ export default {
 
 			for (const raw_data of e.target) {
 				if (raw_data.files) {
-					if (raw_data.files[0].type === "application/pdf") {
-						data["resume"] = raw_data.files[0];
+					if (raw_data.files[0].length > 0){
+						if (raw_data.files[0].type === "application/pdf") {
+							data["resume"] = raw_data.files[0];
 
-					} else if (raw_data.files[0].type.indexOf('image') > -1) {
-						data["photo"] = raw_data.files[0];
+						} else if (raw_data.files[0].type.indexOf('image') > -1) {
+							data["photo"] = raw_data.files[0];
+						}
 					}
 				} else if (raw_data.name === 'infoSource') {
 					if (raw_data.checked) {
