@@ -45,8 +45,12 @@ export default {
 			width: 20%
 
 	li
+		@include media-breakpoint-down(sm)
+			margin-left: 2rem
+			margin-right: 2rem
+
 		@include media-breakpoint-only(md)
-			font-size: 1.45vw;
+			font-size: 1.45vw
 
 	#to-resume
 		.nav-link
