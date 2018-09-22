@@ -402,7 +402,218 @@
 						</div>
 					</b-tab>
 
-					<b-tab title="國泰證券" :title-link-class="linkClass(1)">
+					<b-tab title="國泰世華銀行" :title-link-class="linkClass(1)">
+						<div class="job">
+							<h4>APP軟體工程師</h4>
+							<h5>國泰世華銀行</h5>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
+							<div class="line"></div>
+							<div class="content">
+								工作說明：<br>
+								<ul>
+									<li>開發及維護系統，進而瞭解銀行相關業務。</li>
+									<li>負責前端APP程式開發。</li>
+								</ul>
+								<br>
+								職位要求：<br>
+								<ul>
+									<li>具Android或iOS一年以上開發經驗。</li>
+									<li>具良好溝通協調、問題解決與邏輯思考能力，能團隊合作亦可獨立作業。</li>
+								</ul>
+							</div>
+						</div>
+						<div class="job">
+							<h4>ITSM系統管理人員</h4>
+							<h5>國泰世華銀行</h5>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
+							<div class="line"></div>
+							<div class="content">
+								工作說明：<br>
+								<ul>
+									<li>設計、開發、升級、維護、監控BMC Remedy 與MyIT系統，並支援事故管理、問題管理、知識庫管理、變更管理、服務請求、CMDB管理表單與工具維護。</li>
+									<li>以 Rest API或Web Service方式整合BMC Remedy與國泰世華系統，以及資產與組態資料庫(Asset & CMDB)和DevOps系統整合與維護。</li>
+									<li>維護BMC Remedy與MyIT的系統，與DBA和IT維運團隊合作共同解決各類問題。</li>
+									<li>執行系統與資料庫備份，確保人員與檔案資料保持最新狀態，主導異地備援演練。</li>
+									<li>建置與維護BMC ADDM (自動掃描與蒐集資料庫)系統，需蒐集與建置各類應用程式、伺服器、資料庫、網路等。</li>
+									<li>設計、維護各類資訊服務報表、KPI報表與儀表版。</li>
+								</ul>
+								<br>
+								職位要求：<br>
+								<ul>
+									<li>大學日間部以上，資訊工程、資訊管理、應用數學相關系所。 </li>
+									<li>兩年(含)以上，具備 C++、C#、Java等任一程式開發經驗。</li>
+									<li>熟悉Windows 與 Linux系統管理，具備系統管理員或系統支援經驗者佳。</li>
+									<li>具備技術文件撰寫與報告能力，英文基本閱讀與溝通能力。</li>
+									<li>具備ITIL v3 認證或對ITIL有興趣者。</li>
+								</ul>
+							</div>
+						</div>
+						<div class="job">
+							<h4>大數據開發維運工程師</h4>
+							<h5>國泰世華銀行</h5>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
+							<div class="line"></div>
+							<div class="content">
+								工作說明：<br>
+								<ul>
+									<li>資料平台維護工作及問題追蹤管理。 </li>
+									<li>資料處理流程自動化程式開發及監控。 </li>
+									<li>系統架構規劃及文件撰寫。</li>
+								</ul>
+								<br>
+								職位要求：<br>
+								<ul>
+									<li>大學日間部以上，資管、資工相關研究所畢業者尤佳。 </li>
+									<li>工作資歷一年以上，具資料庫處理、API程式開發及系統維運相關經驗尤佳。</li>
+									<li>熟悉Linux安裝及操作。 </li>
+									<li>具備系統異常時，自我研究處理能力。 </li>
+									<li>具備資料導檔及處理經驗。 </li>
+									<li>操作分散式儲存及運算平台之管理經驗者尤佳，例如Hadoop、Hive、MongoDB、Sqoop等。 </li>
+									<li>熟悉SQL等程式語言，具Python程式能力尤佳。 </li>
+									<li>有利用Apache Spark、Flink等工具做分散式計算，具備Backend server開發經驗尤佳，(REST API、Access to any SQL or NoSQL DB) 。</li>
+								</ul>
+							</div>
+						</div>
+						<div class="job">
+							<h4>系統分析工程師</h4>
+							<h5>國泰世華銀行</h5>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
+							<div class="line"></div>
+							<div class="content">
+								工作說明：<br>
+								<ul>
+									<li>開發及維護銀行核心系統，進而瞭解銀行相關業務，如：數據分析、信用卡、存/放款等。 </li>
+									<li>網站使用者體驗、介面設計及前端互動程式開發。</li>
+									<li>負責系統分析等相關業務，如進行需求訪談、撰寫需求規格書等。 </li>
+									<li>金融科技如行動支付、人工智能(理財、客服) 等應用研發。</li>
+								</ul>
+								<br>
+								職位要求：<br>
+								<ul>
+									<li>大學日間部以上，理、工、商、管理學院相關系所畢業。</li>
+									<li>具一年以上之銀行資訊系統維護經驗。 </li>
+									<li>需熟悉系統分析技巧。 </li>
+									<li>有資料庫的使用經驗尤佳。</li>
+								</ul>
+							</div>
+						</div>
+						<div class="job">
+							<h4>測試規劃人員</h4>
+							<h5>國泰世華銀行</h5>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
+							<div class="line"></div>
+							<div class="content">
+								工作說明：<br>
+								<ul>
+									<li>規劃各項應用系統之測試方法、規範、文件及標準程序，並評估導入系統測試所需之相關技術及工具。</li>
+									<li>審核系統測試計劃，以利上線品質可確保於資訊系統內穩定運作。</li>
+									<li>控管系統測試計劃的實施，與協調與處理測試過程之相關需求。</li>
+								</ul>
+								<br>
+								職位要求：<br>
+								<ul>
+									<li>具四年資料管制/資料庫/系統管理/</li>系統開發建置維護或開發經驗，熟悉測試理論，了解軟體各種測試類型、方法及技巧，並具備使用測試管理工具及測試輔助工具的經驗。
+									<li>曾擔任金融機構大型專案經理經驗尤佳。</li>
+									<li>具基本英文讀、寫能力。 </li>
+									<li>具測試管理、開發經驗、DevOps經驗、專案管理或IT相關專業技術證照。</li>
+								</ul>
+							</div>
+						</div>
+						<div class="job">
+							<h4>程式開發工程師</h4>
+							<h5>國泰世華銀行</h5>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
+							<div class="line"></div>
+							<div class="content">
+								工作說明：<br>
+								<ul>
+									<li>負責程式設計開發及維護系統，進而瞭解銀行等相關業務。</li>
+									<li>網站應用程式開發。</li>
+									<li>行動裝置App設計、開發與維護。</li>
+									<li>負責系統後端API程式開發和單元測試。</li>
+								</ul>
+								<br>
+								職位要求：<br>
+								<ul>
+									<li>大學日間部以上，理、工、商、管理學院相關系所畢業。</li>
+									<li>需熟悉下列任一程式語言：.NET（C#）、Java、C、COBOL等。</li>
+									<li>使用過Spring framework尤佳 </li>
+									<li>有資料庫的使用經驗尤佳。 </li>
+									<li>對程式開發有興趣，無資訊背景亦可。</li>
+								</ul>
+							</div>
+						</div>
+						<div class="job">
+							<h4>數據應用工程師</h4>
+							<h5>國泰世華銀行</h5>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
+							<div class="line"></div>
+							<div class="content">
+								工作說明：<br>
+								<ul>
+									<li>數據資料處理、MIS分析應用。 </li>
+									<li>視覺化應用開發。</li>
+								</ul>
+								<br>
+								職位要求：<br>
+								<ul>
+									<li>大學日間部以上，資管、資工相關系所尤佳。 </li>
+									<li>工作資歷一年以上，具資料庫處理及程式開發相關經驗尤佳。</li>
+									<li>具使用管理資料庫經驗、熟SQL語言。</li>
+									<li>具資料庫結構概念。</li>
+									<li>具高度學習成長能力、主動積極、配合度高。 </li>
+									<li>有興趣發展成為數據分析專業資訊人員者優先。</li>
+								</ul>
+							</div>
+						</div>
+					</b-tab>
+
+
+					<b-tab title="國泰產險" :title-link-class="linkClass(2)">
+						<div class="job">
+							<h4>客服系統整合工程師</h4>
+							<h5>國泰人壽 / 國泰產險</h5>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
+							<div class="line"></div>
+							<div class="content">
+								工作說明：<br>
+								<ul>
+									<li>客服中心(Contact Center)資訊系統及電話語音系統之規劃、開發與維運。</li>
+									<li>客服資通訊科技之應用研究及導入評估。<br></li>
+								</ul>
+								<br>
+								職位要求：<br>
+								<ul>
+									<li>具IP網路、語音通訊、客戶服務相關系統開發經驗者尤佳。</li>
+									<li> 無相關經驗但有意願學習客服系統(含交換機,IVR)相關知識技能者亦可。<br></li>
+									<li> 具Java EE、HTML、JavaScript、Java等開發經驗者尤佳。</li>
+								</ul>
+							</div>
+						</div>
+						<div class="job">
+							<h4>JAVA程式開發師</h4>
+							<h5>國泰產險</h5>
+							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
+							<div class="line"></div>
+							<div class="content">
+								工作說明：<br>
+								<ul>
+									<li>程式開發及系統維護。</li>
+									<li>網站開發及維護。</li>
+									<li>電腦技術研究評估。</li>
+								</ul>
+								<br>
+								職位要求：<br>
+								<ul>
+									<li>兩年以上Java應用系統開發經驗。 </li>
+									<li>熟悉資料庫設計(DB2)及資料庫查詢語言(SQL)。 </li>
+									<li>具WebSphere、JBoss、Tomcat等使用經驗以及UNIX環境操作經驗尤佳。</li>
+								</ul>
+							</div>
+						</div>
+					</b-tab>
+
+					<b-tab title="國泰證券" :title-link-class="linkClass(3)">
 						<div class="job">
 							<h4>資料工程師</h4>
 							<h5>國泰證券</h5>
@@ -515,215 +726,7 @@
 						</div>
 					</b-tab>
 
-					<b-tab title="國泰產險" :title-link-class="linkClass(2)">
-						<div class="job">
-							<h4>客服系統整合工程師</h4>
-							<h5>國泰人壽 / 國泰產險</h5>
-							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
-							<div class="line"></div>
-							<div class="content">
-								工作說明：<br>
-								<ul>
-									<li>客服中心(Contact Center)資訊系統及電話語音系統之規劃、開發與維運。</li>
-									<li>客服資通訊科技之應用研究及導入評估。<br></li>
-								</ul>
-								<br>
-								職位要求：<br>
-								<ul>
-									<li>具IP網路、語音通訊、客戶服務相關系統開發經驗者尤佳。</li>
-									<li> 無相關經驗但有意願學習客服系統(含交換機,IVR)相關知識技能者亦可。<br></li>
-									<li> 具Java EE、HTML、JavaScript、Java等開發經驗者尤佳。</li>
-								</ul>
-							</div>
-						</div>
-						<div class="job">
-							<h4>JAVA程式開發師</h4>
-							<h5>國泰產險</h5>
-							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
-							<div class="line"></div>
-							<div class="content">
-								工作說明：<br>
-								<ul>
-									<li>程式開發及系統維護。</li>
-									<li>網站開發及維護。</li>
-									<li>電腦技術研究評估。</li>
-								</ul>
-								<br>
-								職位要求：<br>
-								<ul>
-									<li>兩年以上Java應用系統開發經驗。 </li>
-									<li>熟悉資料庫設計(DB2)及資料庫查詢語言(SQL)。 </li>
-									<li>具WebSphere、JBoss、Tomcat等使用經驗以及UNIX環境操作經驗尤佳。</li>
-								</ul>
-							</div>
-						</div>
-					</b-tab>
 
-					<b-tab title="國泰銀行" :title-link-class="linkClass(3)">
-						<div class="job">
-							<h4>APP軟體工程師</h4>
-							<h5>國泰銀行</h5>
-							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
-							<div class="line"></div>
-							<div class="content">
-								工作說明：<br>
-								<ul>
-									<li>開發及維護系統，進而瞭解銀行相關業務。</li>
-									<li>負責前端APP程式開發。</li>
-								</ul>
-								<br>
-								職位要求：<br>
-								<ul>
-									<li>具Android或iOS一年以上開發經驗。</li>
-									<li>具良好溝通協調、問題解決與邏輯思考能力，能團隊合作亦可獨立作業。</li>
-								</ul>
-							</div>
-						</div>
-						<div class="job">
-							<h4>ITSM系統管理人員</h4>
-							<h5>國泰銀行</h5>
-							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
-							<div class="line"></div>
-							<div class="content">
-								工作說明：<br>
-								<ul>
-									<li>設計、開發、升級、維護、監控BMC Remedy 與MyIT系統，並支援事故管理、問題管理、知識庫管理、變更管理、服務請求、CMDB管理表單與工具維護。</li>
-									<li>以 Rest API或Web Service方式整合BMC Remedy與國泰世華系統，以及資產與組態資料庫(Asset & CMDB)和DevOps系統整合與維護。</li>
-									<li>維護BMC Remedy與MyIT的系統，與DBA和IT維運團隊合作共同解決各類問題。</li>
-									<li>執行系統與資料庫備份，確保人員與檔案資料保持最新狀態，主導異地備援演練。</li>
-									<li>建置與維護BMC ADDM (自動掃描與蒐集資料庫)系統，需蒐集與建置各類應用程式、伺服器、資料庫、網路等。</li>
-									<li>設計、維護各類資訊服務報表、KPI報表與儀表版。</li>
-								</ul>
-								<br>
-								職位要求：<br>
-								<ul>
-									<li>大學日間部以上，資訊工程、資訊管理、應用數學相關系所。 </li>
-									<li>兩年(含)以上，具備 C++、C#、Java等任一程式開發經驗。</li>
-									<li>熟悉Windows 與 Linux系統管理，具備系統管理員或系統支援經驗者佳。</li>
-									<li>具備技術文件撰寫與報告能力，英文基本閱讀與溝通能力。</li>
-									<li>具備ITIL v3 認證或對ITIL有興趣者。</li>
-								</ul>
-							</div>
-						</div>
-						<div class="job">
-							<h4>大數據開發維運工程師</h4>
-							<h5>國泰銀行</h5>
-							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
-							<div class="line"></div>
-							<div class="content">
-								工作說明：<br>
-								<ul>
-									<li>資料平台維護工作及問題追蹤管理。 </li>
-									<li>資料處理流程自動化程式開發及監控。 </li>
-									<li>系統架構規劃及文件撰寫。</li>
-								</ul>
-								<br>
-								職位要求：<br>
-								<ul>
-									<li>大學日間部以上，資管、資工相關研究所畢業者尤佳。 </li>
-									<li>工作資歷一年以上，具資料庫處理、API程式開發及系統維運相關經驗尤佳。</li>
-									<li>熟悉Linux安裝及操作。 </li>
-									<li>具備系統異常時，自我研究處理能力。 </li>
-									<li>具備資料導檔及處理經驗。 </li>
-									<li>操作分散式儲存及運算平台之管理經驗者尤佳，例如Hadoop、Hive、MongoDB、Sqoop等。 </li>
-									<li>熟悉SQL等程式語言，具Python程式能力尤佳。 </li>
-									<li>有利用Apache Spark、Flink等工具做分散式計算，具備Backend server開發經驗尤佳，(REST API、Access to any SQL or NoSQL DB) 。</li>
-								</ul>
-							</div>
-						</div>
-						<div class="job">
-							<h4>系統分析工程師</h4>
-							<h5>國泰銀行</h5>
-							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
-							<div class="line"></div>
-							<div class="content">
-								工作說明：<br>
-								<ul>
-									<li>開發及維護銀行核心系統，進而瞭解銀行相關業務，如：數據分析、信用卡、存/放款等。 </li>
-									<li>網站使用者體驗、介面設計及前端互動程式開發。</li>
-									<li>負責系統分析等相關業務，如進行需求訪談、撰寫需求規格書等。 </li>
-									<li>金融科技如行動支付、人工智能(理財、客服) 等應用研發。</li>
-								</ul>
-								<br>
-								職位要求：<br>
-								<ul>
-									<li>大學日間部以上，理、工、商、管理學院相關系所畢業。</li>
-									<li>具一年以上之銀行資訊系統維護經驗。 </li>
-									<li>需熟悉系統分析技巧。 </li>
-									<li>有資料庫的使用經驗尤佳。</li>
-								</ul>
-							</div>
-						</div>
-						<div class="job">
-							<h4>測試規劃人員</h4>
-							<h5>國泰銀行</h5>
-							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
-							<div class="line"></div>
-							<div class="content">
-								工作說明：<br>
-								<ul>
-									<li>規劃各項應用系統之測試方法、規範、文件及標準程序，並評估導入系統測試所需之相關技術及工具。</li>
-									<li>審核系統測試計劃，以利上線品質可確保於資訊系統內穩定運作。</li>
-									<li>控管系統測試計劃的實施，與協調與處理測試過程之相關需求。</li>
-								</ul>
-								<br>
-								職位要求：<br>
-								<ul>
-									<li>具四年資料管制/資料庫/系統管理/</li>系統開發建置維護或開發經驗，熟悉測試理論，了解軟體各種測試類型、方法及技巧，並具備使用測試管理工具及測試輔助工具的經驗。
-									<li>曾擔任金融機構大型專案經理經驗尤佳。</li>
-									<li>具基本英文讀、寫能力。 </li>
-									<li>具測試管理、開發經驗、DevOps經驗、專案管理或IT相關專業技術證照。</li>
-								</ul>
-							</div>
-						</div>
-						<div class="job">
-							<h4>程式開發工程師</h4>
-							<h5>國泰銀行</h5>
-							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
-							<div class="line"></div>
-							<div class="content">
-								工作說明：<br>
-								<ul>
-									<li>負責程式設計開發及維護系統，進而瞭解銀行等相關業務。</li>
-									<li>網站應用程式開發。</li>
-									<li>行動裝置App設計、開發與維護。</li>
-									<li>負責系統後端API程式開發和單元測試。</li>
-								</ul>
-								<br>
-								職位要求：<br>
-								<ul>
-									<li>大學日間部以上，理、工、商、管理學院相關系所畢業。</li>
-									<li>需熟悉下列任一程式語言：.NET（C#）、Java、C、COBOL等。</li>
-									<li>使用過Spring framework尤佳 </li>
-									<li>有資料庫的使用經驗尤佳。 </li>
-									<li>對程式開發有興趣，無資訊背景亦可。</li>
-								</ul>
-							</div>
-						</div>
-						<div class="job">
-							<h4>數據應用工程師</h4>
-							<h5>國泰銀行</h5>
-							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
-							<div class="line"></div>
-							<div class="content">
-								工作說明：<br>
-								<ul>
-									<li>數據資料處理、MIS分析應用。 </li>
-									<li>視覺化應用開發。</li>
-								</ul>
-								<br>
-								職位要求：<br>
-								<ul>
-									<li>大學日間部以上，資管、資工相關系所尤佳。 </li>
-									<li>工作資歷一年以上，具資料庫處理及程式開發相關經驗尤佳。</li>
-									<li>具使用管理資料庫經驗、熟SQL語言。</li>
-									<li>具資料庫結構概念。</li>
-									<li>具高度學習成長能力、主動積極、配合度高。 </li>
-									<li>有興趣發展成為數據分析專業資訊人員者優先。</li>
-								</ul>
-							</div>
-						</div>
-					</b-tab>
 					<b-tab title="國泰人壽(台中場)" :title-link-class="linkClass(4)">
 						<div class="job">
 							<h4>應用系統開發工程師</h4>

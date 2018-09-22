@@ -3,7 +3,9 @@
 		<b-row>
 			<b-col>
 				<br>
-				<div id="contact">與我們聯繫：itstime@cathlife.com.tw</div>
+				<div id="contact">與我們聯繫：
+				<a href="mailto:itstime@cathlife.com.tw">itstime@cathlife.com.tw</a>
+				</div>
 				<br>
 			</b-col>
 		</b-row>
@@ -22,6 +24,9 @@ export default {
 
 		#contact
 			text-align: center
+			color: $black
+
+		a
 			color: $black
 
 </style>

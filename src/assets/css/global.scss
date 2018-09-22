@@ -30,8 +30,17 @@ input {
 	border: none;
 }
 
+.input_bold {
+	font-weight: bold;
+	color: red;
+}
+
 .btn-outline-success {
-	max-width: 150px;
+	// max-width: 150px;
+	max-width: 170px;
+	// width: auto;
+	padding: 7px 7px;
+	margin-right: 7px;
 	color: $darker-green-text;
 	border-color: $darker-green-text;
 	&:hover {
