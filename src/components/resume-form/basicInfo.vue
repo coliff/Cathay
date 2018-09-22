@@ -7,7 +7,6 @@
 					label="姓名 *"
 					label-for="name">
 					<b-form-input type="text" id="name"
-						@input="debounce"
 						name="name"
 						required
 						placeholder="e.g. 林大豪">
@@ -114,7 +113,8 @@
 			<b-col md="3" lg="2">
 				<b-form-group
 					label="兵役狀況 *"
-					label-for="military">
+					label-for="military"
+					description="女性若無從軍請選免役">
 					<b-form-select id="military"
 						name="military"
 						:value="null"
@@ -147,7 +147,6 @@
 			</b-col>
 			<b-col md="6">
 				<b-form-input type="text" id="address"
-					@input="debounce"
 					name="address"
 					required>
 				</b-form-input>
@@ -163,7 +162,7 @@
 						name="photo"
 						accept=".jpg, .png"
 						required
-						placeholder="檔案大小不超過 2 Mb">
+						placeholder="限使用 .png 或 .jpg ，檔案大小不超過 2 Mb">
 					</b-form-file>
 				</b-form-group>
 			</b-col>
@@ -173,6 +172,7 @@
 
 <script>
 import TW from '@/assets/js/TW_district';
+import _ from 'lodash';
 
 export default {
 	props: {
@@ -248,13 +248,6 @@ export default {
 				this.districts.push(d);
 			}
 			this.district = this.districts[0];
-		}
-	},
-	methods: {
-		debounce: function() {
-			this.$_.debounce(function(e) {
-				this.filterKey = e.target.value;
-			}, 300);
 		}
 	}
 }

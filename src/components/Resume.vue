@@ -1,5 +1,13 @@
 <template>
 	<b-container fluid id="resume" class="no-padding">
+		<b-container fluid id="cover">
+			<b-row align-v="center">
+				<b-col>
+					<img class="my-2" src="static/cathay.png" alt="IT's Time">
+					<h3 class="my-2">資料處理中</h3>
+				</b-col>
+			</b-row>
+		</b-container>
 		<Nav></Nav>
 		<img class="w-50" id="visual" src="@/assets/img/resume_design.png">
 		<b-container fluid>
@@ -283,16 +291,23 @@ export default {
 			return form_data;
 		},
 		submitForm: async function(e) {
-			let data = {},
+			// prevent default submit behavior
+			// as we define our action (axios post api) here
+			let page = document.getElementById('resume'),
+				data = {},
 				form_data;
+
+			page.classList.add('covered');
 
 			for (const raw_data of e.target) {
 				if (raw_data.files) {
-					if (raw_data.files[0].type === "application/pdf") {
-						data["resume"] = raw_data.files[0];
+					if (raw_data.files[0].length > 0){
+						if (raw_data.files[0].type === "application/pdf") {
+							data["resume"] = raw_data.files[0];
 
-					} else if (raw_data.files[0].type.indexOf('image') > -1) {
-						data["photo"] = raw_data.files[0];
+						} else if (raw_data.files[0].type.indexOf('image') > -1) {
+							data["photo"] = raw_data.files[0];
+						}
 					}
 				} else if (raw_data.name === 'infoSource') {
 					if (raw_data.checked) {
@@ -311,17 +326,23 @@ export default {
 					'Content-Type': 'multipart/form-data;charset=UTF-8'
 				}
 			}).then((response) => {
+				page.classList.remove('covered');
+
 				if (response.status == 200) {
+					document.getElementById('resume-form').reset();
 					alert('謝謝你，我們已收到你的資料！');
 				}
 			}).catch((error) => {
+				let message;
+				page.classList.remove('covered');
+
 				if (error.response.status == 500) {
-					let message = '系統繁忙中，請稍後再試一次';
+					message = '系統繁忙中，請稍後再試一次';
 					alert(message);
 				} else {
-					let message = '格式有誤，請確認無誤後再重新上傳',
-						inputs = '';
+					let inputs = '';
 					this.errmsg = error.response.data;
+					message = '格式有誤，請確認無誤後再重新上傳';
 
 					if (this.errmsg.mobile) {
 						inputs += '行動電話\n';
@@ -357,6 +378,24 @@ export default {
 		#visual
 			position: absolute
 			margin-left: 35%
+
+		#cover
+			display: none
+			position: fixed
+			width: 100vw
+			height: 100vh
+			background-color: rgba(255, 255, 255, 0.5)
+			z-index: 10
+
+			& > .row
+				height: 100%
+				text-align: center
+
+			img
+				max-width: 120px
+
+		&.covered > #cover
+			display: block
 
 	.large
 		font-size: 3.5rem

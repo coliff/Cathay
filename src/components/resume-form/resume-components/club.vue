@@ -6,7 +6,6 @@
 					label="社團經歷"
 					:label-for="`clubName${count}`">
 					<b-form-input type="text" :id="`clubName${count}`"
-						@input="debounce"
 						:name="`clubName${count}`"
 						placeholder="請輸入社團名稱">
 					</b-form-input>
@@ -17,7 +16,6 @@
 					label="擔任職務"
 					:label-for="`cposition${count}`">
 					<b-form-input type="text" :id="`cposition${count}`"
-						@input="debounce"
 						:name="`cposition${count}`"
 						placeholder="e.g. 副社長">
 					</b-form-input>
@@ -73,13 +71,6 @@ export default {
 		years: Array,
 		months: Array,
 		count: String
-	},
-	methods: {
-		debounce: function() {
-			this.$_.debounce(function(e) {
-				this.filterKey = e.target.value;
-			}, 300);
-		}
 	}
 }
 </script>

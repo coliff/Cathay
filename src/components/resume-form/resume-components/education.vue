@@ -26,7 +26,6 @@
 					label="學校名稱 *"
 					:label-for="`schoolName${count}`">
 					<b-form-input type="text" :id="`schoolName${count}`"
-						@input="debounce"
 						:name="`schoolName${count}`"
 						placeholder="請輸入學校名稱">
 					</b-form-input>
@@ -37,7 +36,6 @@
 					label="科系 *"
 					:label-for="`major${count}`">
 					<b-form-input type="text" :id="`major${count}`"
-						@input="debounce"
 						:name="`major${count}`"
 						placeholder="請輸入科系">
 					</b-form-input>
@@ -127,13 +125,6 @@ export default {
 			emonth: null,
 			years: this.range(2030, 1930),
 			months: this.range(1, 12),
-		}
-	},
-	methods: {
-		debounce: function() {
-			this.$_.debounce(function(e) {
-				this.filterKey = e.target.value;
-			}, 300);
 		}
 	}
 }

@@ -8,7 +8,7 @@
 		</p>
 		<b-row class="my-1">
 			<b-col lg="8">
-				<b-form-file required accept=".pdf" id="portfolio" name="resume"></b-form-file>
+				<b-form-file accept=".pdf" id="portfolio" name="resume"></b-form-file>
 				<small class="text-muted">{{ errmsg.file }}</small>
 			</b-col>
 		</b-row>
@@ -30,7 +30,6 @@
 					label="其他補充資料"
 					label-for="others">
 					<b-form-input id="others"
-						@input="debounce"
 						name="others"
 						placeholder="可新增其他作品網址或各項補充資料">
 					</b-form-input>
@@ -44,13 +43,6 @@
 export default {
 	props: {
 		errmsg: Object
-	},
-	methods: {
-		debounce: function() {
-			this.$_.debounce(function(e) {
-				this.filterKey = e.target.value;
-			}, 300);
-		}
 	}
 }
 </script>
