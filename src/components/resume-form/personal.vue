@@ -171,7 +171,7 @@ export default {
 					disabled: true
 				},
 				{
-					text: "國泰人壽",
+					text: "—— 國泰人壽 ——",
 					value: null,
 					disabled: true
 				},
@@ -193,13 +193,13 @@ export default {
 				"國泰人壽｜資訊安全制度管理工程師",
 				"國泰人壽｜東南亞語系儲備資訊人員(越南、印尼)",
 				{
-					text: "國泰人壽 台中場",
+					text: "—— 國泰人壽 台中場 ——",
 					value: null,
 					disabled: true
 				},
 				"國泰人壽 台中場｜應用系統開發工程師",
 				{
-					text: "國泰世華銀行",
+					text: "—— 國泰世華銀行 ——",
 					value: null,
 					disabled: true
 				},
@@ -208,14 +208,14 @@ export default {
 				"國泰世華銀行｜大數據開發維運工程師",
 				"國泰世華銀行｜系統分析工程師",
 				{
-					text: "國泰產險",
+					text: "—— 國泰產險 ——",
 					value: null,
 					disabled: true
 				},
 				"國泰產險｜客服系統整合工程師",
 				"國泰產險｜JAVA程式開發師",
 				{
-					text: "國泰證券",
+					text: "—— 國泰證券 ——",
 					value: null,
 					disabled: true
 				},
