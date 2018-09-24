@@ -293,6 +293,31 @@ export default {
 			form_data.append('resume', data);
 			return form_data;
 		},
+		resetForm: function() {
+			// default reset
+			document.getElementById('resume-form').reset();
+
+			let inputs = document.getElementsByTagName("input"),
+				selects = document.getElementsByTagName("select"),
+				radios = document.getElementsByName("infoSource");
+
+ 			for (let i of inputs) {
+ 				if (i.value != '') {
+					i.value = '';
+ 				}
+			}
+
+			for (let r of radios) {
+				r.checked = false;
+			}
+
+ 			for (let s of selects) {
+				s.selectedIndex = -1;
+			}
+
+			document.getElementById("photo__BV_file_control_").innerText = '';
+			document.getElementById("portfolio__BV_file_control_").innerText = '';
+		},
 		submitForm: async function(e) {
 			// prevent default submit behavior
 			// as we define our action (axios post api) here
@@ -332,7 +357,7 @@ export default {
 				page.classList.remove('covered');
 
 				if (response.status == 200) {
-					document.getElementById('resume-form').reset();
+					this.resetForm();
 					alert('謝謝你，我們已收到你的資料！');
 				}
 			}).catch((error) => {
