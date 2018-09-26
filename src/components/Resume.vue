@@ -91,6 +91,85 @@ export default {
 				return [...Array(span).fill(start)].map((m, i) => m - i);
 			}
 		},
+		submitForm: async function(e) {
+			// prevent default submit behavior
+			// as we define our action (axios post api) here
+			let page = document.getElementById('resume'),
+				data,
+				form_data;
+
+			page.classList.add('covered');
+
+			data = this.getTargetData(e);
+			data = this.process(data);
+			form_data = this.getForm(data);
+
+			await this.$http.post('/ittime/upload', form_data, {
+				headers: {
+					'Content-Type': 'multipart/form-data;charset=UTF-8'
+				}
+			}).then((response) => {
+				page.classList.remove('covered');
+
+				if (response.status == 200) {
+					alert('謝謝你，我們已收到你的資料！');
+					location.reload();
+				}
+			}).catch((error) => {
+				let message;
+				page.classList.remove('covered');
+
+				if (error.response.status == 500) {
+					message = '系統繁忙中，請稍後再試一次';
+					alert(message);
+				} else {
+					let inputs = '';
+					this.errmsg = error.response.data;
+					message = '格式有誤，請確認無誤後再重新上傳';
+
+					if (this.errmsg.mobile) {
+						inputs += '行動電話\n';
+					}
+					if (this.errmsg.idNumber) {
+						inputs += '身分證字號 / 居留證號碼 / 護照號碼\n';
+					}
+					if (this.errmsg.email) {
+						inputs += 'Email\n';
+					}
+					if (this.errmsg.photo) {
+						inputs += '個人照片\n';
+					}
+					if (this.errmsg.file) {
+						inputs += '個人自傳\n';
+					}
+
+					alert(inputs + message);
+				}
+			});
+		},
+		getTargetData: function(e) {
+			let data = {};
+			if (!e.target) return data;
+			for (const raw_data of e.target) {
+				if (raw_data.files) {
+					if (raw_data.files.length > 0){
+						if (raw_data.files[0].type === "application/pdf") {
+							data["resume"] = raw_data.files[0];
+
+						} else if (raw_data.files[0].type.indexOf('image') > -1) {
+							data["photo"] = raw_data.files[0];
+						}
+					}
+				} else if (raw_data.name === 'infoSource') {
+					if (raw_data.checked) {
+						data[raw_data.name] = raw_data.value;
+					}
+				} else if (raw_data.value) {
+					data[raw_data.name] = raw_data.value;
+				}
+			};
+			return data;
+		},
 		setPeriod: function(d_syear, d_smonth, d_eyear, d_emonth) {
 			let start, end;
 			if (d_syear && d_smonth) {
@@ -292,105 +371,6 @@ export default {
 			data = JSON.stringify(data);
 			form_data.append('resume', data);
 			return form_data;
-		},
-		resetForm: function() {
-			// default reset
-			document.getElementById('resume-form').reset();
-
-			let inputs = document.getElementsByTagName("input"),
-				selects = document.getElementsByTagName("select"),
-				radios = document.getElementsByName("infoSource");
-
- 			for (let i of inputs) {
- 				if (i.value != '') {
-					i.value = '';
- 				}
-			}
-
-			for (let r of radios) {
-				r.checked = false;
-			}
-
- 			for (let s of selects) {
-				s.selectedIndex = -1;
-			}
-
-			document.getElementById("photo__BV_file_control_").innerText = '';
-			document.getElementById("portfolio__BV_file_control_").innerText = '';
-		},
-		submitForm: async function(e) {
-			// prevent default submit behavior
-			// as we define our action (axios post api) here
-			let page = document.getElementById('resume'),
-				data = {},
-				form_data;
-
-			page.classList.add('covered');
-
-			for (const raw_data of e.target) {
-				if (raw_data.files) {
-					if (raw_data.files[0].length > 0){
-						if (raw_data.files[0].type === "application/pdf") {
-							data["resume"] = raw_data.files[0];
-
-						} else if (raw_data.files[0].type.indexOf('image') > -1) {
-							data["photo"] = raw_data.files[0];
-						}
-					}
-				} else if (raw_data.name === 'infoSource') {
-					if (raw_data.checked) {
-						data[raw_data.name] = raw_data.value;
-					}
-				} else if (raw_data.value) {
-					data[raw_data.name] = raw_data.value;
-				}
-			};
-
-			data = this.process(data);
-			form_data = this.getForm(data);
-
-			await this.$http.post('/ittime/upload', form_data, {
-				headers: {
-					'Content-Type': 'multipart/form-data;charset=UTF-8'
-				}
-			}).then((response) => {
-				page.classList.remove('covered');
-
-				if (response.status == 200) {
-					this.resetForm();
-					alert('謝謝你，我們已收到你的資料！');
-				}
-			}).catch((error) => {
-				let message;
-				page.classList.remove('covered');
-
-				if (error.response.status == 500) {
-					message = '系統繁忙中，請稍後再試一次';
-					alert(message);
-				} else {
-					let inputs = '';
-					this.errmsg = error.response.data;
-					message = '格式有誤，請確認無誤後再重新上傳';
-
-					if (this.errmsg.mobile) {
-						inputs += '行動電話\n';
-					}
-					if (this.errmsg.idNumber) {
-						inputs += '身分證字號 / 居留證號碼 / 護照號碼\n';
-					}
-					if (this.errmsg.email) {
-						inputs += 'Email\n';
-					}
-					if (this.errmsg.photo) {
-						inputs += '個人照片\n';
-					}
-					if (this.errmsg.file) {
-						inputs += '個人自傳\n';
-					}
-
-					alert(inputs + message);
-				}
-			});
 		}
 	}
 }
