@@ -3,7 +3,7 @@
 		<b-container fluid id="cover">
 			<b-row align-v="center">
 				<b-col>
-					<img class="my-2" src="/ittime/static/cathay.png" alt="IT's Time">
+					<img class="my-2" src="static/cathay.png" alt="IT's Time">
 					<h3 class="my-2">資料處理中</h3>
 				</b-col>
 			</b-row>
@@ -52,13 +52,6 @@
 						id="submit">
 						送出
 					</b-button>
-					<!-- 要移掉的按鈕！！ -->
-					<!-- <b-button type="button"
-						@click="fillInData()"
-						class="d-block mx-auto mt-5"
-						id="fill-in">
-						測資
-					</b-button> -->
 				</form>
 			</b-container>
 		</b-container>
@@ -72,7 +65,6 @@ import Personal from '@/components/resume-form/personal';
 import Educations from '@/components/resume-form/educations';
 import Experience from '@/components/resume-form/experience';
 import Portfolio from '@/components/resume-form/portfolio';
-
 export default {
 	name: 'Resume',
 	data() {
@@ -104,31 +96,31 @@ export default {
 			let page = document.getElementById('resume'),
 				data,
 				form_data;
- 			page.classList.add('covered');
- 			data = this.getTargetData(e);
+			page.classList.add('covered');
+			data = this.getTargetData(e);
 			data = this.process(data);
 			form_data = this.getForm(data);
- 			await this.$http.post('/ittime/upload', form_data, {
+			await this.$http.post('/ittime/upload', form_data, {
 				headers: {
 					'Content-Type': 'multipart/form-data;charset=UTF-8'
 				}
 			}).then((response) => {
 				page.classList.remove('covered');
- 				if (response.status == 200) {
+				if (response.status == 200) {
 					alert('謝謝你，我們已收到你的資料！');
 					location.reload();
 				}
 			}).catch((error) => {
 				let message;
 				page.classList.remove('covered');
- 				if (error.response.status == 500) {
+				if (error.response.status == 500) {
 					message = '系統繁忙中，請稍後再試一次';
 					alert(message);
 				} else {
 					let inputs = '';
 					this.errmsg = error.response.data;
 					message = '格式有誤，請確認無誤後再重新上傳';
- 					if (this.errmsg.mobile) {
+					if (this.errmsg.mobile) {
 						inputs += '行動電話\n';
 					}
 					if (this.errmsg.idNumber) {
@@ -143,7 +135,7 @@ export default {
 					if (this.errmsg.file) {
 						inputs += '個人自傳\n';
 					}
- 					alert(inputs + message);
+					alert(inputs + message);
 				}
 			});
 		},
@@ -155,7 +147,7 @@ export default {
 					if (raw_data.files.length > 0){
 						if (raw_data.files[0].type === "application/pdf") {
 							data["resume"] = raw_data.files[0];
- 						} else if (raw_data.files[0].type.indexOf('image') > -1) {
+						} else if (raw_data.files[0].type.indexOf('image') > -1) {
 							data["photo"] = raw_data.files[0];
 						}
 					}
@@ -196,7 +188,6 @@ export default {
 			if (!(data["city"] && data["district"] && data["address"])) {
 				return data;
 			}
-
 			data["address"] = data["city"] + data["district"] + data["address"];
 			delete data["city"];
 			delete data["district"];
@@ -206,7 +197,6 @@ export default {
 			if (!(data["wyear"] && data["wmonth"] && data["wdate"])) {
 				return data;
 			}
-
 			data["onDutyDate"] = data["wyear"] + (data["wmonth"].length < 2 ? '0' : '') + data["wmonth"] + (data["wdate"].length < 2 ? '0' : '') + data["wdate"];
 			delete data["wyear"];
 			delete data["wmonth"];
@@ -233,7 +223,6 @@ export default {
 					smonth = 'smonth',
 					eyear = 'eyear',
 					emonth = 'emonth';
-
 				for (let a of attr) {
 					let attr_name = a + i;
 					if (data[attr_name]) {
@@ -241,7 +230,6 @@ export default {
 						delete data[attr_name];
 					}
 				}
-
 				if (d[syear] && d[smonth] && d[eyear] && d[emonth]) {
 					let period = this.setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
 					delete d[syear];
@@ -272,7 +260,6 @@ export default {
 						delete data[attr_name];
 					}
 				}
-
 				if (d[syear] && d[smonth] && d[eyear] && d[emonth]) {
 					let period = this.setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
 					delete d[syear];
@@ -303,7 +290,6 @@ export default {
 						delete data[attr_name];
 					}
 				}
-
 				if (d[syear] && d[smonth] && d[eyear] && d[emonth]) {
 					let period = this.setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
 					delete d[syear];
@@ -350,56 +336,22 @@ export default {
 			data = this.setJobs(data);
 			data = this.setProfessionalSkills(data);
 			data = this.setLanguageSkills(data);
-
 			return data;
 		},
 		getForm: function(data) {
 			if (!data) return;
 			let form_data = new FormData();
-
 			if (data["photo"]) {
 				form_data.append('photo', data["photo"]);
 				delete data["photo"];
 			}
-
 			if (data["resume"]) {
 				form_data.append('file', data["resume"]);
 				delete data["resume"];
 			}
-
 			data = JSON.stringify(data);
 			form_data.append('resume', data);
 			return form_data;
-		},
-		fillInData: function() {
-			let inputs = document.getElementsByTagName("input"),
-				selects = document.getElementsByTagName("select"),
-				radio = document.getElementById("infoSource");
- 			radio.children[0].children[0].checked = true;
- 			for (let i of inputs) {
-				switch (i.type) {
-				case 'text':
-					i.value = '測試文字';
-					break;
-				case 'tel':
-					i.value = '987654321';
-					break;
-				case 'email':
-					i.value = 'test@test.com';
-					break;
-				case 'url':
-					i.value = 'https://google.com';
-					break;
-				default:
-				}
-			}
- 			for (let s of selects) {
-				s.children[2].selected = true;
-			}
- 			let enName = document.getElementById("enName"),
-				idNumber = document.getElementById("idNumber");
- 			enName.value = 'English Name';
-			idNumber.value = 'A123456789';
 		}
 	}
 }
@@ -411,11 +363,9 @@ export default {
 		background-color: $white;
 		& > .container-fluid
 			padding: 0 10vw
-
 		#visual
 			position: absolute
 			margin-left: 35%
-
 		#cover
 			display: none
 			position: fixed
@@ -423,41 +373,26 @@ export default {
 			height: 100vh
 			background-color: rgba(255, 255, 255, 0.5)
 			z-index: 10
-
 			& > .row
 				height: 100%
 				text-align: center
-
 			img
 				max-width: 120px
-
 		&.covered > #cover
 			display: block
-
 	.large
 		font-size: 3.5rem
-
 	#banner > .title
 		margin: 0
 		letter-spacing: 0.4rem
-
 	.content
 		color: $darker-green-text
 		font-size: 1.25rem
-
 	#submit
 		border: none
 		border-radius: 1.2em
 		padding: 0.3em 2.2em
 		background-color: $light-green-text
-		font-size: 2rem
-		letter-spacing: 0.2em
-
-	#fill-in
-		border: none
-		border-radius: 1.2em
-		padding: 0.3em 2.2em
-		background-color: $orange
 		font-size: 2rem
 		letter-spacing: 0.2em
 </style>
