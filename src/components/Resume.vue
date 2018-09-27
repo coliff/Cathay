@@ -3,7 +3,7 @@
 		<b-container fluid id="cover">
 			<b-row align-v="center">
 				<b-col>
-					<img class="my-2" src="static/cathay.png" alt="IT's Time">
+					<img class="my-2" src="/ittime/static/cathay.png" alt="IT's Time">
 					<h3 class="my-2">資料處理中</h3>
 				</b-col>
 			</b-row>
