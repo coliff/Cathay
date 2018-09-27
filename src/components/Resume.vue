@@ -3,7 +3,7 @@
 		<b-container fluid id="cover">
 			<b-row align-v="center">
 				<b-col>
-					<img class="my-2" src="static/cathay.png" alt="IT's Time">
+					<img class="my-2" src="/ittime/static/cathay.png" alt="IT's Time">
 					<h3 class="my-2">資料處理中</h3>
 				</b-col>
 			</b-row>
@@ -52,6 +52,13 @@
 						id="submit">
 						送出
 					</b-button>
+					<!-- 要移掉的按鈕！！ -->
+					<!-- <b-button type="button"
+						@click="fillInData()"
+						class="d-block mx-auto mt-5"
+						id="fill-in">
+						測資
+					</b-button> -->
 				</form>
 			</b-container>
 		</b-container>
@@ -90,6 +97,77 @@ export default {
 				let span = start - end + 1;
 				return [...Array(span).fill(start)].map((m, i) => m - i);
 			}
+		},
+		submitForm: async function(e) {
+			// prevent default submit behavior
+			// as we define our action (axios post api) here
+			let page = document.getElementById('resume'),
+				data,
+				form_data;
+ 			page.classList.add('covered');
+ 			data = this.getTargetData(e);
+			data = this.process(data);
+			form_data = this.getForm(data);
+ 			await this.$http.post('/ittime/upload', form_data, {
+				headers: {
+					'Content-Type': 'multipart/form-data;charset=UTF-8'
+				}
+			}).then((response) => {
+				page.classList.remove('covered');
+ 				if (response.status == 200) {
+					alert('謝謝你，我們已收到你的資料！');
+					location.reload();
+				}
+			}).catch((error) => {
+				let message;
+				page.classList.remove('covered');
+ 				if (error.response.status == 500) {
+					message = '系統繁忙中，請稍後再試一次';
+					alert(message);
+				} else {
+					let inputs = '';
+					this.errmsg = error.response.data;
+					message = '格式有誤，請確認無誤後再重新上傳';
+ 					if (this.errmsg.mobile) {
+						inputs += '行動電話\n';
+					}
+					if (this.errmsg.idNumber) {
+						inputs += '身分證字號 / 居留證號碼 / 護照號碼\n';
+					}
+					if (this.errmsg.email) {
+						inputs += 'Email\n';
+					}
+					if (this.errmsg.photo) {
+						inputs += '個人照片\n';
+					}
+					if (this.errmsg.file) {
+						inputs += '個人自傳\n';
+					}
+ 					alert(inputs + message);
+				}
+			});
+		},
+		getTargetData: function(e) {
+			let data = {};
+			if (!e.target) return data;
+			for (const raw_data of e.target) {
+				if (raw_data.files) {
+					if (raw_data.files.length > 0){
+						if (raw_data.files[0].type === "application/pdf") {
+							data["resume"] = raw_data.files[0];
+ 						} else if (raw_data.files[0].type.indexOf('image') > -1) {
+							data["photo"] = raw_data.files[0];
+						}
+					}
+				} else if (raw_data.name === 'infoSource') {
+					if (raw_data.checked) {
+						data[raw_data.name] = raw_data.value;
+					}
+				} else if (raw_data.value) {
+					data[raw_data.name] = raw_data.value;
+				}
+			};
+			return data;
 		},
 		setPeriod: function(d_syear, d_smonth, d_eyear, d_emonth) {
 			let start, end;
@@ -307,9 +385,9 @@ export default {
  				}
 			}
 
-			for (let r of radios) {
-				r.checked = false;
-			}
+			// for (let r of radios) {
+			// 	r.checked = false;
+			// }
 
  			for (let s of selects) {
 				s.selectedIndex = -1;
@@ -318,79 +396,35 @@ export default {
 			document.getElementById("photo__BV_file_control_").innerText = '';
 			document.getElementById("portfolio__BV_file_control_").innerText = '';
 		},
-		submitForm: async function(e) {
-			// prevent default submit behavior
-			// as we define our action (axios post api) here
-			let page = document.getElementById('resume'),
-				data = {},
-				form_data;
-
-			page.classList.add('covered');
-
-			for (const raw_data of e.target) {
-				if (raw_data.files) {
-					if (raw_data.files[0].length > 0){
-						if (raw_data.files[0].type === "application/pdf") {
-							data["resume"] = raw_data.files[0];
-
-						} else if (raw_data.files[0].type.indexOf('image') > -1) {
-							data["photo"] = raw_data.files[0];
-						}
-					}
-				} else if (raw_data.name === 'infoSource') {
-					if (raw_data.checked) {
-						data[raw_data.name] = raw_data.value;
-					}
-				} else if (raw_data.value) {
-					data[raw_data.name] = raw_data.value;
+		fillInData: function() {
+			let inputs = document.getElementsByTagName("input"),
+				selects = document.getElementsByTagName("select"),
+				radio = document.getElementById("infoSource");
+ 			radio.children[0].children[0].checked = true;
+ 			for (let i of inputs) {
+				switch (i.type) {
+				case 'text':
+					i.value = '測試文字';
+					break;
+				case 'tel':
+					i.value = '987654321';
+					break;
+				case 'email':
+					i.value = 'test@test.com';
+					break;
+				case 'url':
+					i.value = 'https://google.com';
+					break;
+				default:
 				}
-			};
-
-			data = this.process(data);
-			form_data = this.getForm(data);
-
-			await this.$http.post('/ittime/upload', form_data, {
-				headers: {
-					'Content-Type': 'multipart/form-data;charset=UTF-8'
-				}
-			}).then((response) => {
-				page.classList.remove('covered');
-
-				if (response.status == 200) {
-					this.resetForm();
-					alert('謝謝你，我們已收到你的資料！');
-				}
-			}).catch((error) => {
-				let message;
-				page.classList.remove('covered');
-
-				if (error.response.status == 500) {
-					message = '系統繁忙中，請稍後再試一次';
-					alert(message);
-				} else {
-					let inputs = '';
-					this.errmsg = error.response.data;
-					message = '格式有誤，請確認無誤後再重新上傳';
-
-					if (this.errmsg.mobile) {
-						inputs += '行動電話\n';
-					}
-					if (this.errmsg.idNumber) {
-						inputs += '身分證字號 / 居留證號碼 / 護照號碼\n';
-					}
-					if (this.errmsg.email) {
-						inputs += 'Email\n';
-					}
-					if (this.errmsg.photo) {
-						inputs += '個人照片\n';
-					}
-					if (this.errmsg.file) {
-						inputs += '個人自傳\n';
-					}
-
-					alert(inputs + message);
-				}
-			});
+			}
+ 			for (let s of selects) {
+				s.children[2].selected = true;
+			}
+ 			let enName = document.getElementById("enName"),
+				idNumber = document.getElementById("idNumber");
+ 			enName.value = 'English Name';
+			idNumber.value = 'A123456789';
 		}
 	}
 }
@@ -441,6 +475,14 @@ export default {
 		border-radius: 1.2em
 		padding: 0.3em 2.2em
 		background-color: $light-green-text
+		font-size: 2rem
+		letter-spacing: 0.2em
+
+	#fill-in
+		border: none
+		border-radius: 1.2em
+		padding: 0.3em 2.2em
+		background-color: $orange
 		font-size: 2rem
 		letter-spacing: 0.2em
 </style>

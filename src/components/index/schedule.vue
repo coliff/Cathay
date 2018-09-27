@@ -6,8 +6,8 @@
 					履歷投遞截止日期
 				</h1>
 				<h2 class="subtitle py-3">
-					台中場（人壽職缺）最後投遞日為 10/14；<br>
-					台北場最後投遞日為 10/28。
+					臺中場（人壽職缺）最後投遞日為 10/14；<br>
+					臺北場最後投遞日為 10/28。
 				</h2>
 				<h1 class="title py-5">
 					招聘流程
@@ -49,9 +49,9 @@ export default {
 			color: $dark-green
 			font-size: 20px
 
-		#schedule_img 
+		#schedule_img
 			width: 400px
-			margin-left: 130px 
+			margin-left: 130px
 
 		#schedule_design
 			position: absolute
