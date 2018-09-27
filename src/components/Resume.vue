@@ -371,31 +371,6 @@ export default {
 			form_data.append('resume', data);
 			return form_data;
 		},
-		resetForm: function() {
-			// default reset
-			document.getElementById('resume-form').reset();
-
-			let inputs = document.getElementsByTagName("input"),
-				selects = document.getElementsByTagName("select"),
-				radios = document.getElementsByName("infoSource");
-
- 			for (let i of inputs) {
- 				if (i.value != '') {
-					i.value = '';
- 				}
-			}
-
-			// for (let r of radios) {
-			// 	r.checked = false;
-			// }
-
- 			for (let s of selects) {
-				s.selectedIndex = -1;
-			}
-
-			document.getElementById("photo__BV_file_control_").innerText = '';
-			document.getElementById("portfolio__BV_file_control_").innerText = '';
-		},
 		fillInData: function() {
 			let inputs = document.getElementsByTagName("input"),
 				selects = document.getElementsByTagName("select"),
