@@ -108,7 +108,8 @@ export default {
 				page.classList.remove('covered');
 				if (response.status == 200) {
 					alert('謝謝你，我們已收到你的資料！');
-					location.reload();
+					// location.reload();
+					this.$router.push('/thanks') 
 				}
 			}).catch((error) => {
 				let message;
