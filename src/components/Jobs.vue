@@ -225,7 +225,7 @@
 								<br>
 								職位要求：<br>
 								<ul>
-									<li>大學日間部以上，數理統計、資工資管等相關等系所畢。</li
+									<li>大學日間部以上，數理統計、資工資管等相關等系所畢。</li>
 									<li>熟悉資料結構與關聯式資料庫存取語言SQL並具備ETL相關技術。</li>
 									<li>熟悉Hadoop架構與Spark。</li>
 									<li>具備程式撰寫能力(R或Python)。</li>
@@ -264,13 +264,14 @@
 							<div class="content">
 								工作說明：<br>
 								<ul>
-									<li>運用語音辨識，語意理解等技術於對話機器人，知識庫等客服應用系統之規劃、開發</li>
+									<li>運用語音辨識，語意理解等技術於對話機器人，知識庫等客服應用系統之規劃、開發與維護。</li>
 									<li>客服資通訊科技之應用研究及導入評估。</li>
 								</ul>
 								<br>
 								職位要求：<br>
 								<ul>
-									<li>具Java EE、JavaScript、Node-RED等開發經驗</li>
+									<li>大學日間部以上，理、工、商、管理學院相關系所畢業。</li>
+									<li>具Java EE、JavaScript、Node-RED等開發經驗。</li>
 									<li>具ChatBot，語音辨識應用之經驗者尤佳。</li>
 								</ul>
 							</div>
@@ -294,7 +295,7 @@
 									<li>有 iOS/Android App 開發、測試、上架、性能優化經驗者尤佳，附個人相關作品。</li>
 									<li>有使用 Git 軟體開發經驗。</li>
 									<li>熟悉RESTful規範。</li>
-									<li具下列任一項目者尤佳：</li>
+									<li>具下列任一項目者尤佳：</li>
 									<ul>
 										<li>iOS以Swift/Objective-C為主要開發語言，熟CocoPods/Carthage。</li>
 										<li>Android 熟 Kotlin。</li>

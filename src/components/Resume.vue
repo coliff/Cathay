@@ -3,7 +3,7 @@
 		<b-container fluid id="cover">
 			<b-row align-v="center">
 				<b-col>
-					<img class="my-2" src="static/cathay.png" alt="IT's Time">
+					<img class="my-2" src="/ittime/static/cathay.png" alt="IT's Time">
 					<h3 class="my-2">資料處理中</h3>
 				</b-col>
 			</b-row>
@@ -65,7 +65,6 @@ import Personal from '@/components/resume-form/personal';
 import Educations from '@/components/resume-form/educations';
 import Experience from '@/components/resume-form/experience';
 import Portfolio from '@/components/resume-form/portfolio';
-
 export default {
 	name: 'Resume',
 	data() {
@@ -90,6 +89,77 @@ export default {
 				let span = start - end + 1;
 				return [...Array(span).fill(start)].map((m, i) => m - i);
 			}
+		},
+		submitForm: async function(e) {
+			// prevent default submit behavior
+			// as we define our action (axios post api) here
+			let page = document.getElementById('resume'),
+				data,
+				form_data;
+			page.classList.add('covered');
+			data = this.getTargetData(e);
+			data = this.process(data);
+			form_data = this.getForm(data);
+			await this.$http.post('/ittime/upload', form_data, {
+				headers: {
+					'Content-Type': 'multipart/form-data;charset=UTF-8'
+				}
+			}).then((response) => {
+				page.classList.remove('covered');
+				if (response.status == 200) {
+					alert('謝謝你，我們已收到你的資料！');
+					location.reload();
+				}
+			}).catch((error) => {
+				let message;
+				page.classList.remove('covered');
+				if (error.response.status == 500) {
+					message = '系統繁忙中，請稍後再試一次';
+					alert(message);
+				} else {
+					let inputs = '';
+					this.errmsg = error.response.data;
+					message = '格式有誤，請確認無誤後再重新上傳';
+					if (this.errmsg.mobile) {
+						inputs += '行動電話\n';
+					}
+					if (this.errmsg.idNumber) {
+						inputs += '身分證字號 / 居留證號碼 / 護照號碼\n';
+					}
+					if (this.errmsg.email) {
+						inputs += 'Email\n';
+					}
+					if (this.errmsg.photo) {
+						inputs += '個人照片\n';
+					}
+					if (this.errmsg.file) {
+						inputs += '個人自傳\n';
+					}
+					alert(inputs + message);
+				}
+			});
+		},
+		getTargetData: function(e) {
+			let data = {};
+			if (!e.target) return data;
+			for (const raw_data of e.target) {
+				if (raw_data.files) {
+					if (raw_data.files.length > 0){
+						if (raw_data.files[0].type === "application/pdf") {
+							data["resume"] = raw_data.files[0];
+						} else if (raw_data.files[0].type.indexOf('image') > -1) {
+							data["photo"] = raw_data.files[0];
+						}
+					}
+				} else if (raw_data.name === 'infoSource') {
+					if (raw_data.checked) {
+						data[raw_data.name] = raw_data.value;
+					}
+				} else if (raw_data.value) {
+					data[raw_data.name] = raw_data.value;
+				}
+			};
+			return data;
 		},
 		setPeriod: function(d_syear, d_smonth, d_eyear, d_emonth) {
 			let start, end;
@@ -118,7 +188,6 @@ export default {
 			if (!(data["city"] && data["district"] && data["address"])) {
 				return data;
 			}
-
 			data["address"] = data["city"] + data["district"] + data["address"];
 			delete data["city"];
 			delete data["district"];
@@ -128,7 +197,6 @@ export default {
 			if (!(data["wyear"] && data["wmonth"] && data["wdate"])) {
 				return data;
 			}
-
 			data["onDutyDate"] = data["wyear"] + (data["wmonth"].length < 2 ? '0' : '') + data["wmonth"] + (data["wdate"].length < 2 ? '0' : '') + data["wdate"];
 			delete data["wyear"];
 			delete data["wmonth"];
@@ -155,7 +223,6 @@ export default {
 					smonth = 'smonth',
 					eyear = 'eyear',
 					emonth = 'emonth';
-
 				for (let a of attr) {
 					let attr_name = a + i;
 					if (data[attr_name]) {
@@ -163,7 +230,6 @@ export default {
 						delete data[attr_name];
 					}
 				}
-
 				if (d[syear] && d[smonth] && d[eyear] && d[emonth]) {
 					let period = this.setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
 					delete d[syear];
@@ -194,7 +260,6 @@ export default {
 						delete data[attr_name];
 					}
 				}
-
 				if (d[syear] && d[smonth] && d[eyear] && d[emonth]) {
 					let period = this.setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
 					delete d[syear];
@@ -225,7 +290,6 @@ export default {
 						delete data[attr_name];
 					}
 				}
-
 				if (d[syear] && d[smonth] && d[eyear] && d[emonth]) {
 					let period = this.setPeriod(d[syear], d[smonth], d[eyear], d[emonth]);
 					delete d[syear];
@@ -272,100 +336,22 @@ export default {
 			data = this.setJobs(data);
 			data = this.setProfessionalSkills(data);
 			data = this.setLanguageSkills(data);
-
 			return data;
 		},
 		getForm: function(data) {
 			if (!data) return;
 			let form_data = new FormData();
-
 			if (data["photo"]) {
 				form_data.append('photo', data["photo"]);
 				delete data["photo"];
 			}
-
 			if (data["resume"]) {
 				form_data.append('file', data["resume"]);
 				delete data["resume"];
 			}
-
 			data = JSON.stringify(data);
 			form_data.append('resume', data);
 			return form_data;
-		},
-		submitForm: async function(e) {
-			// prevent default submit behavior
-			// as we define our action (axios post api) here
-			let page = document.getElementById('resume'),
-				data = {},
-				form_data;
-
-			page.classList.add('covered');
-
-			for (const raw_data of e.target) {
-				if (raw_data.files) {
-					if (raw_data.files[0].length > 0){
-						if (raw_data.files[0].type === "application/pdf") {
-							data["resume"] = raw_data.files[0];
-
-						} else if (raw_data.files[0].type.indexOf('image') > -1) {
-							data["photo"] = raw_data.files[0];
-						}
-					}
-				} else if (raw_data.name === 'infoSource') {
-					if (raw_data.checked) {
-						data[raw_data.name] = raw_data.value;
-					}
-				} else if (raw_data.value) {
-					data[raw_data.name] = raw_data.value;
-				}
-			};
-
-			data = this.process(data);
-			form_data = this.getForm(data);
-
-			await this.$http.post('/ittime/upload', form_data, {
-				headers: {
-					'Content-Type': 'multipart/form-data;charset=UTF-8'
-				}
-			}).then((response) => {
-				page.classList.remove('covered');
-
-				if (response.status == 200) {
-					document.getElementById('resume-form').reset();
-					alert('謝謝你，我們已收到你的資料！');
-				}
-			}).catch((error) => {
-				let message;
-				page.classList.remove('covered');
-
-				if (error.response.status == 500) {
-					message = '系統繁忙中，請稍後再試一次';
-					alert(message);
-				} else {
-					let inputs = '';
-					this.errmsg = error.response.data;
-					message = '格式有誤，請確認無誤後再重新上傳';
-
-					if (this.errmsg.mobile) {
-						inputs += '行動電話\n';
-					}
-					if (this.errmsg.idNumber) {
-						inputs += '身分證字號 / 居留證號碼 / 護照號碼\n';
-					}
-					if (this.errmsg.email) {
-						inputs += 'Email\n';
-					}
-					if (this.errmsg.photo) {
-						inputs += '個人照片\n';
-					}
-					if (this.errmsg.file) {
-						inputs += '個人自傳\n';
-					}
-
-					alert(inputs + message);
-				}
-			});
 		}
 	}
 }
@@ -377,11 +363,9 @@ export default {
 		background-color: $white;
 		& > .container-fluid
 			padding: 0 10vw
-
 		#visual
 			position: absolute
 			margin-left: 35%
-
 		#cover
 			display: none
 			position: fixed
@@ -389,28 +373,21 @@ export default {
 			height: 100vh
 			background-color: rgba(255, 255, 255, 0.5)
 			z-index: 10
-
 			& > .row
 				height: 100%
 				text-align: center
-
 			img
 				max-width: 120px
-
 		&.covered > #cover
 			display: block
-
 	.large
 		font-size: 3.5rem
-
 	#banner > .title
 		margin: 0
 		letter-spacing: 0.4rem
-
 	.content
 		color: $darker-green-text
 		font-size: 1.25rem
-
 	#submit
 		border: none
 		border-radius: 1.2em
