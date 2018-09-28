@@ -155,14 +155,14 @@
 		<b-row class="my-1">
 			<b-col md="12" lg="6">
 				<b-form-group class="file-upload-btn"
-					label="上傳個人照片 *"
+					label="上傳個人照片 * <br>( 注意：檔名不得有任何標點符號，包含*-()[]等等。 )"
 					label-for="photo"
 					:description="errmsg.photo">
 					<b-form-file id="photo"
 						name="photo"
 						accept=".jpg, .png"
 						required
-						placeholder="限使用 .png 或 .jpg ，檔案大小不超過 2 Mb">
+						placeholder="限使用 .png 或 .jpg ，檔案大小不超過 2 Mb。">
 					</b-form-file>
 				</b-form-group>
 			</b-col>
