@@ -3,7 +3,10 @@
 		<b-row>
 			<b-col class="py-5">
 				<b-link to="/jobs">
-					<img src="@/assets/img/topic.png" class="d-block mx-auto py-5" alt="職缺一覽">
+					<picture>
+						<source type="image/webp" srcset="@/assets/img/topic.webp">
+						<img src="@/assets/img/topic.png" class="d-block mx-auto py-5" alt="職缺一覽">
+					</picture>
 				</b-link>
 			</b-col>
 		</b-row>

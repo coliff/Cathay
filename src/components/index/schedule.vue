@@ -12,11 +12,17 @@
 				<h1 class="title py-5">
 					招聘流程
 				</h1>
-				<img src="@/assets/img/timeline_3.png" id="schedule_img" alt="招募流程"><br>
-				<br><br>
-				活動當天發放錄取通知書<br>
-				<br><br>
-				<img src="@/assets/img/schedule_design.png" id="schedule_design" alt="招募流程">
+				<picture>
+					<source type="image/webp" srcset="@/assets/img/timeline_3.webp">
+					<img src="@/assets/img/timeline_3.png" id="schedule_img" alt="招募流程">
+				</picture>
+				<br><br><br>
+				活動當天發放錄取通知書
+				<br><br><br>
+				<picture>
+					<source type="image/webp" srcset="@/assets/img/schedule_design.webp">
+					<img src="@/assets/img/schedule_design.png" id="schedule_design" alt="邊邊工作室設計">
+				</picture>
 			</b-col>
 		</b-row>
 	</b-container>

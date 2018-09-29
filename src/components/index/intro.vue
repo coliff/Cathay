@@ -2,7 +2,10 @@
 	<b-container fluid id="intro" class="py-5">
 		<b-row>
 			<b-col cols="6" offset="2">
-				<img src="@/assets/img/ITs-Time-shadow.png" class="w-100 py-5" alt="IT's Time">
+				<picture>
+					<source type="image/webp" srcset="@/assets/img/ITs-Time-shadow.webp">
+					<img src="@/assets/img/ITs-Time-shadow.png" class="w-100 py-5" alt="IT's Time">
+				</picture>
 			</b-col>
 		</b-row>
 		<b-row>

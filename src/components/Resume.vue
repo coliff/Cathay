@@ -3,13 +3,19 @@
 		<b-container fluid id="cover">
 			<b-row align-v="center">
 				<b-col>
-					<img class="my-2" src="/ittime/static/cathay.png" alt="IT's Time">
+					<picture>
+						<source type="image/webp" srcset="/ittime/static/cathay.webp">
+						<img class="my-2" src="/ittime/static/cathay.png" alt="IT's Time">
+					</picture>
 					<h3 class="my-2">資料處理中</h3>
 				</b-col>
 			</b-row>
 		</b-container>
 		<Nav></Nav>
-		<img class="w-50" id="visual" src="@/assets/img/resume_design.png">
+		<picture>
+			<source type="image/webp" srcset="@/assets/img/resume_design.webp">
+			<img class="w-50" id="visual" src="@/assets/img/resume_design.png" alt="邊邊工作室設計">
+		</picture>
 		<b-container fluid>
 			<b-container fluid id="banner" class="my-4">
 				<h1 class="pt-4 large title">IT's Time</h1>
@@ -109,7 +115,7 @@ export default {
 				if (response.status == 200) {
 					alert('謝謝你，我們已收到你的資料！');
 					// location.reload();
-					this.$router.push('/thanks') 
+					this.$router.push('/thanks')
 				}
 			}).catch((error) => {
 				let message;

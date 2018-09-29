@@ -4,10 +4,19 @@
 			<b-col>
 				<br><br><br>
 				<a href="https://ioh.tw/search/%E5%9C%8B%E6%B3%B0" target="_blank" rel="noopener">
-					<img src="@/assets/img/obsharing.png" class="d-block py-5" id="ob" alt="OB一覽">
+					<picture>
+						<source type="image/webp" srcset="@/assets/img/obsharing.webp">
+						<img src="@/assets/img/obsharing.png" class="d-block py-5" id="ob" alt="OB一覽">
+					</picture>
 				</a>
-				<img src="@/assets/img/dialog.png" id="dialog">
-				<img src="@/assets/img/triangle.png" id="triangle">
+				<picture>
+					<source type="image/webp" srcset="@/assets/img/dialog.webp">
+					<img src="@/assets/img/dialog.png" id="dialog" alt="快來聽聽學長姐說了什麼吧！">
+				</picture>
+				<picture>
+					<source type="image/webp" srcset="@/assets/img/triangle.webp">
+					<img src="@/assets/img/triangle.png" id="triangle" alt="邊邊工作室設計">
+				</picture>
 				<br><br><br>
 			</b-col>
 		</b-row>

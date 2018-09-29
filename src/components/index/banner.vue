@@ -2,13 +2,19 @@
 	<b-container fluid id="banner">
 		<b-row v-if="supportSVG && (!isMobile)" align-h="center" align-v="center" class="h-100">
 			<b-col cols="6" id="title">
-				<img src="@/assets/img/ITs-Time.png" class="w-100 d-block" alt="IT's Time">
+				<picture>
+					<source type="image/webp" srcset="@/assets/img/ITs-Time.webp">
+					<img src="@/assets/img/ITs-Time.png" class="w-100 d-block" alt="IT's Time">
+				</picture>
 				<h4 class="py-4 slogan">
 					國泰資訊人才招募計畫
 				</h4>
 			</b-col>
 		</b-row>
-		<img v-else src="@/assets/img/banner-mobile.png" class="w-100 d-block" alt="IT's Time 國泰資訊人才招募計畫">
+		<picture v-else>
+			<source type="image/webp" srcset="@/assets/img/banner-mobile.webp">
+			<img src="@/assets/img/banner-mobile.png" class="w-100 d-block" alt="IT's Time 國泰資訊人才招募計畫">
+		</picture>
 	</b-container>
 </template>
 
