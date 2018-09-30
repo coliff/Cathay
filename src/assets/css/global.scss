@@ -66,6 +66,8 @@ input {
 	vertical-align: middle;
 }
 
+
+
 // jobs
 
 #jobs {
@@ -100,6 +102,51 @@ input {
 .no-padding {
 	padding: 0;
 }
+
+
+
+// index_benefits
+
+#benefits_new {
+	position: relative;
+	padding: 0 10vw;
+	margin-bottom: 80px;
+	text-align: center;
+
+	.row_new {
+		position: relative;
+		width: 100%;
+		text-align: center;
+		padding: 50px 0;
+
+		.each {
+			position: relative;
+			display: inline-block;
+			width: 30%;
+			color: $white;
+			letter-spacing: 2px;
+			// background: red;
+
+			img {
+				width: 40%;
+				margin: 40px 0;
+			}
+		}
+
+		.center {
+			border-left: dotted 4px $light-green;
+			border-right: dotted 4px $light-green;
+		}
+	}
+
+	.row_new + .row_new {
+		border-top: dotted 4px $light-green;
+	}
+}
+
+// index_benefits
+
+
 
 /*======================Below are RWD rules========================*/
 
@@ -150,22 +197,11 @@ input {
 				}
 			}
 		}
-	}
-}
 
-
-@media screen and (max-width: 768px) {
-
-	nav {
-		.navbar-brand {
-			width: 50% !important;
+		#benefits_new {
+			padding: 0 3vw;
 		}
 	}
-
-	#triangle {
-		display: none !important;
-	}
-
 }
 
 
@@ -186,7 +222,53 @@ input {
 		display: none;
 	}
 
+	#benefits_new {
+		padding: 0;
+
+		.row_new {
+
+			.each {
+				border: 0;
+				font-size: 0.9em;
+			}
+		}
+
+		.row_new + .row_new {
+			border: 0;
+		}
+	}
+
 }
+
+
+@media screen and (max-width: 768px) {
+
+	nav {
+		.navbar-brand {
+			width: 50% !important;
+		}
+	}
+
+	#triangle {
+		display: none !important;
+	}
+
+	#benefits_new {
+
+		.row_new {
+			padding: 0;
+
+			.each {
+				display: block;
+				width: 100%;
+				padding: 10px 0;
+				font-size: 1em;
+			}
+		}
+	}
+
+}
+
 
 @media screen and (max-width: 576px) {
 
@@ -213,6 +295,10 @@ input {
 	}
 
 	#welfare {
+		h1 {
+			font-size: 1.7rem;
+		}
+
 		.row {
 			padding: 0 !important;
 		}
@@ -231,25 +317,79 @@ input {
 	}
 
 	#schedule {
+
 		#schedule_img {
 			width: 90% !important;
 			margin-left: 5% !important;
 		}
-	}
 
-	#interview {
-		.media {
-			display: block;
+		h1 {
+			font-size: 1.7rem;
+		}
 
-			img {
-				padding-bottom: 40px
+		h2 {
+			font-size: 1rem !important;
+
+			br {
+				line-height: 2rem;
 			}
 		}
 	}
 
+	#interview {
+		text-align: center;
+
+		.offset-2 {
+			margin-left: 0;
+		}
+
+		.col-8 {
+			margin: 0;
+		}
+
+		.media {
+			width: 90vw;
+			display: block;
+
+			picture {
+				width: 70%;
+				margin-left: 15%;
+			}
+
+			img {
+				width: 100%;
+				padding-bottom: 40px;
+				margin-right: 0 !important;
+			}
+		}
+
+		h1 {
+			font-size: 1.7rem;
+		}
+
+		h5 {
+			font-size: 1rem;
+		}
+
+		.content {
+			font-size: 1rem !important;
+		}
+
+		.mr-3 {
+			margin-right: 0;
+		}
+	}
+
 	#resume {
+
 		img {
 			width: 68% !important;
+		}
+
+		#remark {
+			text-align: left !important;
+			width: 90%;
+			padding-left: 5%;
 		}
 	}
 

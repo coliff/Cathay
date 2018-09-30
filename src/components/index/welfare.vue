@@ -92,6 +92,51 @@
 				</p>
 			</b-col>
 		</b-row>
+
+		<div id="benefits_new">
+			<div class="row_new">
+				<div class="each">
+					<img src="@/assets/img/icon/2_teaching.png" alt="定期教育訓練">
+					<div class="text">
+						定期教育訓練
+					</div>
+				</div>
+				<div class="each center">
+					<img src="@/assets/img/icon/2_health.png" alt="定期員工健康檢查">
+					<div class="text">
+						定期員工健康檢查
+					</div>
+				</div>
+				<div class="each">
+					<img src="@/assets/img/icon/2_travel.png"  alt="員工學習與旅遊補助">
+					<div class="text">
+						員工學習與旅遊補助
+					</div>
+				</div>
+			</div>
+			<div class="row_new">
+				<div class="each">
+					<img src="@/assets/img/icon/2_money.png" alt="年節福利與生日禮金">
+					<div class="text">
+						年節福利與生日禮金
+					</div>
+				</div>
+				<div class="each center">
+					<img src="@/assets/img/icon/2_good.png" alt="關係企業商品服務員工優惠">
+					<div class="text">
+						關係企業商品服務員工優惠
+					</div>
+				</div>
+				<div class="each">
+					<img src="@/assets/img/icon/2_speech.png"  alt="社團活動與集團名人講座">
+					<div class="text">
+						社團活動與集團名人講座
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--
 		<b-container fluid id="benefits">
 			<b-row class="px-5 py-4">
 				<b-col>
@@ -156,6 +201,7 @@
 				</b-col>
 			</b-row>
 		</b-container>
+		-->
 	</b-container>
 </template>
 
