@@ -7,6 +7,9 @@
 				<a href="mailto:itstime@cathlife.com.tw">itstime@cathlife.com.tw</a>
 				</div>
 				<br>
+				<div class="version">
+					v1.0.1
+				</div>
 			</b-col>
 		</b-row>
 	</b-container>
@@ -28,5 +31,12 @@ export default {
 
 		a
 			color: $black
+
+		.version
+			position: absolute
+			bottom: 2px;
+			right: 8px;
+			font-size: 0.2em;
+			color: grey;
 
 </style>
