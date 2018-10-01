@@ -3,12 +3,13 @@
 		<b-row class="my-1">
 			<b-col md="3">
 				<b-form-group
-					label="教育背景 *"
+					:label="`教育背景 ${sign}`"
 					:label-for="`degree${count}`">
 					<b-form-select :id="`degree${count}`"
 						:name="`degree${count}`"
 						:value="null"
-						:options="degrees">
+						:options="degrees"
+						:required="isRequired">
 					</b-form-select>
 				</b-form-group>
 			</b-col>
@@ -16,27 +17,30 @@
 				<b-form-select :id="`graduation${count}`"
 					:name="`graduation${count}`"
 					:value="null"
-					:options="graduationOptions">
+					:options="graduationOptions"
+					:required="isRequired">
 				</b-form-select>
 			</b-col>
 		</b-row>
 		<b-row class="my-1">
 			<b-col md="4">
 				<b-form-group
-					label="學校名稱 *"
+					:label="`學校名稱 ${sign}`"
 					:label-for="`schoolName${count}`">
 					<b-form-input type="text" :id="`schoolName${count}`"
 						:name="`schoolName${count}`"
+						:required="isRequired"
 						placeholder="請輸入學校名稱">
 					</b-form-input>
 				</b-form-group>
 			</b-col>
 			<b-col md="4">
 				<b-form-group
-					label="科系 *"
+					:label="`科系 ${sign}`"
 					:label-for="`major${count}`">
 					<b-form-input type="text" :id="`major${count}`"
 						:name="`major${count}`"
+						:required="isRequired"
 						placeholder="請輸入科系">
 					</b-form-input>
 				</b-form-group>
@@ -45,13 +49,14 @@
 		<b-row class="my-1">
 			<b-col md="4">
 				<b-form-group class="no-padding"
-					label="修業期間 *"
+					:label="`修業期間 ${sign}`"
 					:label-for="`syear${count}`">
 					<b-input-group prepend="從" append="年">
 						<b-form-select :id="`syear${count}`"
 							:name="`syear${count}`"
 							:value="syear"
-							:options="years">
+							:options="years"
+							:required="isRequired">
 						</b-form-select>
 					</b-input-group>
 				</b-form-group>
@@ -61,7 +66,8 @@
 					<b-form-select :id="`smonth${count}`"
 						:name="`smonth${count}`"
 						v-model:value="smonth"
-						:options="months">
+						:options="months"
+						:required="isRequired">
 					</b-form-select>
 				</b-input-group>
 			</b-col>
@@ -72,7 +78,8 @@
 					<b-form-select :id="`eyear${count}`"
 						:name="`eyear${count}`"
 						:value="eyear"
-						:options="years">
+						:options="years"
+						:required="isRequired">
 					</b-form-select>
 				</b-input-group>
 			</b-col>
@@ -81,7 +88,8 @@
 					<b-form-select :id="`emonth${count}`"
 						:name="`emonth${count}`"
 						v-model:value="emonth"
-						:options="months">
+						:options="months"
+						:required="isRequired">
 					</b-form-select>
 				</b-input-group>
 			</b-col>
@@ -93,7 +101,15 @@
 export default {
 	props: {
 		range: Function,
-		count: String
+		count: String,
+		sign: {
+			type: String,
+			default: ""
+		},
+		isRequired: {
+			type: Boolean,
+			default: false
+		}
 	},
 	data() {
 		return {

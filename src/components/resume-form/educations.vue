@@ -3,7 +3,9 @@
 		<h2 class="mt-4 title">教育背景</h2>
 		<Education class="pt-4"
 			:range="range"
-			count="1">
+			count="1"
+			sign="*"
+			isRequired="true">
 		</Education>
 		<Education class="pt-4"
 			:range="range"
