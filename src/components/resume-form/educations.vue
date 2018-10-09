@@ -5,7 +5,7 @@
 			:range="range"
 			count="1"
 			sign="*"
-			isRequired="true">
+			isRequired>
 		</Education>
 		<Education class="pt-4"
 			:range="range"

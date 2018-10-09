@@ -270,3 +270,7 @@ export default {
 		.custom-select:not(#byear) + .input-group-append
 		    margin-bottom: 1rem;
 </style>
+<style lang="sass">
+	#photo + .custom-file-label::after
+		content: "選擇檔案"
+</style>

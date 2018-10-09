@@ -52,3 +52,7 @@ export default {
 	.content
 		font-size: 1.25rem
 </style>
+<style lang="sass">
+	#portfolio + .custom-file-label::after
+		content: "選擇檔案"
+</style>
