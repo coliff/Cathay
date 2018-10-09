@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import tracking from '../tracking';
 import Index from '@/components/Index';
 import Jobs from '@/components/Jobs';
 import Thank from '@/components/Thank';
@@ -7,7 +8,7 @@ import Resume from '@/components/Resume';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
 	routes: [
 		{
 			path: '/',
@@ -38,3 +39,11 @@ export default new Router({
 		}
 	}
 });
+
+router.afterEach((to, from) => {
+	fbq('track', 'PageView');
+	ga('set', 'page', to.fullPath)
+	ga('send', 'pageview')
+});
+
+export default router;
