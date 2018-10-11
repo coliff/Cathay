@@ -42,8 +42,9 @@ const router = new Router({
 
 router.afterEach((to, from) => {
 	fbq('track', 'PageView');
-	ga('set', 'page', to.fullPath)
-	ga('send', 'pageview')
+	ga('set', 'page', to.fullPath);
+	ga('send', 'pageview');
+	gtag('config', 'UA-126538410-1', {'page_path': to.fullPath});
 });
 
 export default router;
