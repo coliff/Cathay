@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import tracking from '../tracking';
 import Index from '@/components/Index';
 import Jobs from '@/components/Jobs';
 import Thank from '@/components/Thank';
@@ -41,7 +40,6 @@ const router = new Router({
 });
 
 router.afterEach((to, from) => {
-	gtag('config', 'UA-126538410-1', {'page_path': to.fullPath});
 	ga('set', 'page', to.fullPath);
 	ga('send', 'pageview');
 });
