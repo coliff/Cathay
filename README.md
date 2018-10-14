@@ -1,4 +1,4 @@
-# cathay
+# Cathay
 
 > IT's Time 2018 國泰資訊人才招募計畫
 
