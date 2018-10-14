@@ -41,6 +41,7 @@ const router = new Router({
 });
 
 router.afterEach((to, from) => {
+	gtag('config', 'UA-126538410-1', {'page_path': to.fullPath});
 	ga('set', 'page', to.fullPath);
 	ga('send', 'pageview');
 });
