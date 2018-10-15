@@ -8,7 +8,7 @@
 				</div>
 				<br>
 				<div class="version">
-					v1.1.3
+					v1.1.4
 				</div>
 			</b-col>
 		</b-row>

@@ -196,7 +196,7 @@
 							</div>
 						</div>
 						<div class="job">
-							<h4>應用系統品質管理工程師</h4>
+							<h4>應用系統品質管理工程師QA</h4>
 							<h5>國泰人壽</h5>
 							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
 							<div class="line"></div>
