@@ -193,12 +193,6 @@ export default {
 				"國泰人壽｜資訊安全制度管理工程師",
 				"國泰人壽｜東南亞語系儲備資訊人員(越南、印尼)",
 				{
-					text: "—— 國泰人壽 台中場 ——",
-					value: null,
-					disabled: true
-				},
-				"國泰人壽 台中場｜應用系統開發工程師",
-				{
 					text: "—— 國泰世華銀行 ——",
 					value: null,
 					disabled: true

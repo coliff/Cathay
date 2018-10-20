@@ -728,11 +728,11 @@
 					</b-tab>
 
 
-					<b-tab title="國泰人壽(台中場)" :title-link-class="linkClass(4)">
+					<b-tab title="國泰人壽 台中場" :title-link-class="linkClass(4)">
 						<div class="job">
 							<h4>應用系統開發工程師</h4>
-							<h5>國泰人壽 <span class="green">台中場</span></h5>
-							<b-link to="/resume" class="btn">立即填寫履歷</b-link>
+							<h5>國泰人壽 台中場（已截止）</h5>
+							<b-link to="/resume" class="btn" disabled>立即填寫履歷</b-link>
 							<div class="line"></div>
 							<div class="content">
 								工作說明：<br>
