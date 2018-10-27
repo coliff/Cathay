@@ -6,10 +6,10 @@
 					履歷投遞截止日期
 				</h1>
 				<h2 class="updated subtitle py-2">
-					轉職者來信反應，希望能多些時間充分準備，故將臺中場截止時間延後至 10/21；
+					考量臺中場報名截止後，仍有不少轉職者來信詢問，故將臺北場截止時間延後至 11/4（23:59）；
 				</h2>
 				<h2 class="subtitle py-2">
-					臺北場最後投遞日為 10/28。
+					歡迎有志到金融產業發展、加入國泰戰隊的您，把握今年最後一波集團面試機會！
 				</h2>
 				<h1 class="title py-5">
 					招聘流程
@@ -54,7 +54,7 @@ export default {
 			color: $white
 
 		.subtitle
-			color: $dark-green
+			color: #33ff33
 			font-size: 20px
 			&.updated
 				color: $yellow
